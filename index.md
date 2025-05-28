@@ -10,7 +10,7 @@ layout: default
     overflow: hidden; /* no page scroll */
     font-family: Arial, sans-serif;
     color: white;
-    background: url('/assets/my-background.jpg') no-repeat center center fixed;
+    background: url('/assets/images/avatar.jpg') no-repeat center center fixed;
     background-size: cover;
   }
 
@@ -84,7 +84,7 @@ layout: default
 </style>
 
 <div class="profile-container">
-  <img src="/assets/my-photo.jpg" alt="Dishana's Photo" />
+  <img src="/assets/images/avatar.jpg" alt="Dishana's Photo" />
   <div class="social-links">
     <a href="https://github.com/meowww11" target="_blank" aria-label="GitHub">🐱</a>
     <a href="https://linkedin.com/in/meowww11" target="_blank" aria-label="LinkedIn">🔗</a>
