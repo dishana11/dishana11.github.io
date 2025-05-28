@@ -13,6 +13,20 @@ layout: default
     color: #fff;
   }
 
+  .intro-text {
+    font-size: 1.35em;
+    color: #2d2d2d;
+    margin: 90px auto 28px auto;
+    text-align: center;
+    font-weight: 500;
+    background: rgba(255,255,255,0.58);
+    border-radius: 10px;
+    max-width: 760px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.11);
+    padding: 18px 20px 14px 20px;
+    line-height: 1.45;
+  }
+
   .navbar {
     width: 100%;
     padding: 15px 30px;
@@ -48,7 +62,7 @@ layout: default
 
   .main-container {
     display: flex;
-    padding: 120px 40px 40px;
+    padding: 0 40px 40px 40px;
     gap: 40px;
   }
 
@@ -115,16 +129,19 @@ layout: default
   }
 
   @media (max-width: 768px) {
+    .intro-text {
+      font-size: 1.08em;
+      padding: 12px 6px 8px 6px;
+      max-width: 100vw;
+    }
     .main-container {
       flex-direction: column;
-      padding: 100px 20px;
+      padding: 0 10px 30px 10px;
       align-items: center;
     }
-
     .sidebar {
       width: 100%;
     }
-
     .content-box {
       width: 100%;
       max-height: none;
@@ -150,6 +167,11 @@ layout: default
   <a onclick="showSection('contact')">Contact</a>
 </div>
 
+<div class="intro-text">
+  Hi, I am Dishana.<br>
+  Below you'll find updates about my life, year-wise.
+</div>
+
 <div class="main-container">
   <div class="sidebar">
     <img src="assets/images/avatar.jpg" alt="Your Profile Picture">
@@ -164,11 +186,7 @@ layout: default
   <div class="content-box" id="content-area">
     <!-- Default Home Content -->
     <div id="home">
-      <p style="font-size: 1.25em; color: #2d2d2d; margin-bottom: 0.5em;">
-        Hi, I am Dishana.<br>
-        Below you'll find updates about my life, year-wise.
-      </p>
-      <h1>About Me</h1>
+      <h1>Updates</h1>
       <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
       <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
       <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
