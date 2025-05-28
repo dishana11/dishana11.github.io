@@ -1,164 +1,133 @@
 ---
-title: About Me
+title: Dishana | Portfolio
 layout: default
 ---
 
 <style>
-  html, body {
-    height: 100%;
+  body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('/assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
-    overflow: hidden; /* Disable page scroll */
     color: #fff;
   }
 
-  .page-container {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
-    min-height: 100vh;
-    backdrop-filter: blur(6px);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-  }
-
-  /* Left sidebar with image and links */
-  .sidebar {
-    width: 220px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    color: #ccc;
-    font-weight: 600;
+    justify-content: flex-end;
+    padding: 0 30px;
+    z-index: 100;
   }
 
-  .profile-img {
-    width: 150px;
-    height: 150px;
+  .navbar a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+
+  .navbar a:hover {
+    color: #00ffc3;
+  }
+
+  .main {
+    padding-top: 80px;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    gap: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .left-side {
+    flex: 0 0 250px;
+    text-align: center;
+  }
+
+  .left-side img {
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    object-fit: cover;
     border: 3px solid #00ffc3;
+    object-fit: cover;
     margin-bottom: 20px;
   }
 
-  .sidebar-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    font-size: 1.1rem;
-  }
-
-  .sidebar-links a {
+  .left-side a {
+    display: block;
     color: #aaa;
+    margin: 10px 0;
     text-decoration: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
   }
 
-  .sidebar-links a:hover {
+  .left-side a:hover {
     color: #00ffc3;
   }
 
-  /* Top navigation */
-  .top-nav {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 25px;
-    font-weight: 700;
-    color: #444; /* dark grey */
-    font-size: 1.1rem;
-    z-index: 10;
-  }
-
-  .top-nav a {
-    color: #444;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .top-nav a:hover {
-    color: #00ffc3;
-  }
-
-  /* Scrollable about me box */
-  .about-box {
+  .content-box {
     flex-grow: 1;
-    max-width: 700px;
-    background-color: rgba(255, 255, 255, 0.07);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     padding: 30px;
-    margin-left: 40px;
-    color: #eee;
+    max-height: 75vh;
     overflow-y: auto;
-    max-height: 80vh;
+    color: #eee;
   }
 
-  .about-box h1 {
+  .content-box h1 {
     color: #00ffc3;
     margin-top: 0;
   }
 
-  .about-box p {
+  .content-box p {
     line-height: 1.6;
   }
 
-  /* Responsive for small screens */
-  @media (max-width: 700px) {
-    .page-container {
+  iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 12px;
+    background-color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .main {
       flex-direction: column;
-      padding: 10px;
-    }
-    .sidebar {
-      width: 100%;
-      flex-direction: row;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .profile-img {
-      margin-bottom: 0;
-      margin-right: 20px;
-    }
-    .sidebar-links {
-      flex-direction: row;
-      gap: 15px;
-      width: auto;
-      font-size: 0.9rem;
-    }
-    .about-box {
-      margin-left: 0;
-      max-width: 100%;
-      max-height: 60vh;
-      padding: 20px;
-    }
-    .top-nav {
-      position: static;
-      margin-bottom: 15px;
-      justify-content: center;
-      gap: 15px;
     }
   }
 </style>
 
-<div class="top-nav">
-  <a href="/publications.html" target="_blank">Publications</a>
-  <a href="/assets/Dishana%20cv%20(3).pdf" target="_blank" download>CV</a>
-  <a href="/contact.html" target="_blank">Contact</a>
+<!-- Navigation -->
+<div class="navbar">
+  <a onclick="showSection('about')">About</a>
+  <a onclick="showSection('cv')">CV</a>
+  <a onclick="showSection('publications')">Publications</a>
+  <a onclick="showSection('contact')">Contact</a>
 </div>
 
-<div class="page-container">
-  <div class="sidebar">
-    <img src="/assets/images/avatar.jpg" alt="Dishana's Profile Image" class="profile-img" />
-    <div class="sidebar-links">
-      <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
-      <a href="https://twitter.com/yourtwitter" target="_blank">Twitter</a>
-    </div>
+<!-- Main Layout -->
+<div class="main">
+  <div class="left-side">
+    <img src="/assets/images/avatar.jpg" alt="Dishana's Image" />
+    <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/yourtwitter" target="_blank">Twitter</a>
   </div>
 
-  <div class="about-box">
+  <div class="content-box" id="content-box">
+    <!-- Default content (About) loads here -->
     <h1>About Me</h1>
     <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
     <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
@@ -176,3 +145,43 @@ layout: default
     <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
   </div>
 </div>
+
+<!-- JavaScript to switch sections -->
+<script>
+  function showSection(section) {
+    const content = document.getElementById('content-box');
+    if (section === 'about') {
+      content.innerHTML = `
+        <h1>About Me</h1>
+        <p><strong>May 2025:</strong> Preparing my application to MBZUAI...</p>
+        <p><strong>April 2025:</strong> Actively building my personal brand...</p>
+        <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot...</p>
+        <p><strong>January 2025:</strong> Deep dive into brain research...</p>
+        <p><strong>December 2024:</strong> Writing a research paper on M-Theory...</p>
+        <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law...</p>
+        <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE...</p>
+        <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory...</p>
+        <p><strong>October 2023:</strong> Internship project on vision-language models...</p>
+        <p><strong>September 2023:</strong> Collaborated on ‘Time Trace: Fact or Fiction’...</p>
+        <p><strong>Mid-2019:</strong> Started competitive PC gaming...</p>
+        <p><strong>2014:</strong> Volunteered and awarded for community service...</p>
+        <p><strong>2014 onwards:</strong> Active in STEM and volunteering.</p>
+      `;
+    } else if (section === 'cv') {
+      content.innerHTML = `
+        <h1>My CV</h1>
+        <iframe src="/assets/Dishana cv (3).pdf"></iframe>
+      `;
+    } else if (section === 'publications') {
+      content.innerHTML = `
+        <h1>Publications</h1>
+        <p>I have published a research paper on Quantum Temporal Lattice (QTL), which explores the deep interplay between time, quantum fields, and theoretical lattice structures.</p>
+      `;
+    } else if (section === 'contact') {
+      content.innerHTML = `
+        <h1>Contact</h1>
+        <p>Email me at <a href="mailto:and@gmail.com" style="color:#00ffc3;">and@gmail.com</a></p>
+      `;
+    }
+  }
+</script>
