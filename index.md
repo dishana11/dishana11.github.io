@@ -10,124 +10,154 @@ layout: default
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('/assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
-    overflow: auto;
+    overflow: hidden; /* Disable page scroll */
     color: #fff;
   }
 
-  .container {
+  .page-container {
+    display: flex;
+    min-height: 100vh;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  }
+
+  /* Left sidebar with image and links */
+  .sidebar {
+    width: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    backdrop-filter: blur(6px);
-    background-color: rgba(0, 0, 0, 0.5);
+    color: #ccc;
+    font-weight: 600;
   }
 
-  /* Top navigation bar */
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00ffc3;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .sidebar-links a {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .sidebar-links a:hover {
+    color: #00ffc3;
+  }
+
+  /* Top navigation */
   .top-nav {
     position: fixed;
     top: 20px;
     right: 20px;
     display: flex;
     gap: 25px;
-    font-weight: 600;
-    font-size: 16px;
-    z-index: 100;
+    font-weight: 700;
+    color: #444; /* dark grey */
+    font-size: 1.1rem;
+    z-index: 10;
   }
 
   .top-nav a {
-    color: #4a4a4a; /* Dark grey */
+    color: #444;
     text-decoration: none;
-    white-space: nowrap; /* Prevent cutting */
-    transition: color 0.3s ease;
+    cursor: pointer;
   }
 
   .top-nav a:hover {
-    color: #00ffc3; /* bright teal on hover */
-  }
-
-  /* Social links below */
-  .social-links {
-    position: fixed;
-    top: 70px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    font-size: 18px;
-    z-index: 100;
-  }
-
-  .social-links a {
-    color: #4a4a4a;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .social-links a:hover {
     color: #00ffc3;
   }
 
+  /* Scrollable about me box */
   .about-box {
-    max-width: 600px;
-    width: 90%;
-    max-height: 60vh;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.05);
+    flex-grow: 1;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    text-align: left;
+    padding: 30px;
+    margin-left: 40px;
+    color: #eee;
     overflow-y: auto;
-    color: #e0e0e0; /* softer light grey for text */
+    max-height: 80vh;
   }
 
-  h1 {
-    margin-top: 0;
+  .about-box h1 {
     color: #00ffc3;
+    margin-top: 0;
   }
 
-  p {
+  .about-box p {
     line-height: 1.6;
   }
 
-  @media (max-width: 600px) {
+  /* Responsive for small screens */
+  @media (max-width: 700px) {
+    .page-container {
+      flex-direction: column;
+      padding: 10px;
+    }
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .profile-img {
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
+    .sidebar-links {
+      flex-direction: row;
+      gap: 15px;
+      width: auto;
+      font-size: 0.9rem;
+    }
     .about-box {
+      margin-left: 0;
+      max-width: 100%;
+      max-height: 60vh;
       padding: 20px;
-      max-width: 95vw;
-      max-height: 80vh;
     }
     .top-nav {
       position: static;
-      flex-wrap: wrap;
+      margin-bottom: 15px;
       justify-content: center;
       gap: 15px;
-      margin-bottom: 20px;
-    }
-    .social-links {
-      position: static;
-      flex-direction: row;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
     }
   }
 </style>
 
 <div class="top-nav">
-  <a href="/">About</a>
   <a href="/publications.html" target="_blank">Publications</a>
-  <a href="/assets/Dishana cv (3).pdf" target="_blank">CV</a>
+  <a href="/assets/Dishana%20cv%20(3).pdf" target="_blank" download>CV</a>
   <a href="/contact.html" target="_blank">Contact</a>
 </div>
 
-<div class="social-links">
-  <a href="https://www.linkedin.com/in/meowww11" target="_blank">LinkedIn</a>
-  <a href="https://twitter.com/yourtwitterhandle" target="_blank">Twitter</a>
-</div>
+<div class="page-container">
+  <div class="sidebar">
+    <img src="/assets/images/avatar.jpg" alt="Dishana's Profile Image" class="profile-img" />
+    <div class="sidebar-links">
+      <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
+      <a href="https://twitter.com/yourtwitter" target="_blank">Twitter</a>
+    </div>
+  </div>
 
-<div class="container">
   <div class="about-box">
     <h1>About Me</h1>
     <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
