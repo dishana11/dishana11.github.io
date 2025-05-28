@@ -18,8 +18,8 @@ layout: default
     padding: 15px 30px;
     background-color: #1a1a1a;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    gap: 40px; /* Increase gap for better centering effect */
+    justify-content: center;
+    gap: 40px;
     font-size: 16px;
     position: fixed;
     top: 0;
@@ -27,7 +27,7 @@ layout: default
   }
 
   .navbar a {
-    color: #2d2d2d; /* Dark grey text */
+    color: #2d2d2d;
     text-decoration: none;
     cursor: pointer;
     padding: 8px 20px;
@@ -40,7 +40,7 @@ layout: default
 
   .navbar a:hover,
   .navbar a:focus {
-    color: #2d2d2d; /* Keep dark grey on hover/focus */
+    color: #2d2d2d;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
     background: none;
     outline: none;
@@ -76,15 +76,16 @@ layout: default
     flex: 1;
     max-height: 80vh;
     overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Black scrollable box */
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }
 
   .content-box h1 {
-    color: #00ffc3;
+    color: #2d2d2d;
     margin-top: 0;
+    display: inline;
   }
 
   .content-box p {
@@ -155,8 +156,10 @@ layout: default
     </div>
 
     <div id="cv" style="display: none;">
-      <h1>My CV</h1>
-      <iframe src="assets/Dishana cv (3).pdf" width="100%" height="600px" style="border: none;"></iframe>
+      <h1 style="display: inline;">My CV</h1>
+      <a href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener" style="display:inline-block; margin-left: 16px; font-size:16px; color:#2d2d2d; text-decoration:underline; vertical-align:middle;">
+        Click to open in fullscreen
+      </a>
     </div>
 
     <div id="publications" style="display: none;">
