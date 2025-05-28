@@ -7,14 +7,13 @@ layout: default
   html, body {
     margin: 0;
     height: 100%;
-    overflow: hidden; /* no page scroll */
+    overflow: hidden;
     font-family: Arial, sans-serif;
     color: white;
     background: url('/assets/images/avatar.jpg') no-repeat center center fixed;
     background-size: cover;
   }
 
-  /* Profile image + socials top-left */
   .profile-container {
     position: fixed;
     top: 20px;
@@ -50,7 +49,6 @@ layout: default
     color: #1da1f2;
   }
 
-  /* Center container */
   .container {
     height: 100vh;
     display: flex;
@@ -59,28 +57,49 @@ layout: default
     padding: 20px;
   }
 
-  /* Scrollable about box */
   .about-box {
-    background: rgba(0, 0, 0, 0.75);
-    width: 420px;
-    max-height: 70vh;
+    background: rgba(0, 0, 0, 0.78);
+    width: 90%;
+    max-width: 450px;
+    max-height: 75vh;
     padding: 25px 30px;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow-y: auto;
-    box-shadow: 0 0 15px rgba(0,0,0,0.9);
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
     font-family: 'Courier New', monospace;
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 1.6;
+    scrollbar-color: #aaa transparent;
+    scrollbar-width: thin;
   }
 
   .about-box p {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px;
   }
 
   .about-box strong {
     font-size: 18px;
+    color: #ffd700;
   }
 
+  @media (max-width: 600px) {
+    .profile-container {
+      position: static;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 60px;
+    }
+
+    .about-box {
+      width: 90%;
+      max-height: 60vh;
+    }
+  }
 </style>
 
 <div class="profile-container">
@@ -94,7 +113,7 @@ layout: default
 <div class="container">
   <div class="about-box">
     <p><strong>Hi, I'm Dishana.</strong></p>
-    
+
     <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
     <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
     <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
