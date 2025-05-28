@@ -92,6 +92,28 @@ layout: default
     line-height: 1.6;
   }
 
+  .cv-fullscreen-link {
+    display: inline-block;
+    margin-left: 16px;
+    font-size: 16px;
+    color: #2d2d2d;
+    text-decoration: underline;
+    vertical-align: middle;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .cv-iframe-box {
+    width: 100%;
+    height: 600px;
+    border: none;
+    margin-top: 18px;
+    border-radius: 8px;
+    background: #181818;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  }
+
   @media (max-width: 768px) {
     .main-container {
       flex-direction: column;
@@ -114,6 +136,9 @@ layout: default
     .navbar a {
       padding: 8px 10px;
       font-size: 15px;
+    }
+    .cv-iframe-box {
+      height: 400px;
     }
   }
 </style>
@@ -139,6 +164,10 @@ layout: default
   <div class="content-box" id="content-area">
     <!-- Default Home Content -->
     <div id="home">
+      <p style="font-size: 1.25em; color: #2d2d2d; margin-bottom: 0.5em;">
+        Hi, I am Dishana.<br>
+        Below you'll find updates about my life, year-wise.
+      </p>
       <h1>About Me</h1>
       <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
       <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
@@ -156,10 +185,11 @@ layout: default
     </div>
 
     <div id="cv" style="display: none;">
-      <h1 style="display: inline;">My CV</h1>
-      <a href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener" style="display:inline-block; margin-left: 16px; font-size:16px; color:#2d2d2d; text-decoration:underline; vertical-align:middle;">
+      <h1>My CV</h1>
+      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
         Click to open in fullscreen
       </a>
+      <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
     </div>
 
     <div id="publications" style="display: none;">
