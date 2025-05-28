@@ -1,10 +1,9 @@
 ---
 title: Welcome
-layout: single
+layout: default
 ---
 
 <style>
-/* Background header using your own image */
 .page-header {
   background: url('/assets/my-background.jpg') no-repeat center center;
   background-size: cover;
@@ -12,7 +11,6 @@ layout: single
   position: relative;
   margin-bottom: 2rem;
 }
-
 .page-header h1 {
   color: white;
   position: absolute;
@@ -21,8 +19,6 @@ layout: single
   font-size: 3rem;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
-
-/* Scrollable content container */
 .home-content {
   max-height: 450px;
   overflow-y: auto;
@@ -40,12 +36,12 @@ layout: single
 <div class="home-content">
 Hi! I’m Dishana, a passionate 12th-grade PCM student from Varanasi. I love exploring physics, AI, and robotics.
 
-- Built an autonomous robot named Marvin with LiDAR sensors during a 12-day YTS program.  
-- Volunteered for charitable causes since childhood, raising funds for orphans and war relief.  
-- Gamer and battle royale enthusiast who learned resilience and teamwork through tough challenges.  
-- Preparing for competitive exams with a 90% FITJEE scholarship.  
-- Interested in advanced physics theories like Quantum Temporal Lattice and M-Theory.  
-- Aspiring AI researcher, applying to MBZUAI to pursue higher studies in artificial intelligence.  
+- Built an autonomous robot named Marvin during a 12-day YTS program.
+- Volunteered for charitable causes since childhood.
+- Battle royale gamer who learned resilience and teamwork.
+- Preparing for exams with a 90% FITJEE scholarship.
+- Interested in Quantum Temporal Lattice and M-Theory.
+- Applying to MBZUAI to pursue AI research.
 
-This website is where I share my projects, ideas, and journey. Thanks for stopping by! Feel free to connect with me on GitHub or LinkedIn.
+Thanks for stopping by! Connect with me on [GitHub](https://github.com/meowww11) or [LinkedIn](#).
 </div>
