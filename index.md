@@ -18,8 +18,8 @@ layout: default
     padding: 15px 30px;
     background-color: #1a1a1a;
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
+    justify-content: center; /* Center horizontally */
+    gap: 40px; /* Increase gap for better centering effect */
     font-size: 16px;
     position: fixed;
     top: 0;
@@ -27,9 +27,23 @@ layout: default
   }
 
   .navbar a {
-    color: #00ffc3;
+    color: #2d2d2d; /* Dark grey text */
     text-decoration: none;
     cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 7px;
+    transition: box-shadow 0.2s;
+    box-shadow: none;
+    font-weight: 500;
+    background: none;
+  }
+
+  .navbar a:hover,
+  .navbar a:focus {
+    color: #2d2d2d; /* Keep dark grey on hover/focus */
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
+    background: none;
+    outline: none;
   }
 
   .main-container {
@@ -91,6 +105,14 @@ layout: default
     .content-box {
       width: 100%;
       max-height: none;
+    }
+    .navbar {
+      gap: 20px;
+      padding: 15px 10px;
+    }
+    .navbar a {
+      padding: 8px 10px;
+      font-size: 15px;
     }
   }
 </style>
