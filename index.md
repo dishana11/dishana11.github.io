@@ -4,112 +4,130 @@ layout: default
 ---
 
 <style>
-  body {
+  html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('/assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
+    overflow: auto;
     color: #fff;
   }
 
-  .navbar {
-    width: 100%;
-    padding: 15px 30px;
-    background-color: rgba(0, 0, 0, 0.6);
+  .container {
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    font-size: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Top navigation bar */
+  .top-nav {
     position: fixed;
-    top: 0;
-    z-index: 10;
-  }
-
-  .navbar a {
-    color: #00ffc3;
-    text-decoration: none;
-  }
-
-  .main-container {
+    top: 20px;
+    right: 20px;
     display: flex;
-    padding: 120px 40px 40px;
-    gap: 40px;
+    gap: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    z-index: 100;
   }
 
-  .sidebar {
-    width: 250px;
-    text-align: center;
+  .top-nav a {
+    color: #4a4a4a; /* Dark grey */
+    text-decoration: none;
+    white-space: nowrap; /* Prevent cutting */
+    transition: color 0.3s ease;
   }
 
-  .sidebar img {
-    width: 180px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid #00ffc3;
+  .top-nav a:hover {
+    color: #00ffc3; /* bright teal on hover */
+  }
+
+  /* Social links below */
+  .social-links {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 18px;
+    z-index: 100;
   }
 
   .social-links a {
-    display: block;
-    color: #fff;
+    color: #4a4a4a;
     text-decoration: none;
-    margin: 8px 0;
-    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    color: #00ffc3;
   }
 
   .about-box {
-    flex: 1;
-    max-height: 80vh;
-    overflow-y: auto;
+    max-width: 600px;
+    width: 90%;
+    max-height: 60vh;
+    padding: 30px;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    overflow-y: auto;
+    color: #e0e0e0; /* softer light grey for text */
   }
 
-  .about-box h1 {
-    color: #00ffc3;
+  h1 {
     margin-top: 0;
+    color: #00ffc3;
   }
 
-  .about-box p {
+  p {
     line-height: 1.6;
   }
 
-  @media (max-width: 768px) {
-    .main-container {
-      flex-direction: column;
-      padding: 100px 20px;
-      align-items: center;
-    }
-
-    .sidebar {
-      width: 100%;
-    }
-
+  @media (max-width: 600px) {
     .about-box {
-      width: 100%;
-      max-height: none;
+      padding: 20px;
+      max-width: 95vw;
+      max-height: 80vh;
+    }
+    .top-nav {
+      position: static;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .social-links {
+      position: static;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
     }
   }
 </style>
 
-<div class="navbar">
-  <a href="#">Publications</a>
-  <a href="#">CV</a>
-  <a href="#">Contact</a>
+<div class="top-nav">
+  <a href="/">About</a>
+  <a href="/publications.html" target="_blank">Publications</a>
+  <a href="/assets/Dishana cv (3).pdf" target="_blank">CV</a>
+  <a href="/contact.html" target="_blank">Contact</a>
 </div>
 
-<div class="main-container">
-  <div class="sidebar">
-    <img src="/assets/images/avatar.jpg" alt="Your Profile Picture">
-    <div class="social-links">
-      <a href="https://linkedin.com/in/yourusername" target="_blank">🔗 LinkedIn</a>
-      <a href="https://github.com/yourusername" target="_blank">💻 GitHub</a>
-      <a href="mailto:youremail@example.com">✉️ Email</a>
-    </div>
-  </div>
+<div class="social-links">
+  <a href="https://www.linkedin.com/in/meowww11" target="_blank">LinkedIn</a>
+  <a href="https://twitter.com/yourtwitterhandle" target="_blank">Twitter</a>
+</div>
 
+<div class="container">
   <div class="about-box">
     <h1>About Me</h1>
     <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
