@@ -88,12 +88,21 @@ layout: default
 
   .content-box {
     flex: 1;
-    max-height: 80vh;
-    overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    max-height: 80vh;
+    overflow-y: auto;
+    transition: max-height 0.2s, overflow 0.2s;
+  }
+
+  .content-box.cv-active {
+    max-height: none;
+    overflow: visible;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .content-box h1 {
@@ -120,12 +129,13 @@ layout: default
 
   .cv-iframe-box {
     width: 100%;
-    height: 600px;
+    height: 80vh;
     border: none;
     margin-top: 18px;
     border-radius: 8px;
     background: #181818;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    flex: 1 1 auto;
   }
 
   @media (max-width: 768px) {
@@ -146,16 +156,8 @@ layout: default
       width: 100%;
       max-height: none;
     }
-    .navbar {
-      gap: 20px;
-      padding: 15px 10px;
-    }
-    .navbar a {
-      padding: 8px 10px;
-      font-size: 15px;
-    }
     .cv-iframe-box {
-      height: 400px;
+      height: 65vh;
     }
   }
 </style>
@@ -228,5 +230,11 @@ layout: default
     sections.forEach(id => {
       document.getElementById(id).style.display = id === section ? 'block' : 'none';
     });
+    // Remove cv-active class by default
+    document.getElementById('content-area').classList.remove('cv-active');
+    // Add cv-active class when CV is shown
+    if (section === 'cv') {
+      document.getElementById('content-area').classList.add('cv-active');
+    }
   }
 </script>
