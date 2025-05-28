@@ -62,6 +62,7 @@ layout: default
 
   .main-container {
     display: flex;
+    align-items: flex-start;
     padding: 0 40px 40px 40px;
     gap: 40px;
   }
@@ -69,6 +70,10 @@ layout: default
   .sidebar {
     width: 250px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
   }
 
   .avatar-wrapper {
@@ -76,7 +81,7 @@ layout: default
     height: 180px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 14px auto;
     border: 3px solid #00ffc3;
     background: #fff;
   }
@@ -87,12 +92,37 @@ layout: default
     display: block;
   }
 
-  .social-links a {
-    display: block;
+  .social-links {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 25px;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
     color: #fff;
     text-decoration: none;
-    margin: 8px 0;
     font-size: 16px;
+    transition: color 0.15s;
+  }
+
+  .social-link:hover {
+    color: #00ffc3;
+    text-decoration: underline;
+  }
+
+  .social-link img {
+    width: 21px;
+    height: 21px;
+    display: inline;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 2px #2229);
   }
 
   .content-box {
@@ -149,12 +179,45 @@ layout: default
     flex: 1 1 auto;
   }
 
-  @media (max-width: 768px) {
-    .intro-text {
-      font-size: 1.08em;
-      padding: 12px 6px 8px 6px;
-      max-width: 100vw;
-    }
+  .about-detail-container {
+    margin: 38px auto 0 auto;
+    background: rgba(255,255,255,0.62);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    max-width: 760px;
+    padding: 25px 24px 20px 24px;
+    text-align: center;
+  }
+
+  .about-detail-title {
+    font-size: 1.3em;
+    color: #232323;
+    font-weight: 600;
+    margin-bottom: 13px;
+    letter-spacing: 0.5px;
+  }
+  .about-detail-intro {
+    color: #232323;
+    font-size: 1.03em;
+    margin-bottom: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .about-detail-scrollbox {
+    background: #fff;
+    color: #232323;
+    font-size: 0.99em;
+    border-radius: 10px;
+    max-height: 340px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 19px 20px 14px 20px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
+    border: 1px solid #e2e2e2;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
     .main-container {
       flex-direction: column;
       padding: 0 10px 30px 10px;
@@ -162,17 +225,24 @@ layout: default
     }
     .sidebar {
       width: 100%;
-    }
-    .content-box {
-      width: 100%;
-      max-height: none;
-    }
-    .cv-iframe-box {
-      height: 65vh;
+      margin-top: 10px;
+      align-items: center;
     }
     .avatar-wrapper {
       width: 130px;
       height: 130px;
+    }
+    .social-links {
+      padding-left: 0;
+      align-items: center;
+    }
+    .about-detail-container {
+      max-width: 98vw;
+      padding: 14px 4vw 12px 4vw;
+    }
+    .about-detail-scrollbox {
+      max-height: 240px;
+      padding: 12px 5vw 8px 5vw;
     }
   }
 </style>
@@ -182,10 +252,33 @@ layout: default
   <a onclick="showSection('cv')">CV</a>
   <a onclick="showSection('publications')">Publications</a>
   <a onclick="showSection('contact')">Contact</a>
+  <a onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
 <div class="intro-text">
   Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
+</div>
+
+<div class="about-detail-container" id="about-detail-container" style="display:none;">
+  <div class="about-detail-title">About in Detail</div>
+  <div class="about-detail-intro">Here you can read in detail about me:</div>
+  <div class="about-detail-scrollbox">
+    <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
+    <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
+    Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
+    <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
+    Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
+    <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
+    <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
+    <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
+    Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
+    <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
+    Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
+    Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
+    <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br><br>
+    <strong>Feb 2025:</strong> Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br><br>
+    <strong>2025:</strong> Started an internship as Junior AI Evangelist at Lawroom AI. Worked on performance tuning, improving response quality, and automating NLP pipelines for legal tech solutions.
+  </div>
 </div>
 
 <div class="main-container">
@@ -194,10 +287,18 @@ layout: default
       <img src="assets/images/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/dishanarupani/" target="_blank">🔗 LinkedIn</a>
-      <a href="https://github.com/meowww11" target="_blank">💻 GitHub</a>
-      <a href="https://x.com/dishanaa11" target="_blank">🐦 X (Twitter)</a>
-      <a href="mailto:and@gmail.com">✉️ Email</a>
+      <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
+        <img src="assets/images/linkedin.svg" alt="LinkedIn logo">LinkedIn
+      </a>
+      <a class="social-link" href="https://github.com/meowww11" target="_blank">
+        <img src="assets/images/github.svg" alt="GitHub logo">GitHub
+      </a>
+      <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
+        <img src="assets/images/x-twitter.svg" alt="X logo">X (Twitter)
+      </a>
+      <a class="social-link" href="mailto:and@gmail.com">
+        <img src="assets/images/email.svg" alt="Email logo">Email
+      </a>
     </div>
   </div>
 
@@ -248,11 +349,19 @@ layout: default
     sections.forEach(id => {
       document.getElementById(id).style.display = id === section ? 'block' : 'none';
     });
-    // Remove cv-active class by default
+
+    // Hide about-detail by default
+    document.getElementById('about-detail-container').style.display = 'none';
     document.getElementById('content-area').classList.remove('cv-active');
-    // Add cv-active class when CV is shown
+
+    if (section === 'about-detail') {
+      document.getElementById('about-detail-container').style.display = 'block';
+    }
     if (section === 'cv') {
       document.getElementById('content-area').classList.add('cv-active');
+    }
+    if (sections.includes(section)) {
+      document.getElementById('about-detail-container').style.display = 'none';
     }
   }
 </script>
