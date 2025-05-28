@@ -275,9 +275,11 @@ layout: default
     <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
     Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
     Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
-    <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br><br>
-    <strong>Feb 2025:</strong> Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br><br>
-    <strong>2025:</strong> Started an internship as Junior AI Evangelist at Lawroom AI. Worked on performance tuning, improving response quality, and automating NLP pipelines for legal tech solutions.
+    <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
+    Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
+    <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
+    Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
+    Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
   </div>
 </div>
 
