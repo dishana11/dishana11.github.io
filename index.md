@@ -14,7 +14,7 @@ layout: default
   }
 
   .intro-text {
-    font-size: 1.35em;
+    font-size: 1.15em;
     color: #2d2d2d;
     margin: 90px auto 28px auto;
     text-align: center;
@@ -183,8 +183,7 @@ layout: default
 </div>
 
 <div class="intro-text">
-  Hi, I am Dishana.<br>
-  Below you'll find updates about my life, year-wise.
+  Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
 </div>
 
 <div class="main-container">
