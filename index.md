@@ -71,11 +71,20 @@ layout: default
     text-align: center;
   }
 
-  .sidebar img {
+  .avatar-wrapper {
     width: 180px;
+    height: 180px;
     border-radius: 50%;
-    margin-bottom: 15px;
+    overflow: hidden;
+    margin: 0 auto 15px auto;
     border: 3px solid #00ffc3;
+    background: #fff;
+  }
+  .avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .social-links a {
@@ -159,6 +168,10 @@ layout: default
     .cv-iframe-box {
       height: 65vh;
     }
+    .avatar-wrapper {
+      width: 130px;
+      height: 130px;
+    }
   }
 </style>
 
@@ -176,7 +189,9 @@ layout: default
 
 <div class="main-container">
   <div class="sidebar">
-    <img src="assets/images/avatar.jpg" alt="Your Profile Picture">
+    <div class="avatar-wrapper">
+      <img src="assets/images/avatar.jpg" alt="Your Profile Picture">
+    </div>
     <div class="social-links">
       <a href="https://linkedin.com/in/yourusername" target="_blank">🔗 LinkedIn</a>
       <a href="https://github.com/yourusername" target="_blank">💻 GitHub</a>
