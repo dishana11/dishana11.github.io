@@ -1,60 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Me</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('assets/my-background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-    }
-    .overlay {
-      background-color: rgba(255, 255, 255, 0.9);
-      max-width: 600px;
-      margin: 80px auto;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      max-height: 450px;
-      overflow-y: auto;
-    }
-    h1 {
-      text-align: center;
-      color: #222;
-      margin-bottom: 20px;
-    }
-    ul {
-      line-height: 1.6;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div class="overlay">
-    <h1>About Me</h1>
-    <p>Hi! I’m <strong>Dishana</strong>, a passionate 12th-grade PCM student from Varanasi. I love exploring physics, AI, and robotics.</p>
-    <ul>
-      <li>Built an autonomous robot named Marvin with LiDAR sensors during a 12-day YTS program.</li>
-      <li>Volunteered for charitable causes since childhood, raising funds for orphans and war relief.</li>
-      <li>Gamer and battle royale enthusiast who learned resilience and teamwork through tough challenges.</li>
-      <li>Preparing for competitive exams with a 90% FITJEE scholarship.</li>
-      <li>Interested in advanced physics theories like Quantum Temporal Lattice and M-Theory.</li>
-      <li>Aspiring AI researcher, applying to MBZUAI to pursue higher studies in artificial intelligence.</li>
-    </ul>
-    <p>This website is where I share my projects, ideas, and journey. Thanks for stopping by! Feel free to connect with me on
-      <a href="https://github.com/meowww11" target="_blank" rel="noopener">GitHub</a> or
-      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>.
-    </p>
+---
+title: About Me
+layout: default
+---
+
+<style>
+  .about-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+  }
+  .about-text {
+    flex: 2;
+    overflow-y: auto;
+    max-height: 600px;
+  }
+  .about-image {
+    flex: 1;
+    background: url('/assets/your-image.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 10px;
+    min-width: 250px;
+    max-height: 600px;
+  }
+  h2 {
+    margin-top: 1.5rem;
+  }
+</style>
+
+<div class="about-container">
+  <div class="about-text">
+
+  # About Me
+
+  I’m Dishana, a 12th-grade PCM student from Varanasi passionate about AI, robotics, and physics.
+
+  ## Projects
+
+  - **Marvin Project**: Built an autonomous robot with LiDAR and ultrasonic sensors for indoor navigation during a 12-day program at Plaksha University.
+  - **Quantum Temporal Lattice Theory**: Authored a research paper exploring localized time manipulation via quantum mechanics and string theory.
+  - **CMD Error Detector and Fixer**: Developed a CLI tool that diagnoses Windows CMD errors and suggests fixes.
+  - **Twitter Automation Bot**: Created a Python bot for automated tweets, replies, and hashtag monitoring.
+  - **Language Identification System**: Built a machine learning model classifying 8 programming languages with 93% accuracy.
+
+  ## Achievements
+
+  - Awarded 90% scholarship at FIITJEE (2023) for academic excellence.
+  - Received 100% scholarship for the YTS program at Plaksha University (2022).
+  - Published research paper on Quantum Temporal Lattice in IJSAT.
+  - Won ₹7,000 prize for second place in a CLI-based hackathon.
+  - Raised ₹19,500 for Ukrainian relief efforts at a school fete, winning 2nd prize for setup.
+  - Silver Medalist in Brainobrain Wonderkid Competition (2018).
+
+  ## Experience
+
+  - Junior AI Evangelist at Lawroom AI: Built AI agents and improved workflow efficiency.
+  - Summer Student at The Indian Vidyarthi: Worked on global challenges, urban water management, and sustainability workshops.
+  - Computer Hardware Troubleshooter (2017–2022): Diagnosed and fixed BIOS and CPU-related issues in my community.
+
+  Feel free to connect with me on GitHub or LinkedIn.
+
   </div>
-</body>
-</html>
+
+  <div class="about-image"></div>
+</div>
