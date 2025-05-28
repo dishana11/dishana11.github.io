@@ -59,6 +59,7 @@
       border-radius: 50%;
       margin-bottom: 20px;
       border: 2px solid #00ffc3;
+      object-fit: cover;
     }
 
     .social-links a {
@@ -75,7 +76,7 @@
     }
 
     .content-box {
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: black;
       border-radius: 15px;
       padding: 30px;
       max-height: 70vh;
