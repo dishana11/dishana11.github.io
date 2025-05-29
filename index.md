@@ -138,14 +138,15 @@ layout: default
     position: relative;
   }
 
-  .home-header-row {
+  /* Home: make intro and updates align vertically, like a letter */
+  .home-vertical-stack {
     display: flex;
-    align-items: flex-end;
-    gap: 30px;
-    margin: 0 0 10px 0;
-    padding-top: 32px;
-    padding-left: 36px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 48px 0 0 38px;
+    width: 100%;
+    max-width: 700px;
   }
   .intro-text {
     font-size: 1.13em;
@@ -154,24 +155,23 @@ layout: default
     font-weight: 500;
     background: rgba(255,255,255,0.58);
     border-radius: 10px;
-    max-width: 540px;
+    width: 100%;
+    max-width: 700px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.11);
     padding: 15px 20px 13px 20px;
     line-height: 1.45;
-    display: block;
     margin: 0;
   }
-  .content-box h1 {
+  .updates-heading {
     color: #2d2d2d;
-    margin: 0 0 0 0;
+    margin: 0 0 9px 0;
     font-size: 2em;
-    display: block;
     font-weight: 700;
     letter-spacing: .5px;
-    padding-bottom: 0;
     line-height: 1;
+    display: block;
+    padding-bottom: 0;
   }
-
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
@@ -179,10 +179,10 @@ layout: default
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
-    margin: 0 32px 0 36px;
-    flex: 1 1 auto;
-    min-height: 0;
-    max-height: calc(100% - 90px);
+    width: 100%;
+    max-width: 700px;
+    min-width: 310px;
+    max-height: 320px;
     overflow-y: auto;
   }
 
@@ -198,8 +198,8 @@ layout: default
     flex-direction: column;
     align-items: flex-start;
     min-height: 360px;
-    max-height: 400px;
-    overflow-y: scroll;
+    /*max-height: 400px;
+    overflow-y: scroll;*/
     overflow-x: hidden;
     position: relative;
   }
@@ -332,21 +332,16 @@ layout: default
     .content-box {
       padding: 0;
     }
-    .updates-scrollbox {
-      margin: 0 0 0 0;
-      padding: 12px 2vw;
-      max-height: 340px;
-    }
-    .home-header-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      padding-top: 20px;
-      padding-left: 0;
-    }
-    .intro-text {
+    .home-vertical-stack {
+      padding: 28px 0 0 2vw;
       max-width: 98vw;
-      padding: 13px 4vw 11px 4vw;
+    }
+    .intro-text, .updates-scrollbox {
+      max-width: 98vw;
+      min-width: unset;
+    }
+    .updates-scrollbox {
+      max-height: 340px;
     }
   }
 </style>
@@ -382,30 +377,32 @@ layout: default
   </div>
 
   <div class="content-box" id="content-area">
+    <!-- HOME -->
     <div id="home">
-      <div class="home-header-row">
-        <h1>Updates</h1>
+      <div class="home-vertical-stack">
         <div class="intro-text" id="intro-text">
           Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
         </div>
-      </div>
-      <div class="updates-scrollbox">
-        <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
-        <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
-        <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
-        <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
-        <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
-        <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
-        <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
-        <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
-        <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
-        <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
-        <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
-        <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
-        <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
+        <h1 class="updates-heading">Updates</h1>
+        <div class="updates-scrollbox">
+          <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
+          <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
+          <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
+          <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
+          <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
+          <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
+          <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
+          <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
+          <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
+          <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
+          <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
+          <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
+          <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
+        </div>
       </div>
     </div>
 
+    <!-- PROJECTS (NO SCROLLER) -->
     <div id="projects" style="display: none;">
       <div class="projects-box">
         <div class="projects-header-row">
@@ -445,10 +442,12 @@ layout: default
     </div>
 
     <div id="cv" style="display: none;">
-      <h1>My CV</h1>
-      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-        Click to open in fullscreen
-      </a>
+      <div style="display: flex; align-items: center; gap: 16px; margin-left: 36px; margin-top: 32px;">
+        <h1 style="margin:0;">CV</h1>
+        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+          Click to open in fullscreen
+        </a>
+      </div>
       <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
     </div>
 
