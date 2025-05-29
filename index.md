@@ -151,7 +151,7 @@ layout: default
     margin: 0 auto;
   }
   .intro-text {
-    font-size: 2em; /* INCREASED TO MATCH UPDATES */
+    font-size: 1.2em; /* REDUCED FROM 2em TO 1.2em */
     color: #2d2d2d;
     text-align: left;
     font-weight: 500;
@@ -286,6 +286,68 @@ layout: default
     flex: 1 1 auto;
   }
 
+  /* SCROLLABLE ABOUT DETAIL BOX */
+  .about-detail-container {
+    margin: 38px auto 0 auto;
+    background: rgba(255,255,255,0.62);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    max-width: 1100px;
+    min-width: 360px;
+    min-height: 420px;
+    padding: 28px 32px 26px 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-detail-intro {
+    color: #232323;
+    font-size: 1.12em;
+    margin-bottom: 18px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .about-detail-scrollbox {
+    background: #fff;
+    color: #232323;
+    font-size: 1.02em;
+    border-radius: 10px;
+    max-height: 320px;
+    min-height: 210px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 19px 26px 14px 26px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
+    border: 1px solid #e2e2e2;
+    line-height: 1.7;
+    width: 100%;
+  }
+
+  /* Projects: invisible vertical scrollbar */
+  .projects-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 360px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .projects-box::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
   /* ...other styles unchanged... */
 </style>
 
@@ -407,6 +469,7 @@ layout: default
       <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
     </div>
 
+    <!-- ABOUT IN DETAIL: SCROLLABLE BOX -->
     <div id="about-detail" style="display: none;">
       <div class="about-detail-container">
         <div class="about-detail-intro">This section contains life updates in detail:</div>
