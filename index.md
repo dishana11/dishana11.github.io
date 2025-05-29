@@ -12,7 +12,7 @@ layout: default
     background: url('assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    overflow: hidden; /* Prevent body from scrolling */
+    overflow: hidden;
   }
 
   .navbar {
@@ -54,12 +54,11 @@ layout: default
     padding: 0 40px 0 40px;
     gap: 40px;
     box-sizing: border-box;
-    height: calc(100vh - 80px); /* Adjust for navbar */
-    margin-top: 80px; /* Navbar height */
-    overflow: hidden; /* Prevent main content from scrolling */
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    overflow: hidden;
   }
 
-  /* Fixed sidebar for desktop */
   .sidebar {
     width: 250px;
     text-align: center;
@@ -67,8 +66,8 @@ layout: default
     flex-direction: column;
     align-items: center;
     position: fixed;
-    top: 80px; /* Below the navbar */
-    left: 40px; /* Same as .main-container padding-left */
+    top: 80px;
+    left: 40px;
     z-index: 20;
     height: calc(100vh - 80px);
     justify-content: flex-start;
@@ -76,7 +75,7 @@ layout: default
     pointer-events: auto;
   }
   .main-container {
-    margin-left: 290px; /* sidebar width + gap */
+    margin-left: 290px;
   }
 
   .avatar-wrapper {
@@ -137,22 +136,25 @@ layout: default
     padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     height: 100%;
+    max-width: 900px;
     max-height: 100%;
-    overflow: hidden; /* Prevent content-box from scrolling */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     position: relative;
+    min-width: 0;
   }
 
   .home-header-row {
     display: flex;
-    align-items: flex-end;
-    gap: 30px;
+    align-items: flex-start; /* align at top */
+    gap: 32px;
     margin: 0 0 10px 0;
     padding-top: 32px;
     padding-left: 36px;
+    padding-bottom: 0;
   }
   .intro-text {
     font-size: 1.13em;
@@ -167,6 +169,7 @@ layout: default
     line-height: 1.45;
     display: block;
     margin: 0;
+    align-self: flex-start;
   }
   .content-box h1 {
     color: #2d2d2d;
@@ -177,6 +180,7 @@ layout: default
     letter-spacing: .5px;
     padding-bottom: 0;
     line-height: 1;
+    align-self: flex-start;
   }
 
   .updates-scrollbox {
@@ -186,14 +190,38 @@ layout: default
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
-    margin: 0 32px 0 36px;
+    margin: 20px 32px 0 36px;
     flex: 1 1 auto;
     min-height: 0;
-    max-height: calc(100% - 90px);
+    max-height: calc(100% - 104px);
     overflow-y: auto;
-    /* Make sure the box fits in the space and is the only scrollable element */
   }
 
+  /* CV page: original width, slightly more height */
+  .cv-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 78vh;
+    min-height: 420px;
+  }
+  .cv-iframe-box {
+    width: 100%;
+    height: 68vh;
+    border: none;
+    margin-top: 18px;
+    border-radius: 8px;
+    background: #181818;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    flex: 1 1 auto;
+  }
   .cv-fullscreen-link {
     display: inline-block;
     margin-left: 16px;
@@ -204,17 +232,16 @@ layout: default
     cursor: pointer;
     background: none;
     border: none;
+    margin-bottom: 8px;
   }
 
-  .cv-iframe-box {
-    width: 100%;
-    height: 80vh;
-    border: none;
-    margin-top: 18px;
-    border-radius: 8px;
-    background: #181818;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    flex: 1 1 auto;
+  /* Publication & Contact: push text down */
+  .content-section {
+    padding-top: 64px;
+    padding-left: 50px;
+  }
+  .content-section h1 {
+    margin-top: 0;
   }
 
   .about-detail-container {
@@ -285,7 +312,7 @@ layout: default
       padding: 0;
     }
     .updates-scrollbox {
-      margin: 0 0 0 0;
+      margin: 12px 0 0 0;
       padding: 12px 2vw;
       max-height: 340px;
     }
@@ -299,6 +326,18 @@ layout: default
     .intro-text {
       max-width: 98vw;
       padding: 13px 4vw 11px 4vw;
+    }
+    .cv-box {
+      width: 99vw;
+      min-width: 0;
+      margin: 14px 0 0 0;
+      padding: 12px 2vw 10px 2vw;
+      height: 68vh;
+      min-height: 320px;
+    }
+    .content-section {
+      padding-top: 30px;
+      padding-left: 0;
     }
   }
 </style>
@@ -381,21 +420,27 @@ layout: default
     </div>
 
     <div id="cv" style="display: none;">
-      <h1>My CV</h1>
-      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-        Click to open in fullscreen
-      </a>
-      <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+      <div class="cv-box">
+        <h1>My CV</h1>
+        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+          Click to open in fullscreen
+        </a>
+        <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+      </div>
     </div>
 
     <div id="publications" style="display: none;">
-      <h1>Publications</h1>
-      <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
+      <div class="content-section">
+        <h1>Publications</h1>
+        <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
+      </div>
     </div>
 
     <div id="contact" style="display: none;">
-      <h1>Contact</h1>
-      <p>Email me at <a href="mailto:and@gmail.com">and@gmail.com</a></p>
+      <div class="content-section">
+        <h1>Contact</h1>
+        <p>Email me at <a href="mailto:and@gmail.com">and@gmail.com</a></p>
+      </div>
     </div>
   </div>
 </div>
@@ -410,12 +455,6 @@ layout: default
     // Hide about-detail by default
     document.getElementById('about-detail-container').style.display = 'none';
     document.getElementById('content-area').classList.remove('cv-active');
-    if(section === 'home'){
-      // nothing, intro is on home only now
-    } else {
-      // Hide intro-text on non-home pages (handled by DOM structure)
-    }
-
     if (section === 'about-detail') {
       document.getElementById('about-detail-container').style.display = 'block';
     }
@@ -426,7 +465,6 @@ layout: default
       document.getElementById('about-detail-container').style.display = 'none';
     }
   }
-  // On page load, home is visible
   document.addEventListener('DOMContentLoaded', function(){
     // No extra code needed
   });
