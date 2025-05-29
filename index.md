@@ -27,6 +27,36 @@ layout: default
     top: 0;
     z-index: 10;
   }
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 7px 22px;
+    border-radius: 13px;
+    font-size: 1.14em;
+    font-weight: 500;
+    background: transparent;
+    transition: 
+      box-shadow 0.22s cubic-bezier(.45,.03,.52,1.06),
+      background 0.22s,
+      color 0.16s;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: relative;
+    user-select: none;
+  }
+  .navbar a:hover, .navbar a:focus {
+    color: #00ffc3;
+    background: rgba(22, 22, 22, 0.16);
+    box-shadow: 0 0 0 2.5px #00ffc3, 0 0 14px 3px #00ffc399;
+  }
+  .navbar a.active {
+    color: #222;
+    background: #00ffc3;
+    box-shadow: 0 0 0 2.5px #00ffc3, 0 0 18px 5px #00ffc36e;
+    font-weight: 700;
+    cursor: default;
+  }
 
   .main-container {
     display: flex;
@@ -83,7 +113,6 @@ layout: default
     width: 100%;
     padding-left: 18px;
   }
-
   .social-link {
     display: flex;
     align-items: center;
@@ -97,7 +126,6 @@ layout: default
     color: #00ffc3;
     text-decoration: underline;
   }
-
   .social-link img {
     width: 24px;
     height: 24px;
@@ -110,7 +138,7 @@ layout: default
 
   .content-box {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     border-radius: 18px;
     padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -134,7 +162,6 @@ layout: default
     margin-top: 42px;
     margin-bottom: 40px;
   }
-
   .home-intro-center-text {
     max-width: 600px;
     font-size: 1.15em;
@@ -147,7 +174,6 @@ layout: default
     box-shadow: none;
     padding: 0;
   }
-
   .home-content-col {
     display: flex;
     flex-direction: column;
@@ -156,15 +182,6 @@ layout: default
     margin-top: 0;
     height: calc(100% - 0px);
     width: 100%;
-  }
-
-  .updates-scrollable-container {
-    width: 100%;
-    flex: 1 1 auto;
-    max-height: 340px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
   }
   .updates-title {
     color: #2d2d2d;
@@ -176,104 +193,28 @@ layout: default
     line-height: 1;
     align-self: flex-start;
   }
-  .updates-scrollbox-content {
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    height: 100%;
-    width: 100%;
-    scrollbar-width: thin;
-    scrollbar-color: #00ffc3 #232323;
-  }
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
-    background: rgba(40,40,40,0.95);
+    background: rgba(40,40,40,0.97);
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
-    margin: 0 0 0 0;
-    flex: 1 1 auto;
-    min-height: 0;
-    max-height: 340px;
+    min-height: 120px;
+    max-height: 320px;
     width: 100%;
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: #00ffc3 #232323;
   }
-  .updates-scrollbox::-webkit-scrollbar,
-  .updates-scrollbox-content::-webkit-scrollbar {
+  .updates-scrollbox::-webkit-scrollbar {
     width: 10px;
     background: #232323;
   }
-  .updates-scrollbox::-webkit-scrollbar-thumb,
-  .updates-scrollbox-content::-webkit-scrollbar-thumb {
+  .updates-scrollbox::-webkit-scrollbar-thumb {
     background: #00ffc3;
     border-radius: 8px;
-  }
-
-  .cv-box {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.87);
-    border-radius: 18px;
-    padding: 28px 26px 24px 26px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 70vh;
-    min-height: 360px;
-    overflow: hidden;
-    position: relative;
-  }
-  .cv-header-row, .projects-header-row {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 2;
-  }
-  .cv-header-row h1, .projects-header-row h1 {
-    color: #2d2d2d;
-    margin: 0 0 0 0;
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: .5px;
-    padding-bottom: 0;
-    line-height: 1;
-    flex: 1 1 auto;
-    text-align: left;
-  }
-  .cv-fullscreen-link {
-    font-size: 16px;
-    color: #2d2d2d;
-    text-decoration: underline;
-    vertical-align: middle;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-left: auto;
-    margin-bottom: 0;
-    padding-left: 10px;
-    white-space: nowrap;
-    align-self: flex-end;
-  }
-  .cv-iframe-box {
-    width: 100%;
-    height: 56vh;
-    border: none;
-    margin-top: 18px;
-    border-radius: 8px;
-    background: #181818;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    flex: 1 1 auto;
-    min-height: 180px;
-    overflow-y: auto;
-    position: relative;
-    z-index: 2;
   }
 
   .projects-box {
@@ -288,9 +229,9 @@ layout: default
     flex-direction: column;
     align-items: flex-start;
     min-height: 360px;
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    max-height: 70vh;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
     position: relative;
     scrollbar-width: thin;
     scrollbar-color: #00ffc3 #232323;
@@ -303,7 +244,25 @@ layout: default
     background: #00ffc3;
     border-radius: 8px;
   }
-
+  .projects-header-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .projects-header-row h1 {
+    color: #2d2d2d;
+    margin: 0 0 0 0;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding-bottom: 0;
+    line-height: 1;
+    flex: 1 1 auto;
+    text-align: left;
+  }
   .projects-list {
     margin-top: 0;
     padding-left: 0;
@@ -322,6 +281,94 @@ layout: default
     color: #00ffc3;
     font-weight: 600;
     font-size: 1.07em;
+  }
+
+  .cv-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 18px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 70vh;
+    min-height: 360px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cv-header-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .cv-header-row h1 {
+    color: #2d2d2d;
+    margin: 0 0 0 0;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding-bottom: 0;
+    line-height: 1;
+    flex: 1 1 auto;
+    text-align: left;
+    min-width: 0;
+  }
+  .cv-fullscreen-link {
+    font-size: 16px;
+    color: #2d2d2d;
+    text-decoration: underline;
+    vertical-align: middle;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-left: auto;
+    margin-bottom: 0;
+    padding-left: 10px;
+    white-space: nowrap;
+    align-self: flex-end;
+    max-width: 48%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cv-iframe-wrap {
+    width: 100%;
+    height: 56vh;
+    margin-top: 18px;
+    border-radius: 8px;
+    background: #181818;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    flex: 1 1 auto;
+    min-height: 180px;
+    overflow: auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+  .cv-iframe-box {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    border: none;
+    display: block;
+  }
+  .cv-iframe-wrap::-webkit-scrollbar {
+    width: 10px;
+    background: #232323;
+  }
+  .cv-iframe-wrap::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 8px;
+  }
+  .cv-iframe-wrap {
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 #232323;
   }
 
   .content-section {
@@ -439,6 +486,7 @@ layout: default
       margin-left: 0;
       align-self: flex-start;
       margin-top: 5px;
+      max-width: 100%;
     }
     .content-section {
       padding-top: 30px;
@@ -447,13 +495,14 @@ layout: default
   }
 </style>
 
+<!-- NAVBAR -->
 <div class="navbar">
-  <a onclick="showSection('home')">Home</a>
-  <a onclick="showSection('cv')">CV</a>
-  <a onclick="showSection('projects')">Projects</a>
-  <a onclick="showSection('publications')">Publications</a>
-  <a onclick="showSection('contact')">Contact</a>
-  <a onclick="showSection('about-detail')">About in Detail</a>
+  <a id="nav-home" onclick="showSection('home')">Home</a>
+  <a id="nav-cv" onclick="showSection('cv')">CV</a>
+  <a id="nav-projects" onclick="showSection('projects')">Projects</a>
+  <a id="nav-publications" onclick="showSection('publications')">Publications</a>
+  <a id="nav-contact" onclick="showSection('contact')">Contact</a>
+  <a id="nav-about-detail" onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
 <!-- Home intro, centered, not a box -->
@@ -463,7 +512,6 @@ layout: default
   </div>
 </div>
 
-<!-- About in detail intro, centered, out of the box -->
 <div id="about-detail-intro-outer" class="about-detail-intro-outer" style="display:none;">
   This section contains life updates in detail:
 </div>
@@ -513,25 +561,21 @@ layout: default
   <div class="content-box" id="content-area">
     <div id="home">
       <div class="home-content-col">
-        <div class="updates-scrollable-container">
-          <div class="updates-title">Updates</div>
-          <div class="updates-scrollbox-content">
-            <div class="updates-scrollbox">
-              <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
-              <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
-              <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
-              <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
-              <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
-              <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
-              <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
-              <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
-              <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
-              <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
-              <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
-              <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
-              <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
-            </div>
-          </div>
+        <div class="updates-title">Updates</div>
+        <div class="updates-scrollbox">
+          <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
+          <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
+          <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
+          <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
+          <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
+          <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
+          <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
+          <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
+          <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
+          <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
+          <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
+          <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
+          <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
         </div>
       </div>
     </div>
@@ -544,7 +588,9 @@ layout: default
             Click to open in fullscreen
           </a>
         </div>
-        <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+        <div class="cv-iframe-wrap">
+          <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+        </div>
       </div>
     </div>
 
@@ -609,30 +655,20 @@ layout: default
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'cv', 'projects', 'publications', 'contact'];
+    const sections = ['home', 'cv', 'projects', 'publications', 'contact', 'about-detail'];
     sections.forEach(id => {
-      document.getElementById(id).style.display = id === section ? 'block' : 'none';
+      document.getElementById(id)?.style && (document.getElementById(id).style.display = id === section ? 'block' : 'none');
+      document.getElementById("nav-" + id)?.classList.remove('active');
     });
+    // Set active nav
+    document.getElementById("nav-" + section)?.classList.add('active');
     // Home intro
     document.getElementById('home-intro-box').style.display = (section === 'home') ? 'flex' : 'none';
     // About in detail intro
     document.getElementById('about-detail-intro-outer').style.display = (section === 'about-detail') ? 'block' : 'none';
-    // Hide about-detail by default
-    document.getElementById('about-detail-container').style.display = 'none';
-    document.getElementById('content-area').classList.remove('cv-active');
-    if (section === 'about-detail') {
-      document.getElementById('about-detail-container').style.display = 'block';
-    }
-    if (section === 'cv') {
-      document.getElementById('content-area').classList.add('cv-active');
-    }
-    if (sections.includes(section)) {
-      document.getElementById('about-detail-container').style.display = (section === 'about-detail') ? 'block' : 'none';
-    }
+    document.getElementById('about-detail-container').style.display = (section === 'about-detail') ? 'block' : 'none';
   }
   document.addEventListener('DOMContentLoaded', function(){
-    // By default show home-intro
-    document.getElementById('home-intro-box').style.display = 'flex';
-    document.getElementById('about-detail-intro-outer').style.display = 'none';
+    showSection('home');
   });
 </script>
