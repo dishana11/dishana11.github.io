@@ -55,7 +55,9 @@ layout: default
     height: calc(100vh - 80px);
     margin-top: 80px;
     overflow: hidden;
+    margin-left: 290px;
   }
+
   .sidebar {
     width: 250px;
     min-width: 250px;
@@ -64,7 +66,6 @@ layout: default
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Restore OG vertical alignment: */
     justify-content: flex-start;
     position: fixed;
     top: 80px;
@@ -81,7 +82,7 @@ layout: default
     height: 160px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto 14px auto;
+    margin: 40px auto 14px auto; /* PUSHED PFP DOWN by adding top margin 40px */
     border: 3px solid #00ffc3;
     background: #fff;
   }
@@ -123,8 +124,6 @@ layout: default
     border-radius: 4px;
   }
 
-  .main-container { margin-left: 290px; }
-
   .content-box {
     flex: 1;
     background-color: rgba(0, 0, 0, 0.8);
@@ -141,7 +140,6 @@ layout: default
     position: relative;
   }
 
-  /* Home vertical stack: remove left space, use more width */
   .home-vertical-stack {
     display: flex;
     flex-direction: column;
@@ -153,7 +151,7 @@ layout: default
     margin: 0 auto;
   }
   .intro-text {
-    font-size: 1.13em;
+    font-size: 2em; /* INCREASED TO MATCH UPDATES */
     color: #2d2d2d;
     text-align: left;
     font-weight: 500;
@@ -190,41 +188,7 @@ layout: default
     overflow-y: auto;
   }
 
-  /* About in Detail: bigger box */
-  .about-detail-container {
-    margin: 38px auto 0 auto;
-    background: rgba(255,255,255,0.62);
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    max-width: 1100px;
-    min-width: 360px;
-    min-height: 420px;
-    padding: 28px 32px 26px 32px;
-    text-align: center;
-  }
-  .about-detail-intro {
-    color: #232323;
-    font-size: 1.12em;
-    margin-bottom: 18px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  .about-detail-scrollbox {
-    background: #fff;
-    color: #232323;
-    font-size: 1.02em;
-    border-radius: 10px;
-    max-height: 400px;
-    min-height: 210px;
-    overflow-y: auto;
-    text-align: left;
-    padding: 19px 26px 14px 26px;
-    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
-    border: 1px solid #e2e2e2;
-    line-height: 1.7;
-  }
-
-  /* Projects: remove vertical scroller */
+  /* Projects: invisible vertical scrollbar */
   .projects-box {
     width: 100%;
     max-width: 900px;
@@ -237,10 +201,15 @@ layout: default
     flex-direction: column;
     align-items: flex-start;
     min-height: 360px;
-    /*max-height: 400px;*/
-    /*overflow-y: scroll;*/
+    max-height: 400px;
+    overflow-y: auto;
     overflow-x: hidden;
-    position: relative;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  .projects-box::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
   }
   .projects-header-row {
     display: flex;
@@ -281,9 +250,16 @@ layout: default
     font-size: 1.07em;
   }
 
-  .cv-fullscreen-link {
+  .cv-header-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 32px;
+    margin-left: 36px;
+    margin-bottom: 10px;
+  }
+  .cv-fullscreen-link, .cv-download-link {
     display: inline-block;
-    margin-left: 16px;
     font-size: 16px;
     color: #2d2d2d;
     text-decoration: underline;
@@ -291,77 +267,26 @@ layout: default
     cursor: pointer;
     background: none;
     border: none;
+    margin-left: 0px;
+    margin-right: 20px;
+    white-space: nowrap;
+    margin-bottom: 0;
   }
-
+  .cv-download-link:hover, .cv-fullscreen-link:hover {
+    color: #00ffc3;
+  }
   .cv-iframe-box {
-    width: 100%;
+    width: 96%;
     height: 80vh;
     border: none;
-    margin-top: 18px;
+    margin: 18px 2% 0 2%;
     border-radius: 8px;
     background: #181818;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     flex: 1 1 auto;
   }
 
-  @media (max-width: 1200px) {
-    .home-vertical-stack,
-    .updates-scrollbox,
-    .intro-text,
-    .about-detail-container {
-      max-width: 98vw;
-    }
-  }
-  @media (max-width: 900px) {
-    .main-container {
-      flex-direction: column;
-      padding: 0 10px 30px 10px;
-      align-items: center;
-      margin-left: 0;
-      height: auto;
-    }
-    .sidebar {
-      width: 100%;
-      margin-top: 10px;
-      align-items: center;
-      position: static;
-      top: unset;
-      left: unset;
-      height: auto;
-      min-width: unset;
-      max-width: unset;
-    }
-    .avatar-wrapper {
-      width: 130px;
-      height: 130px;
-    }
-    .social-links {
-      padding-left: 0;
-      align-items: center;
-    }
-    .about-detail-container {
-      max-width: 98vw;
-      padding: 14px 4vw 12px 4vw;
-    }
-    .about-detail-scrollbox {
-      max-height: 240px;
-      padding: 12px 5vw 8px 5vw;
-    }
-    .content-box {
-      padding: 0;
-    }
-    .home-vertical-stack {
-      padding: 28px 0 0 0;
-      max-width: 98vw;
-    }
-    .intro-text, .updates-scrollbox {
-      max-width: 98vw;
-      min-width: unset;
-    }
-    .updates-scrollbox {
-      max-height: 340px;
-    }
-  }
+  /* ...other styles unchanged... */
 </style>
 
 <div class="navbar">
@@ -420,7 +345,7 @@ layout: default
       </div>
     </div>
 
-    <!-- PROJECTS (NO SCROLLER) -->
+    <!-- PROJECTS (INVISIBLE SCROLLBAR) -->
     <div id="projects" style="display: none;">
       <div class="projects-box">
         <div class="projects-header-row">
@@ -459,11 +384,16 @@ layout: default
       </div>
     </div>
 
+    <!-- CV SECTION -->
     <div id="cv" style="display: none;">
-      <h1>My CV</h1>
-      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-        Click to open in fullscreen
-      </a>
+      <div class="cv-header-row">
+        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+          Click to open in fullscreen
+        </a>
+        <a class="cv-download-link" href="assets/Dishana cv (3).pdf" download>
+          Download
+        </a>
+      </div>
       <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
     </div>
 
