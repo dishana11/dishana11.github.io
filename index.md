@@ -1,4 +1,4 @@
-other code ---
+---
 title: Home
 layout: default
 ---
