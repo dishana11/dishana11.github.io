@@ -147,14 +147,15 @@ layout: default
     min-width: 0;
   }
 
-  .home-header-row {
+  /* Home page: align intro and updates vertically */
+  .home-content-col {
     display: flex;
-    align-items: flex-start; /* align at top */
-    gap: 32px;
-    margin: 0 0 10px 0;
-    padding-top: 32px;
-    padding-left: 36px;
-    padding-bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 36px;
+    margin-top: 32px;
+    height: calc(100% - 32px);
+    width: 100%;
   }
   .intro-text {
     font-size: 1.13em;
@@ -168,7 +169,7 @@ layout: default
     padding: 15px 20px 13px 20px;
     line-height: 1.45;
     display: block;
-    margin: 0;
+    margin: 0 0 36px 0;
     align-self: flex-start;
   }
   .content-box h1 {
@@ -190,14 +191,15 @@ layout: default
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
-    margin: 20px 32px 0 36px;
+    margin: 20px 0 0 0;
     flex: 1 1 auto;
     min-height: 0;
-    max-height: calc(100% - 104px);
+    max-height: 340px;
+    width: 100%;
     overflow-y: auto;
   }
 
-  /* CV page: original width, slightly more height */
+  /* CV page: original width, original height */
   .cv-box {
     width: 100%;
     max-width: 900px;
@@ -209,12 +211,12 @@ layout: default
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 78vh;
-    min-height: 420px;
+    height: 70vh;
+    min-height: 360px;
   }
   .cv-iframe-box {
     width: 100%;
-    height: 68vh;
+    height: 56vh;
     border: none;
     margin-top: 18px;
     border-radius: 8px;
@@ -253,13 +255,15 @@ layout: default
     padding: 25px 24px 20px 24px;
     text-align: center;
   }
-
+  /* Push "this section contains..." text down to match contact/publications */
   .about-detail-intro {
     color: #232323;
     font-size: 1.03em;
     margin-bottom: 16px;
     font-weight: 500;
     letter-spacing: 0.01em;
+    margin-top: 60px;
+    text-align: left;
   }
   .about-detail-scrollbox {
     background: #fff;
@@ -304,6 +308,9 @@ layout: default
       max-width: 98vw;
       padding: 14px 4vw 12px 4vw;
     }
+    .about-detail-intro {
+      margin-top: 30px;
+    }
     .about-detail-scrollbox {
       max-height: 240px;
       padding: 12px 5vw 8px 5vw;
@@ -316,12 +323,9 @@ layout: default
       padding: 12px 2vw;
       max-height: 340px;
     }
-    .home-header-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      padding-top: 20px;
-      padding-left: 0;
+    .home-content-col {
+      margin-left: 0;
+      margin-top: 20px;
     }
     .intro-text {
       max-width: 98vw;
@@ -332,8 +336,8 @@ layout: default
       min-width: 0;
       margin: 14px 0 0 0;
       padding: 12px 2vw 10px 2vw;
-      height: 68vh;
-      min-height: 320px;
+      height: 48vh;
+      min-height: 220px;
     }
     .content-section {
       padding-top: 30px;
@@ -396,26 +400,26 @@ layout: default
 
   <div class="content-box" id="content-area">
     <div id="home">
-      <div class="home-header-row">
-        <h1>Updates</h1>
+      <div class="home-content-col">
         <div class="intro-text" id="intro-text">
           Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
         </div>
-      </div>
-      <div class="updates-scrollbox">
-        <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
-        <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
-        <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
-        <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
-        <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
-        <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
-        <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
-        <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
-        <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
-        <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
-        <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
-        <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
-        <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
+        <h1>Updates</h1>
+        <div class="updates-scrollbox">
+          <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
+          <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
+          <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
+          <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
+          <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
+          <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
+          <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
+          <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
+          <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
+          <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
+          <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
+          <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
+          <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
+        </div>
       </div>
     </div>
 
