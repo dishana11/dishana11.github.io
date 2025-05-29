@@ -4,7 +4,7 @@ layout: default
 ---
 
 <style>
-  body {
+  body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,7 +39,6 @@ layout: default
     top: 0;
     z-index: 10;
   }
-
   .navbar a {
     color: #2d2d2d;
     text-decoration: none;
@@ -51,7 +50,6 @@ layout: default
     font-weight: 500;
     background: none;
   }
-
   .navbar a:hover,
   .navbar a:focus {
     color: #2d2d2d;
@@ -75,7 +73,6 @@ layout: default
     align-items: center;
     margin-top: 30px;
   }
-
   .avatar-wrapper {
     width: 180px;
     height: 180px;
@@ -91,7 +88,6 @@ layout: default
     object-fit: cover;
     display: block;
   }
-
   .social-links {
     margin-top: 8px;
     display: flex;
@@ -101,7 +97,6 @@ layout: default
     width: 100%;
     padding-left: 25px;
   }
-
   .social-link {
     display: flex;
     align-items: center;
@@ -111,12 +106,10 @@ layout: default
     font-size: 16px;
     transition: color 0.15s;
   }
-
   .social-link:hover {
     color: #00ffc3;
     text-decoration: underline;
   }
-
   .social-link img {
     width: 21px;
     height: 21px;
@@ -154,11 +147,35 @@ layout: default
   .updates-content {
     font-size: 0.98em;
     color: #e0e0e0;
+    background: rgba(40,40,40,0.95);
+    border-radius: 9px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 20px;
+    margin: 0 auto;
+    max-height: 320px;
+    overflow-y: auto;
+    width: 100%;
   }
 
+  .cv-header-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 10px;
+  }
+  .cv-header-row h1 {
+    color: #2d2d2d;
+    margin: 0;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding-bottom: 0;
+    line-height: 1;
+    display: inline;
+  }
   .cv-fullscreen-link {
     display: inline-block;
-    margin-left: 16px;
+    margin-left: 18px;
     font-size: 16px;
     color: #2d2d2d;
     text-decoration: underline;
@@ -166,8 +183,9 @@ layout: default
     cursor: pointer;
     background: none;
     border: none;
+    margin-bottom: 0;
+    white-space: nowrap;
   }
-
   .cv-iframe-box {
     width: 100%;
     height: 80vh;
@@ -188,7 +206,6 @@ layout: default
     padding: 25px 24px 20px 24px;
     text-align: center;
   }
-
   .about-detail-title {
     font-size: 1.3em;
     color: #232323;
@@ -216,7 +233,6 @@ layout: default
     border: 1px solid #e2e2e2;
     line-height: 1.7;
   }
-
   @media (max-width: 900px) {
     .main-container {
       flex-direction: column;
@@ -244,6 +260,22 @@ layout: default
       max-height: 240px;
       padding: 12px 5vw 8px 5vw;
     }
+    .updates-content {
+      margin: 0 0 0 0;
+      padding: 12px 2vw;
+      max-height: 340px;
+    }
+    .cv-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .cv-header-row h1,
+    .cv-fullscreen-link {
+      margin-left: 0 !important;
+      margin-bottom: 0 !important;
+      display: block;
+    }
   }
 </style>
 
@@ -255,7 +287,7 @@ layout: default
   <a onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
-<div class="intro-text">
+<div class="intro-text" id="intro-text" style="display:block;">
   Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
 </div>
 
@@ -326,10 +358,12 @@ layout: default
     </div>
 
     <div id="cv" style="display: none;">
-      <h1>My CV</h1>
-      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-        Click to open in fullscreen
-      </a>
+      <div class="cv-header-row">
+        <h1>CV</h1>
+        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+          Click to open in fullscreen
+        </a>
+      </div>
       <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
     </div>
 
@@ -354,10 +388,12 @@ layout: default
 
     // Hide about-detail by default
     document.getElementById('about-detail-container').style.display = 'none';
+    document.getElementById('intro-text').style.display = section === 'home' ? 'block' : 'none';
     document.getElementById('content-area').classList.remove('cv-active');
 
     if (section === 'about-detail') {
       document.getElementById('about-detail-container').style.display = 'block';
+      document.getElementById('intro-text').style.display = 'none';
     }
     if (section === 'cv') {
       document.getElementById('content-area').classList.add('cv-active');
@@ -366,4 +402,8 @@ layout: default
       document.getElementById('about-detail-container').style.display = 'none';
     }
   }
+  // On page load, show Home and only intro-text for Home
+  document.addEventListener('DOMContentLoaded', function(){
+    showSection('home');
+  });
 </script>
