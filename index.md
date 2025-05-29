@@ -12,7 +12,7 @@ layout: default
     background: url('assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    overflow: hidden; /* Prevent body from scrolling */
+    overflow: hidden;
   }
 
   .navbar {
@@ -27,7 +27,6 @@ layout: default
     top: 0;
     z-index: 10;
   }
-
   .navbar a {
     color: #2d2d2d;
     text-decoration: none;
@@ -39,7 +38,6 @@ layout: default
     font-weight: 500;
     background: none;
   }
-
   .navbar a:hover,
   .navbar a:focus {
     color: #2d2d2d;
@@ -54,12 +52,11 @@ layout: default
     padding: 0 40px 0 40px;
     gap: 40px;
     box-sizing: border-box;
-    height: calc(100vh - 80px); /* Adjust for navbar */
-    margin-top: 80px; /* Navbar height */
-    overflow: hidden; /* Prevent main content from scrolling */
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    overflow: hidden;
   }
 
-  /* Fixed sidebar for desktop */
   .sidebar {
     width: 250px;
     text-align: center;
@@ -67,17 +64,15 @@ layout: default
     flex-direction: column;
     align-items: center;
     position: fixed;
-    top: 80px; /* Below the navbar */
-    left: 40px; /* Same as .main-container padding-left */
+    top: 80px;
+    left: 40px;
     z-index: 20;
     height: calc(100vh - 80px);
     justify-content: flex-start;
     background: transparent;
     pointer-events: auto;
   }
-  .main-container {
-    margin-left: 290px; /* sidebar width + gap */
-  }
+  .main-container { margin-left: 290px; }
 
   .avatar-wrapper {
     width: 160px;
@@ -104,7 +99,6 @@ layout: default
     width: 100%;
     padding-left: 18px;
   }
-
   .social-link {
     display: flex;
     align-items: center;
@@ -114,12 +108,10 @@ layout: default
     font-size: 16px;
     transition: color 0.15s;
   }
-
   .social-link:hover {
     color: #00ffc3;
     text-decoration: underline;
   }
-
   .social-link img {
     width: 24px;
     height: 24px;
@@ -138,7 +130,7 @@ layout: default
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     height: 100%;
     max-height: 100%;
-    overflow: hidden; /* Prevent content-box from scrolling */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -153,6 +145,7 @@ layout: default
     margin: 0 0 10px 0;
     padding-top: 32px;
     padding-left: 36px;
+    flex-wrap: wrap;
   }
   .intro-text {
     font-size: 1.13em;
@@ -191,7 +184,62 @@ layout: default
     min-height: 0;
     max-height: calc(100% - 90px);
     overflow-y: auto;
-    /* Make sure the box fits in the space and is the only scrollable element */
+  }
+
+  .projects-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 360px;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+  }
+  .projects-header-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .projects-header-row h1 {
+    color: #2d2d2d;
+    margin: 0 0 0 0;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding-bottom: 0;
+    line-height: 1;
+    flex: 1 1 auto;
+    text-align: left;
+  }
+  .projects-list {
+    margin-top: 0;
+    padding-left: 0;
+    width: 100%;
+    color: #f4f4f4;
+    z-index: 2;
+    position: relative;
+  }
+  .projects-list li {
+    margin-bottom: 26px;
+    font-size: 1.05em;
+    line-height: 1.6;
+    list-style: disc inside;
+  }
+  .projects-list strong {
+    color: #00ffc3;
+    font-weight: 600;
+    font-size: 1.07em;
   }
 
   .cv-fullscreen-link {
@@ -305,33 +353,11 @@ layout: default
 
 <div class="navbar">
   <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('projects')">Projects</a>
   <a onclick="showSection('cv')">CV</a>
   <a onclick="showSection('publications')">Publications</a>
   <a onclick="showSection('contact')">Contact</a>
   <a onclick="showSection('about-detail')">About in Detail</a>
-</div>
-
-<div class="about-detail-container" id="about-detail-container" style="display:none;">
-  <div class="about-detail-intro">This section contains life updates in detail:</div>
-  <div class="about-detail-scrollbox">
-    <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
-    <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
-    Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
-    <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
-    Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
-    <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
-    <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
-    <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
-    Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
-    <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
-    Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
-    Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
-    <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
-    Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
-    <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
-    Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
-    Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
-  </div>
 </div>
 
 <div class="main-container">
@@ -349,7 +375,7 @@ layout: default
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
         <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
-      <a class="social-link" href="mailto:and@gmail.com">
+      <a class="social-link" href="mailto:dishanarupani@gmail.com">
         <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
@@ -380,6 +406,44 @@ layout: default
       </div>
     </div>
 
+    <div id="projects" style="display: none;">
+      <div class="projects-box">
+        <div class="projects-header-row">
+          <h1>Projects</h1>
+        </div>
+        <ul class="projects-list">
+          <li>
+            <strong>Marvin (Autonomous Indoor Robot)</strong><br>
+            Designed and built an autonomous robot during YTS at Plaksha University. Marvin uses a LiDAR sensor, ultrasonic sensors, and a Raspberry Pi to map and navigate indoor spaces, detect obstacles and people, and carry items. The project included hardware assembly, Python firmware, and hands-on robotics teamwork.
+          </li>
+          <li>
+            <strong>Quantum Temporal Lattice Theory</strong><br>
+            Published a research paper introducing a new theoretical framework to combine aspects of string theory and time loops. This project involved deep theoretical physics research, mathematical modeling, and scientific writing.
+          </li>
+          <li>
+            <strong>CMD Error Detector & Fixer</strong><br>
+            Developed a CLI tool to automatically detect common Windows CMD errors, explain them, and offer one-click fixes. Won 2nd place and a cash prize in a competitive hackathon.
+          </li>
+          <li>
+            <strong>Twitter AI Lead Qualifier Bot</strong><br>
+            Created a Python-based bot for Twitter/X that uses NLP to qualify leads for outreach, automating profile scanning and message sending. Improved outreach efficiency for freelance clients.
+          </li>
+          <li>
+            <strong>ML Bots & Automation Agents</strong><br>
+            Built several smart bots, including NLP-powered customer support chatbots and automation pipelines for document management, using Python and cloud APIs for various freelance projects.
+          </li>
+          <li>
+            <strong>Gauss’s Law Simulation</strong><br>
+            Conducted a project to simulate and analyze the effects of a hole in a charged spherical shell using Gauss’s Law, blending theoretical physics with computational modeling.
+          </li>
+          <li>
+            <strong>Fundraiser Shop Platform</strong><br>
+            Organized and built the technical backbone for a school fundraiser, raising over ₹19,500 for Ukrainian relief by setting up a digital inventory and payment system.
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <div id="cv" style="display: none;">
       <h1>My CV</h1>
       <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
@@ -395,39 +459,45 @@ layout: default
 
     <div id="contact" style="display: none;">
       <h1>Contact</h1>
-      <p>Email me at <a href="mailto:and@gmail.com">and@gmail.com</a></p>
+      <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
+    </div>
+
+    <div id="about-detail" style="display: none;">
+      <div class="about-detail-container">
+        <div class="about-detail-intro">This section contains life updates in detail:</div>
+        <div class="about-detail-scrollbox">
+          <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
+          <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
+          Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
+          <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
+          Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
+          <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
+          <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
+          <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
+          Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
+          <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
+          Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
+          Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
+          <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
+          Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
+          <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
+          Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
+          Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'cv', 'publications', 'contact'];
+    const sections = ['home', 'projects', 'cv', 'publications', 'contact', 'about-detail'];
     sections.forEach(id => {
-      document.getElementById(id).style.display = id === section ? 'block' : 'none';
+      const el = document.getElementById(id);
+      if (el) el.style.display = id === section ? 'block' : 'none';
     });
-
-    // Hide about-detail by default
-    document.getElementById('about-detail-container').style.display = 'none';
-    document.getElementById('content-area').classList.remove('cv-active');
-    if(section === 'home'){
-      // nothing, intro is on home only now
-    } else {
-      // Hide intro-text on non-home pages (handled by DOM structure)
-    }
-
-    if (section === 'about-detail') {
-      document.getElementById('about-detail-container').style.display = 'block';
-    }
-    if (section === 'cv') {
-      document.getElementById('content-area').classList.add('cv-active');
-    }
-    if (sections.includes(section)) {
-      document.getElementById('about-detail-container').style.display = 'none';
-    }
   }
-  // On page load, home is visible
   document.addEventListener('DOMContentLoaded', function(){
-    // No extra code needed
+    showSection('home');
   });
 </script>
