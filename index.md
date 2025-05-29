@@ -74,11 +74,6 @@ layout: default
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
-    /* Make sidebar sticky so it stays visible as you scroll */
-    position: sticky;
-    top: 110px; /* Adjust based on navbar + intro-text height */
-    height: fit-content;
-    z-index: 20;
   }
 
   .avatar-wrapper {
@@ -232,8 +227,6 @@ layout: default
       width: 100%;
       margin-top: 10px;
       align-items: center;
-      position: static;
-      top: unset;
     }
     .avatar-wrapper {
       width: 130px;
