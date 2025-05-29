@@ -56,24 +56,26 @@ layout: default
     margin-top: 80px;
     overflow: hidden;
   }
-
   .sidebar {
     width: 250px;
+    min-width: 250px;
+    max-width: 250px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Restore OG vertical alignment: */
+    justify-content: flex-start;
     position: fixed;
     top: 80px;
     left: 40px;
     z-index: 20;
     height: calc(100vh - 80px);
-    justify-content: flex-start;
     background: transparent;
     pointer-events: auto;
+    padding: 0;
+    gap: 0;
   }
-  .main-container { margin-left: 290px; }
-
   .avatar-wrapper {
     width: 160px;
     height: 160px;
@@ -89,7 +91,6 @@ layout: default
     object-fit: cover;
     display: block;
   }
-
   .social-links {
     margin-top: 14px;
     display: flex;
@@ -122,6 +123,8 @@ layout: default
     border-radius: 4px;
   }
 
+  .main-container { margin-left: 290px; }
+
   .content-box {
     flex: 1;
     background-color: rgba(0, 0, 0, 0.8);
@@ -138,15 +141,16 @@ layout: default
     position: relative;
   }
 
-  /* Home: make intro and updates align vertically, like a letter */
+  /* Home vertical stack: remove left space, use more width */
   .home-vertical-stack {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 28px;
-    padding: 48px 0 0 38px;
+    padding: 40px 0 0 0;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   .intro-text {
     font-size: 1.13em;
@@ -156,7 +160,7 @@ layout: default
     background: rgba(255,255,255,0.58);
     border-radius: 10px;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.11);
     padding: 15px 20px 13px 20px;
     line-height: 1.45;
@@ -180,12 +184,47 @@ layout: default
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
     min-width: 310px;
-    max-height: 320px;
+    max-height: 340px;
     overflow-y: auto;
   }
 
+  /* About in Detail: bigger box */
+  .about-detail-container {
+    margin: 38px auto 0 auto;
+    background: rgba(255,255,255,0.62);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    max-width: 1100px;
+    min-width: 360px;
+    min-height: 420px;
+    padding: 28px 32px 26px 32px;
+    text-align: center;
+  }
+  .about-detail-intro {
+    color: #232323;
+    font-size: 1.12em;
+    margin-bottom: 18px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .about-detail-scrollbox {
+    background: #fff;
+    color: #232323;
+    font-size: 1.02em;
+    border-radius: 10px;
+    max-height: 400px;
+    min-height: 210px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 19px 26px 14px 26px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
+    border: 1px solid #e2e2e2;
+    line-height: 1.7;
+  }
+
+  /* Projects: remove vertical scroller */
   .projects-box {
     width: 100%;
     max-width: 900px;
@@ -198,8 +237,8 @@ layout: default
     flex-direction: column;
     align-items: flex-start;
     min-height: 360px;
-    /*max-height: 400px;
-    overflow-y: scroll;*/
+    /*max-height: 400px;*/
+    /*overflow-y: scroll;*/
     overflow-x: hidden;
     position: relative;
   }
@@ -265,37 +304,14 @@ layout: default
     flex: 1 1 auto;
   }
 
-  .about-detail-container {
-    margin: 38px auto 0 auto;
-    background: rgba(255,255,255,0.62);
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    max-width: 760px;
-    padding: 25px 24px 20px 24px;
-    text-align: center;
+  @media (max-width: 1200px) {
+    .home-vertical-stack,
+    .updates-scrollbox,
+    .intro-text,
+    .about-detail-container {
+      max-width: 98vw;
+    }
   }
-
-  .about-detail-intro {
-    color: #232323;
-    font-size: 1.03em;
-    margin-bottom: 16px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  .about-detail-scrollbox {
-    background: #fff;
-    color: #232323;
-    font-size: 0.99em;
-    border-radius: 10px;
-    max-height: 340px;
-    overflow-y: auto;
-    text-align: left;
-    padding: 19px 20px 14px 20px;
-    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
-    border: 1px solid #e2e2e2;
-    line-height: 1.7;
-  }
-
   @media (max-width: 900px) {
     .main-container {
       flex-direction: column;
@@ -312,6 +328,8 @@ layout: default
       top: unset;
       left: unset;
       height: auto;
+      min-width: unset;
+      max-width: unset;
     }
     .avatar-wrapper {
       width: 130px;
@@ -333,7 +351,7 @@ layout: default
       padding: 0;
     }
     .home-vertical-stack {
-      padding: 28px 0 0 2vw;
+      padding: 28px 0 0 0;
       max-width: 98vw;
     }
     .intro-text, .updates-scrollbox {
@@ -442,12 +460,10 @@ layout: default
     </div>
 
     <div id="cv" style="display: none;">
-      <div style="display: flex; align-items: center; gap: 16px; margin-left: 36px; margin-top: 32px;">
-        <h1 style="margin:0;">CV</h1>
-        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-          Click to open in fullscreen
-        </a>
-      </div>
+      <h1>My CV</h1>
+      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+        Click to open in fullscreen
+      </a>
       <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
     </div>
 
