@@ -108,10 +108,22 @@ layout: default
     border-radius: 4px;
   }
 
+  .content-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 120% 80% at 55% 40%, rgba(255,255,255,0.2) 0%, rgba(0,255,195,0.18) 55%, rgba(0,0,0,0.28) 100%);
+    box-shadow: 0 12px 48px 0 rgba(0, 255, 195, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.24), 0 8px 34px 0 rgba(0,255,195,0.14);
+    z-index: 1;
+    border-radius: 18px;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
+
   .content-box {
     flex: 1;
     background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
+    border-radius: 18px;
     padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     height: 100%;
@@ -126,7 +138,6 @@ layout: default
     min-width: 0;
   }
 
-  /* Home page: center intro */
   .home-intro-center {
     width: 100%;
     display: flex;
@@ -178,9 +189,12 @@ layout: default
     align-self: flex-start;
   }
   .updates-scrollbox-content {
-    overflow-y: auto;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
     height: 100%;
     width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 #232323;
   }
   .updates-scrollbox {
     font-size: 0.98em;
@@ -194,7 +208,20 @@ layout: default
     min-height: 0;
     max-height: 340px;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 #232323;
+  }
+  .updates-scrollbox::-webkit-scrollbar,
+  .updates-scrollbox-content::-webkit-scrollbar {
+    width: 10px;
+    background: #232323;
+  }
+  .updates-scrollbox::-webkit-scrollbar-thumb,
+  .updates-scrollbox-content::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 8px;
   }
 
   .cv-box {
@@ -202,7 +229,7 @@ layout: default
     max-width: 900px;
     margin: 40px auto 0 auto;
     background-color: rgba(0, 0, 0, 0.87);
-    border-radius: 15px;
+    border-radius: 18px;
     padding: 28px 26px 24px 26px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.40);
     display: flex;
@@ -213,11 +240,16 @@ layout: default
     overflow: hidden;
     position: relative;
   }
+  .cv-box .content-overlay {
+    border-radius: 18px;
+  }
   .cv-header-row, .projects-header-row {
     display: flex;
     width: 100%;
     align-items: center;
     margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
   }
   .cv-header-row h1, .projects-header-row h1 {
     color: #2d2d2d;
@@ -255,6 +287,8 @@ layout: default
     flex: 1 1 auto;
     min-height: 180px;
     overflow-y: auto;
+    position: relative;
+    z-index: 2;
   }
 
   .projects-box {
@@ -269,8 +303,20 @@ layout: default
     flex-direction: column;
     align-items: flex-start;
     min-height: 360px;
-    overflow-y: auto;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
     max-height: 70vh;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 #232323;
+  }
+  .projects-box::-webkit-scrollbar {
+    width: 10px;
+    background: #232323;
+  }
+  .projects-box::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 8px;
   }
 
   .projects-list {
@@ -278,6 +324,8 @@ layout: default
     padding-left: 0;
     width: 100%;
     color: #f4f4f4;
+    z-index: 2;
+    position: relative;
   }
   .projects-list li {
     margin-bottom: 26px;
@@ -324,12 +372,23 @@ layout: default
     font-size: 0.99em;
     border-radius: 10px;
     max-height: 340px;
-    overflow-y: auto;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
     text-align: left;
     padding: 19px 20px 14px 20px;
     box-shadow: 0 2px 9px rgba(0,0,0,0.06);
     border: 1px solid #e2e2e2;
     line-height: 1.7;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 #232323;
+  }
+  .about-detail-scrollbox::-webkit-scrollbar {
+    width: 10px;
+    background: #232323;
+  }
+  .about-detail-scrollbox::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 8px;
   }
 
   @media (max-width: 900px) {
@@ -460,13 +519,14 @@ layout: default
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
         <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
-      <a class="social-link" href="mailto:and@gmail.com">
+      <a class="social-link" href="mailto:dishanarupani@gmail.com">
         <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
 
   <div class="content-box" id="content-area">
+    <div class="content-overlay"></div>
     <div id="home">
       <div class="home-content-col">
         <div class="updates-scrollable-container">
@@ -494,6 +554,7 @@ layout: default
 
     <div id="cv" style="display: none;">
       <div class="cv-box">
+        <div class="content-overlay"></div>
         <div class="cv-header-row">
           <h1>My CV</h1>
           <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
@@ -552,7 +613,12 @@ layout: default
     <div id="contact" style="display: none;">
       <div class="content-section">
         <h1>Contact</h1>
-        <p>Email me at <a href="mailto:and@gmail.com">and@gmail.com</a></p>
+        <p>
+          Email me at
+          <a href="mailto:dishanarupani@gmail.com" target="_blank">
+            dishanarupani@gmail.com
+          </a>
+        </p>
       </div>
     </div>
   </div>
