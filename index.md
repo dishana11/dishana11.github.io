@@ -108,18 +108,6 @@ layout: default
     border-radius: 4px;
   }
 
-  .content-overlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 120% 80% at 55% 40%, rgba(255,255,255,0.2) 0%, rgba(0,255,195,0.18) 55%, rgba(0,0,0,0.28) 100%);
-    box-shadow: 0 12px 48px 0 rgba(0, 255, 195, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.24), 0 8px 34px 0 rgba(0,255,195,0.14);
-    z-index: 1;
-    border-radius: 18px;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    opacity: 1;
-  }
-
   .content-box {
     flex: 1;
     background-color: rgba(0, 0, 0, 0.8);
@@ -239,9 +227,6 @@ layout: default
     min-height: 360px;
     overflow: hidden;
     position: relative;
-  }
-  .cv-box .content-overlay {
-    border-radius: 18px;
   }
   .cv-header-row, .projects-header-row {
     display: flex;
@@ -526,7 +511,6 @@ layout: default
   </div>
 
   <div class="content-box" id="content-area">
-    <div class="content-overlay"></div>
     <div id="home">
       <div class="home-content-col">
         <div class="updates-scrollable-container">
@@ -554,7 +538,6 @@ layout: default
 
     <div id="cv" style="display: none;">
       <div class="cv-box">
-        <div class="content-overlay"></div>
         <div class="cv-header-row">
           <h1>My CV</h1>
           <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
