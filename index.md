@@ -4,28 +4,15 @@ layout: default
 ---
 
 <style>
-  body {
+  html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-  }
-
-  .intro-text {
-    font-size: 1.15em;
-    color: #2d2d2d;
-    margin: 90px auto 28px auto;
-    text-align: center;
-    font-weight: 500;
-    background: rgba(255,255,255,0.58);
-    border-radius: 10px;
-    max-width: 760px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.11);
-    padding: 18px 20px 14px 20px;
-    line-height: 1.45;
-    display: block;
+    overflow: hidden;
   }
 
   .navbar {
@@ -63,9 +50,13 @@ layout: default
 
   .main-container {
     display: flex;
-    align-items: flex-start;
-    padding: 0 40px 40px 40px;
+    align-items: stretch;
+    padding: 0 40px 0 40px;
     gap: 40px;
+    box-sizing: border-box;
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    overflow: hidden;
   }
 
   .sidebar {
@@ -74,16 +65,22 @@ layout: default
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
-    position: sticky;
-    top: 110px;
-    height: fit-content;
+    position: fixed;
+    top: 80px;
+    left: 40px;
     z-index: 20;
+    height: calc(100vh - 80px);
+    justify-content: flex-start;
+    background: transparent;
+    pointer-events: auto;
+  }
+  .main-container {
+    margin-left: 290px;
   }
 
   .avatar-wrapper {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 14px auto;
@@ -98,13 +95,13 @@ layout: default
   }
 
   .social-links {
-    margin-top: 8px;
+    margin-top: 14px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 13px;
     align-items: flex-start;
     width: 100%;
-    padding-left: 25px;
+    padding-left: 18px;
   }
 
   .social-link {
@@ -123,44 +120,107 @@ layout: default
   }
 
   .social-link img {
-    width: 21px;
-    height: 21px;
-    display: inline;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
     vertical-align: middle;
     filter: drop-shadow(0 0 2px #2229);
+    background: white;
+    border-radius: 4px;
   }
 
   .content-box {
     flex: 1;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
-    padding: 25px;
+    padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    max-height: 80vh;
-    overflow-y: auto;
-    transition: max-height 0.2s, overflow 0.2s;
-  }
-
-  .content-box.cv-active {
-    max-height: none;
-    overflow: visible;
-    min-height: 80vh;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: relative;
   }
 
+  /* Home header row: aligns Updates and intro-text at the top */
+  .home-header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin: 0 0 10px 0;
+    padding-top: 32px;
+    padding-left: 36px;
+    padding-bottom: 0;
+  }
+  .intro-text {
+    font-size: 1.13em;
+    color: #2d2d2d;
+    text-align: left;
+    font-weight: 500;
+    background: rgba(255,255,255,0.58);
+    border-radius: 10px;
+    max-width: 540px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.11);
+    padding: 15px 20px 13px 20px;
+    line-height: 1.45;
+    display: block;
+    margin: 0;
+    align-self: flex-start;
+  }
   .content-box h1 {
     color: #2d2d2d;
-    margin-top: 0;
-    display: inline;
+    margin: 0 0 0 0;
     font-size: 2em;
+    display: block;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding-bottom: 0;
+    line-height: 1;
+    align-self: flex-start;
   }
 
-  .updates-content {
+  .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
+    background: rgba(40,40,40,0.95);
+    border-radius: 9px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 20px;
+    margin: 20px 32px 0 36px;
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: calc(100% - 104px);
+    overflow-y: auto;
   }
 
+  /* CV page: wider and taller box */
+  .cv-box {
+    width: 95%;
+    max-width: 980px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 82vh;
+    min-height: 500px;
+  }
+  .cv-iframe-box {
+    width: 100%;
+    height: 70vh;
+    border: none;
+    margin-top: 18px;
+    border-radius: 8px;
+    background: #181818;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    flex: 1 1 auto;
+  }
   .cv-fullscreen-link {
     display: inline-block;
     margin-left: 16px;
@@ -171,17 +231,16 @@ layout: default
     cursor: pointer;
     background: none;
     border: none;
+    margin-bottom: 8px;
   }
 
-  .cv-iframe-box {
-    width: 100%;
-    height: 80vh;
-    border: none;
-    margin-top: 18px;
-    border-radius: 8px;
-    background: #181818;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    flex: 1 1 auto;
+  /* Publication & Contact: push text down */
+  .content-section {
+    padding-top: 60px;
+    padding-left: 50px;
+  }
+  .content-section h1 {
+    margin-top: 0;
   }
 
   .about-detail-container {
@@ -194,13 +253,6 @@ layout: default
     text-align: center;
   }
 
-  .about-detail-title {
-    font-size: 1.3em;
-    color: #232323;
-    font-weight: 600;
-    margin-bottom: 13px;
-    letter-spacing: 0.5px;
-  }
   .about-detail-intro {
     color: #232323;
     font-size: 1.03em;
@@ -227,6 +279,8 @@ layout: default
       flex-direction: column;
       padding: 0 10px 30px 10px;
       align-items: center;
+      margin-left: 0;
+      height: auto;
     }
     .sidebar {
       width: 100%;
@@ -234,6 +288,8 @@ layout: default
       align-items: center;
       position: static;
       top: unset;
+      left: unset;
+      height: auto;
     }
     .avatar-wrapper {
       width: 130px;
@@ -251,6 +307,37 @@ layout: default
       max-height: 240px;
       padding: 12px 5vw 8px 5vw;
     }
+    .content-box {
+      padding: 0;
+    }
+    .updates-scrollbox {
+      margin: 12px 0 0 0;
+      padding: 12px 2vw;
+      max-height: 340px;
+    }
+    .home-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding-top: 20px;
+      padding-left: 0;
+    }
+    .intro-text {
+      max-width: 98vw;
+      padding: 13px 4vw 11px 4vw;
+    }
+    .cv-box {
+      width: 99vw;
+      min-width: 0;
+      margin: 14px 0 0 0;
+      padding: 12px 2vw 10px 2vw;
+      height: 77vh;
+      min-height: 320px;
+    }
+    .content-section {
+      padding-top: 30px;
+      padding-left: 0;
+    }
   }
 </style>
 
@@ -262,13 +349,7 @@ layout: default
   <a onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
-<!-- Intro text only visible on Home page -->
-<div class="intro-text" id="intro-text">
-  Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
-</div>
-
 <div class="about-detail-container" id="about-detail-container" style="display:none;">
-  <div class="about-detail-title">About in Detail</div>
   <div class="about-detail-intro">This section contains life updates in detail:</div>
   <div class="about-detail-scrollbox">
     <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
@@ -294,29 +375,33 @@ layout: default
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="assets/images/avatar.jpg" alt="Your Profile Picture">
+      <img src="assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="assets/images/linkedin.svg" alt="LinkedIn logo">LinkedIn
+        <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/meowww11" target="_blank">
-        <img src="assets/images/github.svg" alt="GitHub logo">GitHub
+        <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="assets/images/x-twitter.svg" alt="X logo">X (Twitter)
+        <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="mailto:and@gmail.com">
-        <img src="assets/images/email.svg" alt="Email logo">Email
+        <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
 
   <div class="content-box" id="content-area">
-    <!-- Default Home Content -->
     <div id="home">
-      <h1>Updates</h1>
-      <div class="updates-content">
+      <div class="home-header-row">
+        <h1>Updates</h1>
+        <div class="intro-text" id="intro-text">
+          Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
+        </div>
+      </div>
+      <div class="updates-scrollbox">
         <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
         <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
         <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
@@ -334,21 +419,27 @@ layout: default
     </div>
 
     <div id="cv" style="display: none;">
-      <h1>My CV</h1>
-      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-        Click to open in fullscreen
-      </a>
-      <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+      <div class="cv-box">
+        <h1>My CV</h1>
+        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+          Click to open in fullscreen
+        </a>
+        <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+      </div>
     </div>
 
     <div id="publications" style="display: none;">
-      <h1>Publications</h1>
-      <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
+      <div class="content-section">
+        <h1>Publications</h1>
+        <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
+      </div>
     </div>
 
     <div id="contact" style="display: none;">
-      <h1>Contact</h1>
-      <p>Email me at <a href="mailto:and@gmail.com">and@gmail.com</a></p>
+      <div class="content-section">
+        <h1>Contact</h1>
+        <p>Email me at <a href="mailto:and@gmail.com">and@gmail.com</a></p>
+      </div>
     </div>
   </div>
 </div>
@@ -363,16 +454,8 @@ layout: default
     // Hide about-detail by default
     document.getElementById('about-detail-container').style.display = 'none';
     document.getElementById('content-area').classList.remove('cv-active');
-    // Show or hide intro-text based on section
-    if(section === 'home'){
-      document.getElementById('intro-text').style.display = 'block';
-    } else {
-      document.getElementById('intro-text').style.display = 'none';
-    }
-
     if (section === 'about-detail') {
       document.getElementById('about-detail-container').style.display = 'block';
-      document.getElementById('intro-text').style.display = 'none';
     }
     if (section === 'cv') {
       document.getElementById('content-area').classList.add('cv-active');
@@ -381,9 +464,7 @@ layout: default
       document.getElementById('about-detail-container').style.display = 'none';
     }
   }
-  // On page load, only show intro text if home is visible
   document.addEventListener('DOMContentLoaded', function(){
-    // By default, only home is visible, so intro-text is shown
-    document.getElementById('intro-text').style.display = 'block';
+    // No extra code needed
   });
 </script>
