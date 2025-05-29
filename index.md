@@ -172,7 +172,6 @@ layout: default
     line-height: 1;
   }
 
-  /* Updates scrollbox improvements */
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
@@ -183,32 +182,69 @@ layout: default
     margin: 0 32px 0 36px;
     flex: 1 1 auto;
     min-height: 0;
-    max-height: 320px;
+    max-height: calc(100% - 90px);
     overflow-y: auto;
   }
 
-  /* CV header row for inline title and link */
-  .cv-header-row {
+  .projects-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
     display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 10px;
-    margin-left: 36px;
-    margin-top: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 360px;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
   }
-  .cv-header-row h1 {
+  .projects-header-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .projects-header-row h1 {
     color: #2d2d2d;
-    margin: 0;
+    margin: 0 0 0 0;
     font-size: 2em;
     font-weight: 700;
     letter-spacing: .5px;
     padding-bottom: 0;
     line-height: 1;
-    display: inline;
+    flex: 1 1 auto;
+    text-align: left;
   }
+  .projects-list {
+    margin-top: 0;
+    padding-left: 0;
+    width: 100%;
+    color: #f4f4f4;
+    z-index: 2;
+    position: relative;
+  }
+  .projects-list li {
+    margin-bottom: 26px;
+    font-size: 1.05em;
+    line-height: 1.6;
+    list-style: disc inside;
+  }
+  .projects-list strong {
+    color: #00ffc3;
+    font-weight: 600;
+    font-size: 1.07em;
+  }
+
   .cv-fullscreen-link {
     display: inline-block;
-    margin-left: 12px;
+    margin-left: 16px;
     font-size: 16px;
     color: #2d2d2d;
     text-decoration: underline;
@@ -216,21 +252,103 @@ layout: default
     cursor: pointer;
     background: none;
     border: none;
-    white-space: nowrap;
-    margin-bottom: 0;
   }
+
   .cv-iframe-box {
-    width: 96%;
+    width: 100%;
     height: 80vh;
     border: none;
-    margin: 18px 2% 0 2%;
+    margin-top: 18px;
     border-radius: 8px;
     background: #181818;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     flex: 1 1 auto;
   }
 
-  /* ...other styles unchanged... */
+  .about-detail-container {
+    margin: 38px auto 0 auto;
+    background: rgba(255,255,255,0.62);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    max-width: 760px;
+    padding: 25px 24px 20px 24px;
+    text-align: center;
+  }
+
+  .about-detail-intro {
+    color: #232323;
+    font-size: 1.03em;
+    margin-bottom: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .about-detail-scrollbox {
+    background: #fff;
+    color: #232323;
+    font-size: 0.99em;
+    border-radius: 10px;
+    max-height: 340px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 19px 20px 14px 20px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
+    border: 1px solid #e2e2e2;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .main-container {
+      flex-direction: column;
+      padding: 0 10px 30px 10px;
+      align-items: center;
+      margin-left: 0;
+      height: auto;
+    }
+    .sidebar {
+      width: 100%;
+      margin-top: 10px;
+      align-items: center;
+      position: static;
+      top: unset;
+      left: unset;
+      height: auto;
+    }
+    .avatar-wrapper {
+      width: 130px;
+      height: 130px;
+    }
+    .social-links {
+      padding-left: 0;
+      align-items: center;
+    }
+    .about-detail-container {
+      max-width: 98vw;
+      padding: 14px 4vw 12px 4vw;
+    }
+    .about-detail-scrollbox {
+      max-height: 240px;
+      padding: 12px 5vw 8px 5vw;
+    }
+    .content-box {
+      padding: 0;
+    }
+    .updates-scrollbox {
+      margin: 0 0 0 0;
+      padding: 12px 2vw;
+      max-height: 340px;
+    }
+    .home-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding-top: 20px;
+      padding-left: 0;
+    }
+    .intro-text {
+      max-width: 98vw;
+      padding: 13px 4vw 11px 4vw;
+    }
+  }
 </style>
 
 <div class="navbar">
@@ -264,7 +382,6 @@ layout: default
   </div>
 
   <div class="content-box" id="content-area">
-    <!-- HOME -->
     <div id="home">
       <div class="home-header-row">
         <h1>Updates</h1>
@@ -289,7 +406,6 @@ layout: default
       </div>
     </div>
 
-    <!-- PROJECTS (unchanged) -->
     <div id="projects" style="display: none;">
       <div class="projects-box">
         <div class="projects-header-row">
@@ -328,14 +444,11 @@ layout: default
       </div>
     </div>
 
-    <!-- CV -->
     <div id="cv" style="display: none;">
-      <div class="cv-header-row">
-        <h1>CV</h1>
-        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-          Click to open in fullscreen
-        </a>
-      </div>
+      <h1>My CV</h1>
+      <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+        Click to open in fullscreen
+      </a>
       <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
     </div>
 
