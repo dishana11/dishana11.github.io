@@ -28,34 +28,22 @@ layout: default
     z-index: 10;
   }
   .navbar a {
-    color: #fff;
+    color: #2d2d2d;
     text-decoration: none;
-    padding: 7px 22px;
-    border-radius: 13px;
-    font-size: 1.14em;
-    font-weight: 500;
-    background: transparent;
-    transition: 
-      box-shadow 0.22s cubic-bezier(.45,.03,.52,1.06),
-      background 0.22s,
-      color 0.16s;
     cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 7px;
+    transition: box-shadow 0.2s;
+    box-shadow: none;
+    font-weight: 500;
+    background: none;
+  }
+  .navbar a:hover,
+  .navbar a:focus {
+    color: #2d2d2d;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
+    background: none;
     outline: none;
-    border: none;
-    position: relative;
-    user-select: none;
-  }
-  .navbar a:hover, .navbar a:focus {
-    color: #00ffc3;
-    background: rgba(22, 22, 22, 0.16);
-    box-shadow: 0 0 0 2.5px #00ffc3, 0 0 14px 3px #00ffc399;
-  }
-  .navbar a.active {
-    color: #222;
-    background: #00ffc3;
-    box-shadow: 0 0 0 2.5px #00ffc3, 0 0 18px 5px #00ffc36e;
-    font-weight: 700;
-    cursor: default;
   }
 
   .main-container {
@@ -67,6 +55,7 @@ layout: default
     height: calc(100vh - 80px);
     margin-top: 80px;
     overflow: hidden;
+    margin-left: 290px;
   }
 
   .sidebar {
@@ -83,9 +72,6 @@ layout: default
     justify-content: flex-start;
     background: transparent;
     pointer-events: auto;
-  }
-  .main-container {
-    margin-left: 290px;
   }
 
   .avatar-wrapper {
@@ -138,12 +124,11 @@ layout: default
 
   .content-box {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-radius: 18px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
     padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     height: 100%;
-    max-width: 900px;
     max-height: 100%;
     overflow: hidden;
     display: flex;
@@ -151,72 +136,57 @@ layout: default
     justify-content: flex-start;
     align-items: stretch;
     position: relative;
-    min-width: 0;
   }
 
-  .home-intro-center {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 42px;
-    margin-bottom: 40px;
-  }
-  .home-intro-center-text {
-    max-width: 600px;
-    font-size: 1.15em;
-    color: #222;
-    background: none;
-    font-weight: 500;
-    text-align: center;
-    line-height: 1.5;
-    margin: 0 auto;
-    box-shadow: none;
-    padding: 0;
-  }
-  .home-content-col {
+  .home-vertical-stack {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 36px;
-    margin-top: 0;
-    height: calc(100% - 0px);
+    gap: 28px;
+    padding: 40px 0 0 0;
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  .updates-title {
+  .intro-text {
+    font-size: 1.13em;
     color: #2d2d2d;
+    text-align: left;
+    font-weight: 500;
+    background: rgba(255,255,255,0.58);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.11);
+    padding: 15px 20px 13px 20px;
+    line-height: 1.45;
+    margin: 0;
+  }
+  .updates-heading {
+    color: #2d2d2d;
+    margin: 0 0 9px 0;
     font-size: 2em;
     font-weight: 700;
-    margin-bottom: 8px;
     letter-spacing: .5px;
-    padding-bottom: 0;
     line-height: 1;
-    align-self: flex-start;
+    display: block;
+    padding-bottom: 0;
   }
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
-    background: rgba(40,40,40,0.97);
+    background: rgba(40,40,40,0.95);
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
-    min-height: 120px;
-    max-height: 320px;
     width: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: #00ffc3 #232323;
-  }
-  .updates-scrollbox::-webkit-scrollbar {
-    width: 10px;
-    background: #232323;
-  }
-  .updates-scrollbox::-webkit-scrollbar-thumb {
-    background: #00ffc3;
-    border-radius: 8px;
+    max-width: 1000px;
+    min-width: 310px;
+    max-height: 340px;
+    overflow-y: auto;
   }
 
+  /* Projects: invisible vertical scrollbar */
   .projects-box {
     width: 100%;
     max-width: 900px;
@@ -230,19 +200,14 @@ layout: default
     align-items: flex-start;
     min-height: 360px;
     max-height: 400px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
-    position: relative;
-    scrollbar-width: thin;
-    scrollbar-color: #00ffc3 #232323;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
   .projects-box::-webkit-scrollbar {
-    width: 10px;
-    background: #232323;
-  }
-  .projects-box::-webkit-scrollbar-thumb {
-    background: #00ffc3;
-    border-radius: 8px;
+    width: 0px;
+    background: transparent;
   }
   .projects-header-row {
     display: flex;
@@ -283,43 +248,16 @@ layout: default
     font-size: 1.07em;
   }
 
-  .cv-box {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.87);
-    border-radius: 18px;
-    padding: 28px 26px 24px 26px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 70vh;
-    min-height: 360px;
-    overflow: hidden;
-    position: relative;
-  }
   .cv-header-row {
     display: flex;
-    width: 100%;
     align-items: center;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 2;
+    gap: 18px;
+    margin-top: 32px;
+    margin-left: 36px;
+    margin-bottom: 10px;
   }
-  .cv-header-row h1 {
-    color: #2d2d2d;
-    margin: 0 0 0 0;
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: .5px;
-    padding-bottom: 0;
-    line-height: 1;
-    flex: 1 1 auto;
-    text-align: left;
-    min-width: 0;
-  }
-  .cv-fullscreen-link {
+  .cv-fullscreen-link, .cv-download-link {
+    display: inline-block;
     font-size: 16px;
     color: #2d2d2d;
     text-decoration: underline;
@@ -327,214 +265,35 @@ layout: default
     cursor: pointer;
     background: none;
     border: none;
-    margin-left: auto;
-    margin-bottom: 0;
-    padding-left: 10px;
+    margin-left: 0px;
+    margin-right: 20px;
     white-space: nowrap;
-    align-self: flex-end;
-    max-width: 48%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 0;
   }
-  .cv-iframe-wrap {
-    width: 100%;
-    height: 56vh;
-    margin-top: 18px;
+  .cv-download-link:hover, .cv-fullscreen-link:hover {
+    color: #00ffc3;
+  }
+  .cv-iframe-box {
+    width: 96%;
+    height: 80vh;
+    border: none;
+    margin: 18px 2% 0 2%;
     border-radius: 8px;
     background: #181818;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     flex: 1 1 auto;
-    min-height: 180px;
-    overflow: auto;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-  }
-  .cv-iframe-box {
-    width: 100%;
-    height: 100%;
-    min-height: 180px;
-    border: none;
-    display: block;
-  }
-  .cv-iframe-wrap::-webkit-scrollbar {
-    width: 10px;
-    background: #232323;
-  }
-  .cv-iframe-wrap::-webkit-scrollbar-thumb {
-    background: #00ffc3;
-    border-radius: 8px;
-  }
-  .cv-iframe-wrap {
-    scrollbar-width: thin;
-    scrollbar-color: #00ffc3 #232323;
   }
 
-  .content-section {
-    padding-top: 64px;
-    padding-left: 50px;
-  }
-  .content-section h1 {
-    margin-top: 0;
-  }
-
-  .about-detail-container {
-    margin: 38px auto 0 auto;
-    background: rgba(255,255,255,0.62);
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    max-width: 760px;
-    padding: 25px 24px 20px 24px;
-    text-align: center;
-  }
-  .about-detail-intro-outer {
-    width: 100vw;
-    text-align: center;
-    margin-top: 60px;
-    font-size: 1.13em;
-    color: #232323;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    margin-bottom: 6px;
-  }
-  .about-detail-scrollbox {
-    background: #fff;
-    color: #232323;
-    font-size: 0.99em;
-    border-radius: 10px;
-    max-height: 340px;
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    text-align: left;
-    padding: 19px 20px 14px 20px;
-    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
-    border: 1px solid #e2e2e2;
-    line-height: 1.7;
-    scrollbar-width: thin;
-    scrollbar-color: #00ffc3 #232323;
-  }
-  .about-detail-scrollbox::-webkit-scrollbar {
-    width: 10px;
-    background: #232323;
-  }
-  .about-detail-scrollbox::-webkit-scrollbar-thumb {
-    background: #00ffc3;
-    border-radius: 8px;
-  }
-
-  @media (max-width: 900px) {
-    .main-container {
-      flex-direction: column;
-      padding: 0 10px 30px 10px;
-      align-items: center;
-      margin-left: 0;
-      height: auto;
-    }
-    .sidebar {
-      width: 100%;
-      margin-top: 10px;
-      align-items: center;
-      position: static;
-      top: unset;
-      left: unset;
-      height: auto;
-    }
-    .avatar-wrapper {
-      width: 130px;
-      height: 130px;
-    }
-    .social-links {
-      padding-left: 0;
-      align-items: center;
-    }
-    .about-detail-container {
-      max-width: 98vw;
-      padding: 14px 4vw 12px 4vw;
-    }
-    .about-detail-intro-outer {
-      margin-top: 30px;
-    }
-    .about-detail-scrollbox {
-      max-height: 240px;
-      padding: 12px 5vw 8px 5vw;
-    }
-    .content-box {
-      padding: 0;
-    }
-    .projects-box {
-      width: 99vw;
-      min-width: 0;
-      margin: 14px 0 0 0;
-      padding: 12px 2vw 10px 2vw;
-      max-height: 48vh;
-    }
-    .cv-box {
-      width: 99vw;
-      min-width: 0;
-      margin: 14px 0 0 0;
-      padding: 12px 2vw 10px 2vw;
-      height: 48vh;
-      min-height: 220px;
-    }
-    .cv-header-row, .projects-header-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .cv-fullscreen-link {
-      margin-left: 0;
-      align-self: flex-start;
-      margin-top: 5px;
-      max-width: 100%;
-    }
-    .content-section {
-      padding-top: 30px;
-      padding-left: 0;
-    }
-  }
+  /* ...other styles unchanged... */
 </style>
 
-<!-- NAVBAR -->
 <div class="navbar">
-  <a id="nav-home" onclick="showSection('home')">Home</a>
-  <a id="nav-cv" onclick="showSection('cv')">CV</a>
-  <a id="nav-projects" onclick="showSection('projects')">Projects</a>
-  <a id="nav-publications" onclick="showSection('publications')">Publications</a>
-  <a id="nav-contact" onclick="showSection('contact')">Contact</a>
-  <a id="nav-about-detail" onclick="showSection('about-detail')">About in Detail</a>
-</div>
-
-<!-- Home intro, centered, not a box -->
-<div id="home-intro-box" class="home-intro-center">
-  <div class="home-intro-center-text">
-    Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
-  </div>
-</div>
-
-<div id="about-detail-intro-outer" class="about-detail-intro-outer" style="display:none;">
-  This section contains life updates in detail:
-</div>
-<div class="about-detail-container" id="about-detail-container" style="display:none;">
-  <div class="about-detail-scrollbox">
-    <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
-    <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
-    Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
-    <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
-    Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
-    <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
-    <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
-    <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
-    Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
-    <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
-    Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
-    Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
-    <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
-    Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
-    <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
-    Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
-    Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
-  </div>
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('projects')">Projects</a>
+  <a onclick="showSection('cv')">CV</a>
+  <a onclick="showSection('publications')">Publications</a>
+  <a onclick="showSection('contact')">Contact</a>
+  <a onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
 <div class="main-container">
@@ -559,9 +318,13 @@ layout: default
   </div>
 
   <div class="content-box" id="content-area">
+    <!-- HOME -->
     <div id="home">
-      <div class="home-content-col">
-        <div class="updates-title">Updates</div>
+      <div class="home-vertical-stack">
+        <div class="intro-text" id="intro-text">
+          Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
+        </div>
+        <h1 class="updates-heading">Updates</h1>
         <div class="updates-scrollbox">
           <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
           <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
@@ -580,20 +343,7 @@ layout: default
       </div>
     </div>
 
-    <div id="cv" style="display: none;">
-      <div class="cv-box">
-        <div class="cv-header-row">
-          <h1>My CV</h1>
-          <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-            Click to open in fullscreen
-          </a>
-        </div>
-        <div class="cv-iframe-wrap">
-          <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
-        </div>
-      </div>
-    </div>
-
+    <!-- PROJECTS (INVISIBLE SCROLLBAR) -->
     <div id="projects" style="display: none;">
       <div class="projects-box">
         <div class="projects-header-row">
@@ -632,22 +382,51 @@ layout: default
       </div>
     </div>
 
-    <div id="publications" style="display: none;">
-      <div class="content-section">
-        <h1>Publications</h1>
-        <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
+    <!-- CV SECTION -->
+    <div id="cv" style="display: none;">
+      <div class="cv-header-row">
+        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+          Click to open in fullscreen
+        </a>
+        <a class="cv-download-link" href="assets/Dishana cv (3).pdf" download>
+          Download
+        </a>
       </div>
+      <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+    </div>
+
+    <div id="publications" style="display: none;">
+      <h1>Publications</h1>
+      <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
     </div>
 
     <div id="contact" style="display: none;">
-      <div class="content-section">
-        <h1>Contact</h1>
-        <p>
-          Email me at
-          <a href="mailto:dishanarupani@gmail.com" target="_blank">
-            dishanarupani@gmail.com
-          </a>
-        </p>
+      <h1>Contact</h1>
+      <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
+    </div>
+
+    <div id="about-detail" style="display: none;">
+      <div class="about-detail-container">
+        <div class="about-detail-intro">This section contains life updates in detail:</div>
+        <div class="about-detail-scrollbox">
+          <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
+          <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
+          Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
+          <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
+          Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
+          <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
+          <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
+          <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
+          Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
+          <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
+          Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
+          Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
+          <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
+          Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
+          <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
+          Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
+          Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
+        </div>
       </div>
     </div>
   </div>
@@ -655,18 +434,11 @@ layout: default
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'cv', 'projects', 'publications', 'contact', 'about-detail'];
+    const sections = ['home', 'projects', 'cv', 'publications', 'contact', 'about-detail'];
     sections.forEach(id => {
-      document.getElementById(id)?.style && (document.getElementById(id).style.display = id === section ? 'block' : 'none');
-      document.getElementById("nav-" + id)?.classList.remove('active');
+      const el = document.getElementById(id);
+      if (el) el.style.display = id === section ? 'block' : 'none';
     });
-    // Set active nav
-    document.getElementById("nav-" + section)?.classList.add('active');
-    // Home intro
-    document.getElementById('home-intro-box').style.display = (section === 'home') ? 'flex' : 'none';
-    // About in detail intro
-    document.getElementById('about-detail-intro-outer').style.display = (section === 'about-detail') ? 'block' : 'none';
-    document.getElementById('about-detail-container').style.display = (section === 'about-detail') ? 'block' : 'none';
   }
   document.addEventListener('DOMContentLoaded', function(){
     showSection('home');
