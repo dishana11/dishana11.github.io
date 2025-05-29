@@ -11,6 +11,7 @@ layout: default
     background: url('assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
+    overflow: hidden; /* Prevent body from scrolling */
   }
 
   .intro-text {
@@ -66,6 +67,9 @@ layout: default
     align-items: flex-start;
     padding: 0 40px 40px 40px;
     gap: 40px;
+    box-sizing: border-box;
+    height: calc(100vh - 90px - 60px); /* Adjust for navbar + intro */
+    overflow: hidden; /* Prevent main content from scrolling */
   }
 
   /* Fixed sidebar for desktop */
@@ -81,7 +85,6 @@ layout: default
     z-index: 20;
     height: auto;
   }
-  /* Push main content to the right so it's not behind the fixed sidebar */
   .main-container {
     margin-left: 290px; /* sidebar width + gap */
   }
@@ -141,9 +144,11 @@ layout: default
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    max-height: 80vh;
-    overflow-y: auto;
-    transition: max-height 0.2s, overflow 0.2s;
+    height: 100%; /* Fill remaining height */
+    max-height: 100%;
+    overflow: hidden; /* Prevent content-box from scrolling */
+    display: flex;
+    flex-direction: column;
   }
 
   .content-box.cv-active {
@@ -161,9 +166,17 @@ layout: default
     font-size: 2em;
   }
 
-  .updates-content {
+  .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
+    background: rgba(40,40,40,0.95);
+    border-radius: 9px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 20px;
+    margin: 16px 0 0 0;
+    max-height: 320px;
+    min-height: 180px;
+    overflow-y: auto;
   }
 
   .cv-fullscreen-link {
@@ -199,13 +212,6 @@ layout: default
     text-align: center;
   }
 
-  .about-detail-title {
-    font-size: 1.3em;
-    color: #232323;
-    font-weight: 600;
-    margin-bottom: 13px;
-    letter-spacing: 0.5px;
-  }
   .about-detail-intro {
     color: #232323;
     font-size: 1.03em;
@@ -233,6 +239,7 @@ layout: default
       padding: 0 10px 30px 10px;
       align-items: center;
       margin-left: 0;
+      height: auto;
     }
     .sidebar {
       width: 100%;
@@ -275,7 +282,6 @@ layout: default
 </div>
 
 <div class="about-detail-container" id="about-detail-container" style="display:none;">
-  <div class="about-detail-title">About in Detail</div>
   <div class="about-detail-intro">This section contains life updates in detail:</div>
   <div class="about-detail-scrollbox">
     <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
@@ -301,20 +307,20 @@ layout: default
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="assets/images/avatar.jpg" alt="Your Profile Picture">
+      <img src="assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="assets/images/linkedin.svg" alt="LinkedIn logo">LinkedIn
+        <img src="assets/linkedin.svg" alt="LinkedIn logo">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/meowww11" target="_blank">
-        <img src="assets/images/github.svg" alt="GitHub logo">GitHub
+        <img src="assets/github.svg" alt="GitHub logo">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="assets/images/x-twitter.svg" alt="X logo">X (Twitter)
+        <img src="assets/x-twitter.svg" alt="X logo">X (Twitter)
       </a>
       <a class="social-link" href="mailto:and@gmail.com">
-        <img src="assets/images/email.svg" alt="Email logo">Email
+        <img src="assets/email.svg" alt="Email logo">Email
       </a>
     </div>
   </div>
@@ -323,7 +329,7 @@ layout: default
     <!-- Default Home Content -->
     <div id="home">
       <h1>Updates</h1>
-      <div class="updates-content">
+      <div class="updates-scrollbox">
         <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
         <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
         <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
