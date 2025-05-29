@@ -25,6 +25,7 @@ layout: default
     box-shadow: 0 4px 12px rgba(0,0,0,0.11);
     padding: 18px 20px 14px 20px;
     line-height: 1.45;
+    display: block;
   }
 
   .navbar {
@@ -74,9 +75,8 @@ layout: default
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
-    /* Make sidebar sticky so it stays visible as you scroll */
     position: sticky;
-    top: 110px; /* Adjust based on navbar + intro-text height */
+    top: 110px;
     height: fit-content;
     z-index: 20;
   }
@@ -262,13 +262,14 @@ layout: default
   <a onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
-<div class="intro-text">
+<!-- Intro text only visible on Home page -->
+<div class="intro-text" id="intro-text">
   Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
 </div>
 
 <div class="about-detail-container" id="about-detail-container" style="display:none;">
   <div class="about-detail-title">About in Detail</div>
-  <div class="about-detail-intro">Here you can read in detail about me:</div>
+  <div class="about-detail-intro">This section contains life updates in detail:</div>
   <div class="about-detail-scrollbox">
     <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
     <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
@@ -362,9 +363,16 @@ layout: default
     // Hide about-detail by default
     document.getElementById('about-detail-container').style.display = 'none';
     document.getElementById('content-area').classList.remove('cv-active');
+    // Show or hide intro-text based on section
+    if(section === 'home'){
+      document.getElementById('intro-text').style.display = 'block';
+    } else {
+      document.getElementById('intro-text').style.display = 'none';
+    }
 
     if (section === 'about-detail') {
       document.getElementById('about-detail-container').style.display = 'block';
+      document.getElementById('intro-text').style.display = 'none';
     }
     if (section === 'cv') {
       document.getElementById('content-area').classList.add('cv-active');
@@ -373,4 +381,9 @@ layout: default
       document.getElementById('about-detail-container').style.display = 'none';
     }
   }
+  // On page load, only show intro text if home is visible
+  document.addEventListener('DOMContentLoaded', function(){
+    // By default, only home is visible, so intro-text is shown
+    document.getElementById('intro-text').style.display = 'block';
+  });
 </script>
