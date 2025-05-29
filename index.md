@@ -68,17 +68,22 @@ layout: default
     gap: 40px;
   }
 
+  /* Fixed sidebar for desktop */
   .sidebar {
     width: 250px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
-    position: sticky;
-    top: 110px;
-    height: fit-content;
+    position: fixed;
+    top: 110px; /* Adjust this if you change your navbar/intro height */
+    left: 40px; /* Same as .main-container padding-left */
     z-index: 20;
+    height: auto;
+  }
+  /* Push main content to the right so it's not behind the fixed sidebar */
+  .main-container {
+    margin-left: 290px; /* sidebar width + gap */
   }
 
   .avatar-wrapper {
@@ -227,6 +232,7 @@ layout: default
       flex-direction: column;
       padding: 0 10px 30px 10px;
       align-items: center;
+      margin-left: 0;
     }
     .sidebar {
       width: 100%;
@@ -234,6 +240,7 @@ layout: default
       align-items: center;
       position: static;
       top: unset;
+      left: unset;
     }
     .avatar-wrapper {
       width: 130px;
