@@ -28,26 +28,6 @@ layout: default
     z-index: 10;
   }
 
-  .navbar a {
-    color: #2d2d2d;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 8px 20px;
-    border-radius: 7px;
-    transition: box-shadow 0.2s;
-    box-shadow: none;
-    font-weight: 500;
-    background: none;
-  }
-
-  .navbar a:hover,
-  .navbar a:focus {
-    color: #2d2d2d;
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
-    background: none;
-    outline: none;
-  }
-
   .main-container {
     display: flex;
     align-items: stretch;
@@ -113,7 +93,6 @@ layout: default
     font-size: 16px;
     transition: color 0.15s;
   }
-
   .social-link:hover {
     color: #00ffc3;
     text-decoration: underline;
@@ -147,43 +126,62 @@ layout: default
     min-width: 0;
   }
 
-  /* Home page: align intro and updates vertically */
+  /* Home page: center intro */
+  .home-intro-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 42px;
+    margin-bottom: 40px;
+  }
+
+  .home-intro-center-text {
+    max-width: 600px;
+    font-size: 1.15em;
+    color: #222;
+    background: none;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0 auto;
+    box-shadow: none;
+    padding: 0;
+  }
+
   .home-content-col {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 36px;
-    margin-top: 32px;
-    height: calc(100% - 32px);
+    margin-top: 0;
+    height: calc(100% - 0px);
     width: 100%;
   }
-  .intro-text {
-    font-size: 1.13em;
-    color: #2d2d2d;
-    text-align: left;
-    font-weight: 500;
-    background: rgba(255,255,255,0.58);
-    border-radius: 10px;
-    max-width: 540px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.11);
-    padding: 15px 20px 13px 20px;
-    line-height: 1.45;
-    display: block;
-    margin: 0 0 36px 0;
-    align-self: flex-start;
+
+  .updates-scrollable-container {
+    width: 100%;
+    flex: 1 1 auto;
+    max-height: 340px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
-  .content-box h1 {
+  .updates-title {
     color: #2d2d2d;
-    margin: 0 0 0 0;
     font-size: 2em;
-    display: block;
     font-weight: 700;
+    margin-bottom: 8px;
     letter-spacing: .5px;
     padding-bottom: 0;
     line-height: 1;
     align-self: flex-start;
   }
-
+  .updates-scrollbox-content {
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+  }
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
@@ -191,7 +189,7 @@ layout: default
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
-    margin: 20px 0 0 0;
+    margin: 0 0 0 0;
     flex: 1 1 auto;
     min-height: 0;
     max-height: 340px;
@@ -199,7 +197,6 @@ layout: default
     overflow-y: auto;
   }
 
-  /* CV page: original width, original height */
   .cv-box {
     width: 100%;
     max-width: 900px;
@@ -213,6 +210,39 @@ layout: default
     align-items: flex-start;
     height: 70vh;
     min-height: 360px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cv-header-row, .projects-header-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .cv-header-row h1, .projects-header-row h1 {
+    color: #2d2d2d;
+    margin: 0 0 0 0;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding-bottom: 0;
+    line-height: 1;
+    flex: 1 1 auto;
+    text-align: left;
+  }
+  .cv-fullscreen-link {
+    font-size: 16px;
+    color: #2d2d2d;
+    text-decoration: underline;
+    vertical-align: middle;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-left: auto;
+    margin-bottom: 0;
+    padding-left: 10px;
+    white-space: nowrap;
+    align-self: flex-end;
   }
   .cv-iframe-box {
     width: 100%;
@@ -223,21 +253,44 @@ layout: default
     background: #181818;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     flex: 1 1 auto;
-  }
-  .cv-fullscreen-link {
-    display: inline-block;
-    margin-left: 16px;
-    font-size: 16px;
-    color: #2d2d2d;
-    text-decoration: underline;
-    vertical-align: middle;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-bottom: 8px;
+    min-height: 180px;
+    overflow-y: auto;
   }
 
-  /* Publication & Contact: push text down */
+  .projects-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 360px;
+    overflow-y: auto;
+    max-height: 70vh;
+  }
+
+  .projects-list {
+    margin-top: 0;
+    padding-left: 0;
+    width: 100%;
+    color: #f4f4f4;
+  }
+  .projects-list li {
+    margin-bottom: 26px;
+    font-size: 1.05em;
+    line-height: 1.6;
+    list-style: disc inside;
+  }
+  .projects-list strong {
+    color: #00ffc3;
+    font-weight: 600;
+    font-size: 1.07em;
+  }
+
   .content-section {
     padding-top: 64px;
     padding-left: 50px;
@@ -255,15 +308,15 @@ layout: default
     padding: 25px 24px 20px 24px;
     text-align: center;
   }
-  /* Push "this section contains..." text down to match contact/publications */
-  .about-detail-intro {
+  .about-detail-intro-outer {
+    width: 100vw;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1.13em;
     color: #232323;
-    font-size: 1.03em;
-    margin-bottom: 16px;
     font-weight: 500;
     letter-spacing: 0.01em;
-    margin-top: 60px;
-    text-align: left;
+    margin-bottom: 6px;
   }
   .about-detail-scrollbox {
     background: #fff;
@@ -308,7 +361,7 @@ layout: default
       max-width: 98vw;
       padding: 14px 4vw 12px 4vw;
     }
-    .about-detail-intro {
+    .about-detail-intro-outer {
       margin-top: 30px;
     }
     .about-detail-scrollbox {
@@ -318,18 +371,12 @@ layout: default
     .content-box {
       padding: 0;
     }
-    .updates-scrollbox {
-      margin: 12px 0 0 0;
-      padding: 12px 2vw;
-      max-height: 340px;
-    }
-    .home-content-col {
-      margin-left: 0;
-      margin-top: 20px;
-    }
-    .intro-text {
-      max-width: 98vw;
-      padding: 13px 4vw 11px 4vw;
+    .projects-box {
+      width: 99vw;
+      min-width: 0;
+      margin: 14px 0 0 0;
+      padding: 12px 2vw 10px 2vw;
+      max-height: 48vh;
     }
     .cv-box {
       width: 99vw;
@@ -338,6 +385,16 @@ layout: default
       padding: 12px 2vw 10px 2vw;
       height: 48vh;
       min-height: 220px;
+    }
+    .cv-header-row, .projects-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .cv-fullscreen-link {
+      margin-left: 0;
+      align-self: flex-start;
+      margin-top: 5px;
     }
     .content-section {
       padding-top: 30px;
@@ -349,13 +406,24 @@ layout: default
 <div class="navbar">
   <a onclick="showSection('home')">Home</a>
   <a onclick="showSection('cv')">CV</a>
+  <a onclick="showSection('projects')">Projects</a>
   <a onclick="showSection('publications')">Publications</a>
   <a onclick="showSection('contact')">Contact</a>
   <a onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
+<!-- Home intro, centered, not a box -->
+<div id="home-intro-box" class="home-intro-center">
+  <div class="home-intro-center-text">
+    Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
+  </div>
+</div>
+
+<!-- About in detail intro, centered, out of the box -->
+<div id="about-detail-intro-outer" class="about-detail-intro-outer" style="display:none;">
+  This section contains life updates in detail:
+</div>
 <div class="about-detail-container" id="about-detail-container" style="display:none;">
-  <div class="about-detail-intro">This section contains life updates in detail:</div>
   <div class="about-detail-scrollbox">
     <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
     <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
@@ -401,35 +469,76 @@ layout: default
   <div class="content-box" id="content-area">
     <div id="home">
       <div class="home-content-col">
-        <div class="intro-text" id="intro-text">
-          Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
-        </div>
-        <h1>Updates</h1>
-        <div class="updates-scrollbox">
-          <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
-          <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
-          <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
-          <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
-          <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
-          <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
-          <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
-          <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
-          <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
-          <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
-          <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
-          <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
-          <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
+        <div class="updates-scrollable-container">
+          <div class="updates-title">Updates</div>
+          <div class="updates-scrollbox-content">
+            <div class="updates-scrollbox">
+              <p><strong>May 2025:</strong> Preparing my application to MBZUAI with a focus on AI, AGI, and robotics, sharing my journey through personal stories and hackathons.</p>
+              <p><strong>April 2025:</strong> Actively building my personal brand on LinkedIn by posting engaging science-themed content mixing humor and deep insights to grow my audience.</p>
+              <p><strong>March 2025:</strong> Developed Marvin, an autonomous robot equipped with LiDAR capable of detecting people and carrying items; built over 12 days during a youth technology program.</p>
+              <p><strong>January 2025:</strong> Deep dive into brain research and neurological health motivated by my brother’s serious health condition, balancing academics and personal challenges.</p>
+              <p><strong>December 2024:</strong> Writing a research paper on M-Theory, exploring advanced physics concepts beyond standard curriculum.</p>
+              <p><strong>November 2024:</strong> Conducting a detailed project on Gauss’s Law investigating the effect of a hole on a charged spherical shell, combining theory with practical experimentation.</p>
+              <p><strong>September 2024:</strong> Scored 90% scholarship at FITJEE, focusing on Physics preparation for upcoming competitive exams.</p>
+              <p><strong>September 2024:</strong> Developed Quantum Temporal Lattice theory as part of my exploration into theoretical physics.</p>
+              <p><strong>October 2023:</strong> Internship project on continual training of vision-language models (TiC-CLIP) accepted as Oral at NeurIPS Distribution Shift Workshop 2023.</p>
+              <p><strong>September 2023:</strong> Collaborated with Dishana Rupani on project ‘Time Trace: Fact or Fiction,’ merging physics and philosophy in innovative research.</p>
+              <p><strong>Mid-2019:</strong> Started competitive PC gaming and battle royale tournaments, overcoming gender biases and team challenges while learning valuable lessons on trust and resilience.</p>
+              <p><strong>2014:</strong> Volunteered for hearing-impaired and visually-impaired children fundraising campaign, awarded a medal for community service.</p>
+              <p><strong>2014 onwards:</strong> Consistently involved in STEM projects, academic competitions, and community volunteering, shaping my passion for science and service.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div id="cv" style="display: none;">
       <div class="cv-box">
-        <h1>My CV</h1>
-        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
-          Click to open in fullscreen
-        </a>
+        <div class="cv-header-row">
+          <h1>My CV</h1>
+          <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+            Click to open in fullscreen
+          </a>
+        </div>
         <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+      </div>
+    </div>
+
+    <div id="projects" style="display: none;">
+      <div class="projects-box">
+        <div class="projects-header-row">
+          <h1>Projects</h1>
+        </div>
+        <ul class="projects-list">
+          <li>
+            <strong>Marvin (Autonomous Indoor Robot)</strong><br>
+            Designed and built an autonomous robot during YTS at Plaksha University. Marvin uses a LiDAR sensor, ultrasonic sensors, and a Raspberry Pi to map and navigate indoor spaces, detect obstacles and people, and carry items. The project included hardware assembly, Python firmware, and hands-on robotics teamwork.
+          </li>
+          <li>
+            <strong>Quantum Temporal Lattice Theory</strong><br>
+            Published a research paper introducing a new theoretical framework to combine aspects of string theory and time loops. This project involved deep theoretical physics research, mathematical modeling, and scientific writing.
+          </li>
+          <li>
+            <strong>CMD Error Detector & Fixer</strong><br>
+            Developed a CLI tool to automatically detect common Windows CMD errors, explain them, and offer one-click fixes. Won 2nd place and a cash prize in a competitive hackathon.
+          </li>
+          <li>
+            <strong>Twitter AI Lead Qualifier Bot</strong><br>
+            Created a Python-based bot for Twitter/X that uses NLP to qualify leads for outreach, automating profile scanning and message sending. Improved outreach efficiency for freelance clients.
+          </li>
+          <li>
+            <strong>ML Bots & Automation Agents</strong><br>
+            Built several smart bots, including NLP-powered customer support chatbots and automation pipelines for document management, using Python and cloud APIs for various freelance projects.
+          </li>
+          <li>
+            <strong>Gauss’s Law Simulation</strong><br>
+            Conducted a project to simulate and analyze the effects of a hole in a charged spherical shell using Gauss’s Law, blending theoretical physics with computational modeling.
+          </li>
+          <li>
+            <strong>Fundraiser Shop Platform</strong><br>
+            Organized and built the technical backbone for a school fundraiser, raising over ₹19,500 for Ukrainian relief by setting up a digital inventory and payment system.
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -451,11 +560,14 @@ layout: default
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'cv', 'publications', 'contact'];
+    const sections = ['home', 'cv', 'projects', 'publications', 'contact'];
     sections.forEach(id => {
       document.getElementById(id).style.display = id === section ? 'block' : 'none';
     });
-
+    // Home intro
+    document.getElementById('home-intro-box').style.display = (section === 'home') ? 'flex' : 'none';
+    // About in detail intro
+    document.getElementById('about-detail-intro-outer').style.display = (section === 'about-detail') ? 'block' : 'none';
     // Hide about-detail by default
     document.getElementById('about-detail-container').style.display = 'none';
     document.getElementById('content-area').classList.remove('cv-active');
@@ -466,10 +578,12 @@ layout: default
       document.getElementById('content-area').classList.add('cv-active');
     }
     if (sections.includes(section)) {
-      document.getElementById('about-detail-container').style.display = 'none';
+      document.getElementById('about-detail-container').style.display = (section === 'about-detail') ? 'block' : 'none';
     }
   }
   document.addEventListener('DOMContentLoaded', function(){
-    // No extra code needed
+    // By default show home-intro
+    document.getElementById('home-intro-box').style.display = 'flex';
+    document.getElementById('about-detail-intro-outer').style.display = 'none';
   });
 </script>
