@@ -436,7 +436,6 @@ layout: default
           <p><strong>2024:</strong> Joined The Indian Vidyarthi as a summer student, engaging in workshops on sustainability and global development.</p>
           <p><strong>2023:</strong> Participated in a CLI-based hackathon; secured second position and received a ₹7,000 cash prize.</p>
           <p><strong>2023:</strong> Explored machine learning; created bots and AI agents — including a Twitter bot that automates pre-call research and lead qualification.</p>
-          <p><strong>2023:</strong> Set up a shop at the school fête, raising the second-highest funding among all participants.</p>
           <p><strong>2022:</strong> Received a 100% scholarship to attend the YTS program; built an autonomous robot named Marvin equipped with LiDAR and ultrasonic sensors.</p>
           <p><strong>2021:</strong> Received a diploma in software learning.</p>
           <p><strong>2019:</strong> Enrolled in a formal software learning program.</p>
@@ -456,16 +455,16 @@ layout: default
         </div>
         <ul class="projects-list">
           <li>
-            <strong>Marvin (Autonomous Indoor Robot)</strong><br>
+            <strong><a href="https://github.com/dishana11/Marvin" target="_blank" style="color:#00ffc3;text-decoration:underline;">Marvin (Autonomous Indoor Robot)</a></strong><br>
             Designed and built an autonomous robot during YTS at Plaksha University. Marvin uses a LiDAR sensor, ultrasonic sensors, and a Raspberry Pi to map and navigate indoor spaces, detect obstacles and people, and carry items. The project included hardware assembly, Python firmware, and hands-on robotics teamwork.
           </li>
           <li>
-            <strong>Quantum Temporal Lattice Theory</strong><br>
-            Published a research paper introducing a new theoretical framework to combine aspects of string theory and time loops. This project involved deep theoretical physics research, mathematical modeling, and scientific writing.
+            <strong><a href="https://github.com/dishana11/Cmd_Termux-Integration" target="_blank" style="color:#00ffc3;text-decoration:underline;">CMD Error Detector & Fixer</a></strong><br>
+            Developed a CLI tool to automatically detect common Windows CMD errors, explain them, and offer one-click fixes. Won 2nd place and a cash prize in a competitive hackathon.
           </li>
           <li>
-            <strong>CMD Error Detector & Fixer</strong><br>
-            Developed a CLI tool to automatically detect common Windows CMD errors, explain them, and offer one-click fixes. Won 2nd place and a cash prize in a competitive hackathon.
+            <strong><a href="https://github.com/dishana11/PROGRAMMING_LANGUAGES_PREDICTOR" target="_blank" style="color:#00ffc3;text-decoration:underline;">Programming Languages Predictor</a></strong><br>
+            Created a Python-based tool that predicts which programming language a code snippet is written in. Utilizes various ML models for accurate language detection.
           </li>
           <li>
             <strong>Twitter AI Lead Qualifier Bot</strong><br>
@@ -478,10 +477,6 @@ layout: default
           <li>
             <strong>Gauss’s Law Simulation</strong><br>
             Conducted a project to simulate and analyze the effects of a hole in a charged spherical shell using Gauss’s Law, blending theoretical physics with computational modeling.
-          </li>
-          <li>
-            <strong>Fundraiser Shop Platform</strong><br>
-            Organized and built the technical backbone for a school fundraiser, raising over ₹19,500 for Ukrainian relief by setting up a digital inventory and payment system.
           </li>
         </ul>
       </div>
@@ -500,7 +495,11 @@ layout: default
     </div>
     <div id="publications" style="display: none;">
       <h1>Publications</h1>
-      <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
+      <p>
+        I have published a research paper on Quantum Temporal Lattice (QTL) in the International Journal for Science, Arts and Technology.<br>
+        <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank" style="color:#00ffc3;text-decoration:underline;">Read the paper here</a>.<br>
+        The paper proposes an innovative approach to traveling in time by manipulating encoded space-time data, suggesting that by altering the mathematical structure of space-time at a quantum level, it may be possible to engineer traversable loops or paths that connect different points in time. This merges concepts from string theory and time-loop physics to open new possibilities in theoretical physics.
+      </p>
     </div>
     <div id="contact" style="display: none;">
       <h1>Contact</h1>
