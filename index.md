@@ -20,51 +20,42 @@ layout: default
     pointer-events: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 999;
+    z-index: 100;
     overflow: hidden;
     mix-blend-mode: lighten;
   }
   .glow-light {
     position: absolute;
-    width: 220vw;
-    height: 100vh;
+    width: 250vw;
+    height: 120vh;
     left: -120vw;
-    top: 0;
-    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.11) 48%, rgba(255,255,255,0.32) 52%, transparent 100%);
-    filter: blur(22px);
+    top: -10vh;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.10) 40%, rgba(255,255,255,0.27) 54%, transparent 70%);
+    filter: blur(32px);
     animation: lightflow 6s linear infinite;
+    opacity: 0.8;
   }
   @keyframes lightflow {
     0% { left: -120vw; }
     100% { left: 100vw; }
   }
 
-  /* --- Animated Cats over Navbar --- */
-  .cat-navbar {
-    position: fixed;
-    top: 16px;
-    left: -80px;
-    z-index: 1001;
-    width: 70px;
-    pointer-events: none;
-    animation: catwalk 12s linear infinite;
+  /* --- Navbar Cat SVGs --- */
+  .navbar-cats {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 24px;
+    position: relative;
+    z-index: 103;
   }
-  .cat-navbar2 {
-    position: fixed;
-    top: 56px;
-    left: -100px;
-    z-index: 1001;
-    width: 60px;
-    pointer-events: none;
-    animation: catwalk2 15s linear infinite;
-  }
-  @keyframes catwalk {
-    0% { left: -80px; }
-    100% { left: 105vw; }
-  }
-  @keyframes catwalk2 {
-    0% { left: -100px; }
-    100% { left: 108vw; }
+  .navbar-cat-img {
+    height: 38px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: -8px;
+    filter: drop-shadow(0 2px 4px #0004);
   }
 
   .navbar {
@@ -77,7 +68,7 @@ layout: default
     font-size: 16px;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 101;
   }
   .navbar a {
     color: #2d2d2d;
@@ -375,7 +366,6 @@ layout: default
     line-height: 1.7;
     width: 100%;
   }
-  /* Projects: invisible vertical scrollbar */
   .projects-box {
     width: 100%;
     max-width: 900px;
@@ -400,14 +390,33 @@ layout: default
   }
 </style>
 
-<!-- Animated Glow and Cats -->
+<!-- Animated Glow Overlay -->
 <div class="glow-overlay">
   <div class="glow-light"></div>
 </div>
-<img class="cat-navbar" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="cat walking" />
-<img class="cat-navbar2" src="https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif" alt="cat walking" />
 
 <div class="navbar">
+  <div class="navbar-cats">
+    <!-- Cute SVG Cat 1 -->
+    <svg class="navbar-cat-img" viewBox="0 0 50 38" fill="none">
+      <ellipse cx="25" cy="28" rx="22" ry="9" fill="#e9e6e2"/>
+      <ellipse cx="25" cy="19" rx="16" ry="13" fill="#ffe7a9" stroke="#222" stroke-width="2"/>
+      <ellipse cx="17" cy="21" rx="2" ry="3" fill="#222"/>
+      <ellipse cx="33" cy="21" rx="2" ry="3" fill="#222"/>
+      <ellipse cx="25" cy="29" rx="3" ry="2" fill="#222"/>
+      <polygon points="14,10 7,17 17,12" fill="#ffe7a9" stroke="#222" stroke-width="2"/>
+      <polygon points="36,10 43,17 33,12" fill="#ffe7a9" stroke="#222" stroke-width="2"/>
+    </svg>
+    <!-- Cute SVG Cat 2 (Peeking) -->
+    <svg class="navbar-cat-img" viewBox="0 0 40 28" fill="none">
+      <ellipse cx="20" cy="18" rx="13" ry="9" fill="#d3f2ff" stroke="#222" stroke-width="2"/>
+      <ellipse cx="13" cy="18" rx="2" ry="2.8" fill="#222"/>
+      <ellipse cx="27" cy="18" rx="2" ry="2.8" fill="#222"/>
+      <ellipse cx="20" cy="23" rx="2" ry="1.2" fill="#222"/>
+      <polygon points="10,9 3,16 13,13" fill="#d3f2ff" stroke="#222" stroke-width="2"/>
+      <polygon points="30,9 37,16 27,13" fill="#d3f2ff" stroke="#222" stroke-width="2"/>
+    </svg>
+  </div>
   <a onclick="showSection('home')">Home</a>
   <a onclick="showSection('projects')">Projects</a>
   <a onclick="showSection('cv')">CV</a>
@@ -465,7 +474,6 @@ layout: default
         </div>
       </div>
     </div>
-
     <!-- PROJECTS (INVISIBLE SCROLLBAR) -->
     <div id="projects" style="display: none;">
       <div class="projects-box">
@@ -504,7 +512,6 @@ layout: default
         </ul>
       </div>
     </div>
-
     <!-- CV SECTION -->
     <div id="cv" style="display: none;">
       <div class="cv-header-row">
@@ -517,17 +524,14 @@ layout: default
       </div>
       <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
     </div>
-
     <div id="publications" style="display: none;">
       <h1>Publications</h1>
       <p>I have published a research paper on Quantum Temporal Lattice (QTL).</p>
     </div>
-
     <div id="contact" style="display: none;">
       <h1>Contact</h1>
       <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
     </div>
-
     <!-- ABOUT IN DETAIL: SCROLLABLE BOX -->
     <div id="about-detail" style="display: none;">
       <div class="about-detail-container">
