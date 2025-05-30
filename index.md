@@ -174,6 +174,18 @@ layout: default
     display: block;
     padding-bottom: 0;
   }
+  /* --- GLOW EFFECT --- */
+  @keyframes glowPulse {
+    0% {
+      box-shadow: 0 0 18px 4px #00ffc3, 0 2px 8px rgba(0,0,0,0.08);
+    }
+    50% {
+      box-shadow: 0 0 32px 10px #00ffc3, 0 2px 8px rgba(0,0,0,0.08);
+    }
+    100% {
+      box-shadow: 0 0 18px 4px #00ffc3, 0 2px 8px rgba(0,0,0,0.08);
+    }
+  }
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
@@ -186,6 +198,7 @@ layout: default
     min-width: 310px;
     max-height: 340px;
     overflow-y: auto;
+    animation: glowPulse 1.8s infinite alternate;
   }
 
   /* Projects: invisible vertical scrollbar */
