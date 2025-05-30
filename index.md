@@ -82,7 +82,7 @@ layout: default
     height: 160px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 40px auto 14px auto;
+    margin: 40px auto 14px auto; /* PUSHED PFP DOWN by adding top margin 40px */
     border: 3px solid #00ffc3;
     background: #fff;
   }
@@ -151,7 +151,7 @@ layout: default
     margin: 0 auto;
   }
   .intro-text {
-    font-size: 1.2em;
+    font-size: 1.2em; /* REDUCED FROM 2em TO 1.2em */
     color: #2d2d2d;
     text-align: left;
     font-weight: 500;
@@ -164,49 +164,15 @@ layout: default
     line-height: 1.45;
     margin: 0;
   }
-  .updates-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 12px;
-    margin-bottom: 2px;
-  }
-  .updates-heading,
-  .about-detail-tab {
+  .updates-heading {
     color: #2d2d2d;
+    margin: 0 0 9px 0;
     font-size: 2em;
     font-weight: 700;
     letter-spacing: .5px;
     line-height: 1;
     display: block;
     padding-bottom: 0;
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
-    text-align: left;
-    transition: color 0.15s;
-  }
-  .updates-heading:hover,
-  .about-detail-tab:hover,
-  .about-detail-tab.active {
-    color: #00ffc3;
-  }
-  .about-detail-tab {
-    font-size: 1.3em;
-    font-weight: 700;
-    padding: 5px 15px;
-    border-radius: 9px;
-    margin-left: 0;
-    margin-bottom: 2px;
-    vertical-align: middle;
-    background: #fff2;
-    text-decoration: underline;
-    transition: background 0.18s, color 0.18s;
-  }
-  .about-detail-tab.active {
-    background: #00ffc3;
-    color: #181818;
-    text-decoration: none;
   }
   .updates-scrollbox {
     font-size: 0.98em;
@@ -222,45 +188,7 @@ layout: default
     overflow-y: auto;
   }
 
-  .about-detail-container {
-    margin: 28px auto 0 auto;
-    background: rgba(255,255,255,0.62);
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    max-width: 1000px;
-    min-width: 320px;
-    min-height: 220px;
-    padding: 18px 24px 12px 24px;
-    text-align: center;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-detail-container.active {
-    display: flex;
-  }
-  .about-detail-intro {
-    color: #232323;
-    font-size: 1.12em;
-    margin-bottom: 18px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  .about-detail-scrollbox {
-    background: #fff;
-    color: #232323;
-    font-size: 1.02em;
-    border-radius: 10px;
-    max-height: 320px;
-    min-height: 170px;
-    overflow-y: auto;
-    text-align: left;
-    padding: 19px 26px 14px 26px;
-    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
-    border: 1px solid #e2e2e2;
-    line-height: 1.7;
-    width: 100%;
-  }
+  /* Projects: invisible vertical scrollbar */
   .projects-box {
     width: 100%;
     max-width: 900px;
@@ -276,8 +204,8 @@ layout: default
     max-height: 400px;
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
   .projects-box::-webkit-scrollbar {
     width: 0px;
@@ -358,17 +286,69 @@ layout: default
     flex: 1 1 auto;
   }
 
-  @media (max-width: 900px) {
-    .about-detail-container {
-      max-width: 98vw;
-      min-width: unset;
-      padding: 10px 2vw 12px 2vw;
-    }
-    .about-detail-scrollbox {
-      max-height: 240px;
-      padding: 12px 3vw 8px 3vw;
-    }
+  /* SCROLLABLE ABOUT DETAIL BOX */
+  .about-detail-container {
+    margin: 38px auto 0 auto;
+    background: rgba(255,255,255,0.62);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    max-width: 1100px;
+    min-width: 360px;
+    min-height: 420px;
+    padding: 28px 32px 26px 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  .about-detail-intro {
+    color: #232323;
+    font-size: 1.12em;
+    margin-bottom: 18px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .about-detail-scrollbox {
+    background: #fff;
+    color: #232323;
+    font-size: 1.02em;
+    border-radius: 10px;
+    max-height: 320px;
+    min-height: 210px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 19px 26px 14px 26px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
+    border: 1px solid #e2e2e2;
+    line-height: 1.7;
+    width: 100%;
+  }
+
+  /* Projects: invisible vertical scrollbar */
+  .projects-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 360px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .projects-box::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  /* ...other styles unchanged... */
 </style>
 
 <div class="navbar">
@@ -377,6 +357,7 @@ layout: default
   <a onclick="showSection('cv')">CV</a>
   <a onclick="showSection('publications')">Publications</a>
   <a onclick="showSection('contact')">Contact</a>
+  <a onclick="showSection('about-detail')">About in Detail</a>
 </div>
 
 <div class="main-container">
@@ -407,10 +388,7 @@ layout: default
         <div class="intro-text" id="intro-text">
           Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
         </div>
-        <div class="updates-row">
-          <div class="updates-heading">Updates</div>
-          <button class="about-detail-tab" id="aboutDetailTab" onclick="toggleAboutDetail()">About in Detail</button>
-        </div>
+        <h1 class="updates-heading">Updates</h1>
         <div class="updates-scrollbox">
           <p><strong>2025:</strong> Started internship at Lawroom AI as a Junior AI Evangelist — contributed to automation in legal AI pipelines, improved model accuracy, and supported prompt engineering for client-focused systems.</p>
           <p><strong>2025:</strong> Published a research paper on Quantum Temporal Lattice, a theoretical physics concept merging M-theory with time loops.</p>
@@ -428,28 +406,6 @@ layout: default
           <p><strong>2017:</strong> Started training at Infotech Solutions; later began working there.</p>
           <p><strong>2017:</strong> Participated in a city-wide Go Green campaign and received a prize for the same.</p>
           <p><strong>2016:</strong> Received a token of recognition for raising funds for people with visual and hearing impairments.</p>
-        </div>
-        <div class="about-detail-container" id="aboutDetailBox">
-          <div class="about-detail-intro">This section contains life updates in detail:</div>
-          <div class="about-detail-scrollbox">
-            <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
-            <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
-            Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
-            <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
-            Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
-            <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
-            <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
-            <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
-            Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
-            <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
-            Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
-            Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
-            <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
-            Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
-            <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
-            Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
-            Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
-          </div>
         </div>
       </div>
     </div>
@@ -515,32 +471,42 @@ layout: default
       <h1>Contact</h1>
       <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
     </div>
+
+    <!-- ABOUT IN DETAIL: SCROLLABLE BOX -->
+    <div id="about-detail" style="display: none;">
+      <div class="about-detail-container">
+        <div class="about-detail-intro">This section contains life updates in detail:</div>
+        <div class="about-detail-scrollbox">
+          <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
+          <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
+          Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
+          <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
+          Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
+          <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
+          <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
+          <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
+          Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
+          <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
+          Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
+          Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
+          <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
+          Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
+          <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
+          Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
+          Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'projects', 'cv', 'publications', 'contact'];
+    const sections = ['home', 'projects', 'cv', 'publications', 'contact', 'about-detail'];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = id === section ? 'block' : 'none';
     });
-  }
-  // About in detail toggle in home only
-  function toggleAboutDetail() {
-    const box = document.getElementById('aboutDetailBox');
-    const tab = document.getElementById('aboutDetailTab');
-    if (box.classList.contains('active')) {
-      box.classList.remove('active');
-      tab.classList.remove('active');
-    } else {
-      box.classList.add('active');
-      tab.classList.add('active');
-      // optional: scroll to box
-      setTimeout(() => {
-        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 80);
-    }
   }
   document.addEventListener('DOMContentLoaded', function(){
     showSection('home');
