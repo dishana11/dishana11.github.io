@@ -15,6 +15,58 @@ layout: default
     overflow: hidden;
   }
 
+  /* --- Animated White Glow Overlay --- */
+  .glow-overlay {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 999;
+    overflow: hidden;
+    mix-blend-mode: lighten;
+  }
+  .glow-light {
+    position: absolute;
+    width: 220vw;
+    height: 100vh;
+    left: -120vw;
+    top: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.11) 48%, rgba(255,255,255,0.32) 52%, transparent 100%);
+    filter: blur(22px);
+    animation: lightflow 6s linear infinite;
+  }
+  @keyframes lightflow {
+    0% { left: -120vw; }
+    100% { left: 100vw; }
+  }
+
+  /* --- Animated Cats over Navbar --- */
+  .cat-navbar {
+    position: fixed;
+    top: 16px;
+    left: -80px;
+    z-index: 1001;
+    width: 70px;
+    pointer-events: none;
+    animation: catwalk 12s linear infinite;
+  }
+  .cat-navbar2 {
+    position: fixed;
+    top: 56px;
+    left: -100px;
+    z-index: 1001;
+    width: 60px;
+    pointer-events: none;
+    animation: catwalk2 15s linear infinite;
+  }
+  @keyframes catwalk {
+    0% { left: -80px; }
+    100% { left: 105vw; }
+  }
+  @keyframes catwalk2 {
+    0% { left: -100px; }
+    100% { left: 108vw; }
+  }
+
   .navbar {
     width: 100%;
     padding: 15px 30px;
@@ -82,7 +134,7 @@ layout: default
     height: 160px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 40px auto 14px auto; /* PUSHED PFP DOWN by adding top margin 40px */
+    margin: 40px auto 14px auto;
     border: 3px solid #00ffc3;
     background: #fff;
   }
@@ -151,7 +203,7 @@ layout: default
     margin: 0 auto;
   }
   .intro-text {
-    font-size: 1.2em; /* REDUCED FROM 2em TO 1.2em */
+    font-size: 1.2em;
     color: #2d2d2d;
     text-align: left;
     font-weight: 500;
@@ -174,18 +226,6 @@ layout: default
     display: block;
     padding-bottom: 0;
   }
-  /* --- GLOW EFFECT --- */
-  @keyframes glowPulse {
-    0% {
-      box-shadow: 0 0 18px 4px #00ffc3, 0 2px 8px rgba(0,0,0,0.08);
-    }
-    50% {
-      box-shadow: 0 0 32px 10px #00ffc3, 0 2px 8px rgba(0,0,0,0.08);
-    }
-    100% {
-      box-shadow: 0 0 18px 4px #00ffc3, 0 2px 8px rgba(0,0,0,0.08);
-    }
-  }
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
@@ -198,7 +238,6 @@ layout: default
     min-width: 310px;
     max-height: 340px;
     overflow-y: auto;
-    animation: glowPulse 1.8s infinite alternate;
   }
 
   /* Projects: invisible vertical scrollbar */
@@ -336,7 +375,6 @@ layout: default
     line-height: 1.7;
     width: 100%;
   }
-
   /* Projects: invisible vertical scrollbar */
   .projects-box {
     width: 100%;
@@ -360,9 +398,14 @@ layout: default
     width: 0px;
     background: transparent;
   }
-
-  /* ...other styles unchanged... */
 </style>
+
+<!-- Animated Glow and Cats -->
+<div class="glow-overlay">
+  <div class="glow-light"></div>
+</div>
+<img class="cat-navbar" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="cat walking" />
+<img class="cat-navbar2" src="https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif" alt="cat walking" />
 
 <div class="navbar">
   <a onclick="showSection('home')">Home</a>
