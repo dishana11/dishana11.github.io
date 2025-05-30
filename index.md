@@ -492,11 +492,11 @@ layout: default
         <a class="cv-fullscreen-link" href="assets/dishana_cv.pdf" target="_blank" rel="noopener">
           Click to open in fullscreen
         </a>
-        <a class="cv-download-link" href="assets/Dishana cv (3).pdf" download>
+        <a class="cv-download-link" href="assets/dishana_cv.pdf" download>
           Download
         </a>
       </div>
-      <iframe class="cv-iframe-box" src="assets/Dishana cv (3).pdf"></iframe>
+      <iframe class="cv-iframe-box" src="assets/dishana_cv.pdf"></iframe>
     </div>
     <div id="publications" style="display: none;">
       <h1>Publications</h1>
