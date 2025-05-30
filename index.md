@@ -15,47 +15,40 @@ layout: default
     overflow: hidden;
   }
 
-  /* --- Animated White Glow Overlay --- */
+  /* --- Enhanced Animated White Glow Overlay --- */
   .glow-overlay {
     pointer-events: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 100;
+    z-index: 105;
     overflow: hidden;
     mix-blend-mode: lighten;
   }
-  .glow-light {
+  .glow-light, .glow-light2 {
     position: absolute;
-    width: 250vw;
+    width: 180vw;
     height: 120vh;
-    left: -120vw;
+    left: -100vw;
     top: -10vh;
-    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.10) 40%, rgba(255,255,255,0.27) 54%, transparent 70%);
-    filter: blur(32px);
-    animation: lightflow 6s linear infinite;
-    opacity: 0.8;
+    filter: blur(80px);
+    opacity: 0.65;
+  }
+  .glow-light {
+    background: linear-gradient(110deg, transparent 10%, #fff 48%, #fff 55%, transparent 90%);
+    animation: lightflow 3.5s linear infinite;
+  }
+  .glow-light2 {
+    background: linear-gradient(70deg, transparent 30%, #fff 54%, #fff 60%, transparent 80%);
+    animation: lightflow2 7s linear infinite;
+    opacity: 0.35;
   }
   @keyframes lightflow {
-    0% { left: -120vw; }
+    0% { left: -100vw; }
     100% { left: 100vw; }
   }
-
-  /* --- Navbar Cat SVGs --- */
-  .navbar-cats {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-right: 24px;
-    position: relative;
-    z-index: 103;
-  }
-  .navbar-cat-img {
-    height: 38px;
-    width: auto;
-    display: inline-block;
-    vertical-align: middle;
-    margin-bottom: -8px;
-    filter: drop-shadow(0 2px 4px #0004);
+  @keyframes lightflow2 {
+    0% { left: 100vw; }
+    100% { left: -80vw; }
   }
 
   .navbar {
@@ -390,33 +383,13 @@ layout: default
   }
 </style>
 
-<!-- Animated Glow Overlay -->
+<!-- Enhanced Animated Glow Overlay -->
 <div class="glow-overlay">
   <div class="glow-light"></div>
+  <div class="glow-light2"></div>
 </div>
 
 <div class="navbar">
-  <div class="navbar-cats">
-    <!-- Cute SVG Cat 1 -->
-    <svg class="navbar-cat-img" viewBox="0 0 50 38" fill="none">
-      <ellipse cx="25" cy="28" rx="22" ry="9" fill="#e9e6e2"/>
-      <ellipse cx="25" cy="19" rx="16" ry="13" fill="#ffe7a9" stroke="#222" stroke-width="2"/>
-      <ellipse cx="17" cy="21" rx="2" ry="3" fill="#222"/>
-      <ellipse cx="33" cy="21" rx="2" ry="3" fill="#222"/>
-      <ellipse cx="25" cy="29" rx="3" ry="2" fill="#222"/>
-      <polygon points="14,10 7,17 17,12" fill="#ffe7a9" stroke="#222" stroke-width="2"/>
-      <polygon points="36,10 43,17 33,12" fill="#ffe7a9" stroke="#222" stroke-width="2"/>
-    </svg>
-    <!-- Cute SVG Cat 2 (Peeking) -->
-    <svg class="navbar-cat-img" viewBox="0 0 40 28" fill="none">
-      <ellipse cx="20" cy="18" rx="13" ry="9" fill="#d3f2ff" stroke="#222" stroke-width="2"/>
-      <ellipse cx="13" cy="18" rx="2" ry="2.8" fill="#222"/>
-      <ellipse cx="27" cy="18" rx="2" ry="2.8" fill="#222"/>
-      <ellipse cx="20" cy="23" rx="2" ry="1.2" fill="#222"/>
-      <polygon points="10,9 3,16 13,13" fill="#d3f2ff" stroke="#222" stroke-width="2"/>
-      <polygon points="30,9 37,16 27,13" fill="#d3f2ff" stroke="#222" stroke-width="2"/>
-    </svg>
-  </div>
   <a onclick="showSection('home')">Home</a>
   <a onclick="showSection('projects')">Projects</a>
   <a onclick="showSection('cv')">CV</a>
@@ -440,7 +413,8 @@ layout: default
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
         <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
-      <a class="social-link" href="mailto:dishanarupani@gmail.com">
+      <!-- Updated: Email link opens Gmail compose in new tab -->
+      <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
         <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
