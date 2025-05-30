@@ -489,7 +489,7 @@ layout: default
     <!-- CV SECTION -->
     <div id="cv" style="display: none;">
       <div class="cv-header-row">
-        <a class="cv-fullscreen-link" href="assets/Dishana cv (3).pdf" target="_blank" rel="noopener">
+        <a class="cv-fullscreen-link" href="assets/dishana_cv.pdf" target="_blank" rel="noopener">
           Click to open in fullscreen
         </a>
         <a class="cv-download-link" href="assets/Dishana cv (3).pdf" download>
