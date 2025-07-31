@@ -1,21 +1,29 @@
-// assets/glow-control.js
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const glow1 = document.querySelector('.glow-light');
   const glow2 = document.querySelector('.glow-light2');
-  // Remove the CSS infinite animation so we can trigger manually
+
+  // Clear any ongoing animation
   glow1.style.animation = 'none';
   glow2.style.animation = 'none';
 
   function animateGlow() {
-    glow1.style.animation = 'lightflow 3.5s linear';
-    glow2.style.animation = 'lightflow2 7s linear';
-    // Remove animation after it's done so it can retrigger
+    // Reset animation by forcing reflow
+    glow1.style.animation = 'none';
+    glow1.offsetWidth; // Trigger reflow
+    glow1.style.animation = 'lightflow 3s linear';
+
+    glow2.style.animation = 'none';
+    glow2.offsetWidth;
+    glow2.style.animation = 'lightflow2 5s linear';
+
+    // Stop after it's done so it doesn't loop endlessly
     setTimeout(() => {
       glow1.style.animation = 'none';
       glow2.style.animation = 'none';
-    }, 7000); // longest animation duration
+    }, 5000); // longest animation duration
   }
-  animateGlow(); // Initial
-  setInterval(animateGlow, 10000); // 10 seconds gap
+
+  animateGlow(); // Run initially once
+
+  setInterval(animateGlow, 12000); // Trigger every 12s
 });
