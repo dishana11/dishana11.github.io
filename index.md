@@ -35,11 +35,11 @@ layout: default
   }
   .glow-light {
     background: linear-gradient(110deg, transparent 10%, #fff 48%, #fff 55%, transparent 90%);
-    animation: lightflow 3.5s linear infinite;
+    /* animation property removed */
   }
   .glow-light2 {
     background: linear-gradient(70deg, transparent 30%, #fff 54%, #fff 60%, transparent 80%);
-    animation: lightflow2 7s linear infinite;
+    /* animation property removed */
     opacity: 0.35;
   }
   @keyframes lightflow {
@@ -544,26 +544,7 @@ layout: default
   document.addEventListener('DOMContentLoaded', function(){
     showSection('home');
   });
-
-  // ---- GLOW GAP CHANGE: Add this below! ----
-  // Animate the glow every 12 seconds (instead of infinite animation in CSS)
-  document.addEventListener('DOMContentLoaded', function() {
-    const glow1 = document.querySelector('.glow-light');
-    const glow2 = document.querySelector('.glow-light2');
-    // Remove the CSS infinite animation so we can trigger manually
-    glow1.style.animation = 'none';
-    glow2.style.animation = 'none';
-
-    function animateGlow() {
-      glow1.style.animation = 'lightflow 3.5s linear';
-      glow2.style.animation = 'lightflow2 7s linear';
-      // Remove animation after it's done so it can retrigger
-      setTimeout(() => {
-        glow1.style.animation = 'none';
-        glow2.style.animation = 'none';
-      }, 7000); // longest animation duration
-    }
-    animateGlow(); // Initial
-    setInterval(animateGlow, 12000); // 12 seconds gap
-  });
 </script>
+
+<!-- Place this at the end before </body> -->
+<script src="assets/glow-control.js"></script>
