@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     glow2.style.animation = 'none';
     glow2.offsetWidth;
-    glow2.style.animation = 'lightflow2 7s linear';
+    glow2.style.animation = 'lightflow2 4s linear';
 
     // Hide the glows after animation finishes so nothing is visible for the next interval
     setTimeout(() => {
