@@ -382,7 +382,7 @@ layout: default
     background: transparent;
   }
 </style>
-
+{% include mobile-responsive-fixes.html %}
 <!-- Enhanced Animated Glow Overlay -->
 <div class="glow-overlay">
   <div class="glow-light"></div>
