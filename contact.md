@@ -3,6 +3,123 @@ title: Contact
 layout: default
 ---
 
-# Contact
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('./assets/my-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    overflow: hidden;
+  }
 
-Email me at: <a href="mailto:and@gmail.com">and@gmail.com</a>
+  .navbar {
+    width: 100%;
+    padding: 15px 30px;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    z-index: 101;
+  }
+  .navbar a {
+    color: #2d2d2d;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 7px;
+    transition: box-shadow 0.2s;
+    box-shadow: none;
+    font-weight: 500;
+    background: none;
+  }
+  .navbar a:hover,
+  .navbar a:focus {
+    color: #2d2d2d;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
+    background: none;
+    outline: none;
+  }
+
+  .content-box {
+    position: relative;
+    z-index: 2;
+    margin: 80px auto 0 auto;
+    max-width: 900px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 28px 26px 24px 26px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
+    min-height: 360px;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .content-box::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  .content-box h1 {
+    color: #2d2d2d;
+    font-size: 2em;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+  .content-box p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #f4f4f4;
+    text-align: center;
+  }
+  .content-box a {
+    color: #00ffc3;
+    text-decoration: underline;
+  }
+  .content-box a:hover {
+    color: #00e0a3;
+  }
+
+  .view-counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .view-counter img {
+    vertical-align: middle;
+    width: 100px;
+    height: auto;
+  }
+</style>
+
+{% include mobile-responsive-fixes.html %}
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="cv.html">CV</a>
+  <a href="publications.html">Publications</a>
+  <a href="contact.html">Contact</a>
+  <a href="about-detail.html">About in Detail</a>
+</div>
+
+<div class="content-box">
+  <h1>Contact</h1>
+  <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
+</div>
+
+{% raw %}
+<div class="view-counter">
+  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2Fcontact&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+</div>
+{% endraw %}
