@@ -407,7 +407,7 @@ layout: default
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
         <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
-      <a class="social-link" href="https://github.com/meowww11" target="_blank">
+      <a class="social-link" href="https://github.com/dishana11" target="_blank">
         <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
