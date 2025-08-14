@@ -1,3 +1,4 @@
+```html
 <style>
 /* --- Responsive Design for Mobile Devices --- */
 @media (max-width: 900px) {
@@ -48,14 +49,38 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .navbar {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px 3px;
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 10px 15px;
+    gap: 20px;
     font-size: 14px;
-    position: static;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    scrollbar-width: auto;
+    scrollbar-color: #00ffc3 #1a1a1a;
   }
+  .navbar::-webkit-scrollbar {
+    height: 8px;
+    display: block;
+  }
+  .navbar::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
+  }
+  .navbar::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  .navbar a {
+    padding: 6px 15px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
   .main-container {
     padding: 0 4px;
   }
@@ -98,3 +123,4 @@
   }
 }
 </style>
+```
