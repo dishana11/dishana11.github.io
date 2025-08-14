@@ -26,6 +26,11 @@ layout: default
     position: fixed;
     top: 0;
     z-index: 101;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .navbar::-webkit-scrollbar {
+    display: none;
   }
   .navbar a {
     color: #2d2d2d;
@@ -37,6 +42,7 @@ layout: default
     box-shadow: none;
     font-weight: 500;
     background: none;
+    white-space: nowrap;
   }
   .navbar a:hover,
   .navbar a:focus {
@@ -44,6 +50,31 @@ layout: default
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
     background: none;
     outline: none;
+  }
+  @media only screen and (max-width: 768px) {
+    .navbar {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding: 10px 15px;
+      gap: 20px;
+      scrollbar-width: auto;
+      scrollbar-color: #00ffc3 #1a1a1a;
+    }
+    .navbar::-webkit-scrollbar {
+      height: 8px;
+      display: block;
+    }
+    .navbar::-webkit-scrollbar-thumb {
+      background: #00ffc3;
+      border-radius: 4px;
+    }
+    .navbar::-webkit-scrollbar-track {
+      background: #1a1a1a;
+    }
+    .navbar a {
+      font-size: 14px;
+      padding: 6px 15px;
+    }
   }
 
   .main-container {
