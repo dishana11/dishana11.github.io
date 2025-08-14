@@ -9,8 +9,6 @@ layout: default
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('./assets/my-background.jpg') no-repeat center center fixed;
-    background-size: cover;
     color: #fff;
     overflow: hidden;
   }
@@ -177,6 +175,26 @@ layout: default
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   }
 
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+  }
+  .video-container.visible {
+    opacity: 1;
+  }
+
   .view-counter {
     position: fixed;
     bottom: 20px;
@@ -202,6 +220,12 @@ layout: default
   <a href="publications.html">Publications</a>
   <a href="contact.html">Contact</a>
   <a href="about-detail.html">About in Detail</a>
+</div>
+
+<div class="video-container" id="videoContainer">
+  <video id="backgroundVideo" src="./assets/contact_bg.mp4" autoplay loop muted playsinline>
+    Your browser does not support the video tag.
+  </video>
 </div>
 
 <div class="main-container">
@@ -239,3 +263,12 @@ layout: default
   <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2Fcv&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
 </div>
 {% endraw %}
+
+<script>
+  const videoContainer = document.getElementById('videoContainer');
+  function toggleVideo() {
+    videoContainer.classList.toggle('visible');
+  }
+  setInterval(toggleVideo, 5000);
+  toggleVideo();
+</script>
