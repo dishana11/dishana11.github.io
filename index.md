@@ -9,7 +9,7 @@ layout: default
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('assets/my-background.jpg') no-repeat center center fixed;
+    background: url('./assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -186,6 +186,15 @@ layout: default
     min-width: 310px;
     max-height: 340px;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 transparent;
+  }
+  .updates-scrollbox::-webkit-scrollbar {
+    width: 8px;
+  }
+  .updates-scrollbox::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
   }
 
   .projects-box {
@@ -202,13 +211,15 @@ layout: default
     min-height: 360px;
     max-height: 400px;
     overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 transparent;
   }
   .projects-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    width: 8px;
+  }
+  .projects-box::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
   }
   .projects-header-row {
     display: flex;
@@ -320,6 +331,15 @@ layout: default
     border: 1px solid #e2e2e2;
     line-height: 1.7;
     width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #00ffc3 transparent;
+  }
+  .about-detail-scrollbox::-webkit-scrollbar {
+    width: 8px;
+  }
+  .about-detail-scrollbox::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
   }
 
   .video-container {
@@ -360,7 +380,7 @@ layout: default
 {% include mobile-responsive-fixes.html %}
 
 <div class="navbar">
-  <a href="index.html">Home</a>
+  <a onclick="showSection('home')">Home</a>
   <a onclick="showSection('projects')">Projects</a>
   <a onclick="showSection('cv')">CV</a>
   <a href="publications.html">Publications</a>
@@ -370,7 +390,7 @@ layout: default
 
 <div class="video-container" id="videoContainer">
   <video autoplay muted loop>
-    <source src="assets/intro.mp4" type="video/mp4">
+    <source src="./assets/intro.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>
@@ -378,20 +398,20 @@ layout: default
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="assets/avatar.jpg" alt="Your Profile Picture">
+      <img src="./assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
+        <img src="./assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/dishana11" target="_blank">
-        <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
+        <img src="./assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
+        <img src="./assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
-        <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
+        <img src="./assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
@@ -457,18 +477,20 @@ layout: default
     </div>
     <div id="cv" style="display: none;">
       <div class="cv-header-row">
-        <a class="cv-fullscreen-link" href="assets/dishana_cv.pdf" target="_blank" rel="noopener">
+        <a class="cv-fullscreen-link" href="./assets/dishana_cv.pdf" target="_blank" rel="noopener">
           Click to open in fullscreen
         </a>
-        <a class="cv-download-link" href="assets/dishana_cv.pdf" download>
+        <a class="cv-download-link" href="./assets/dishana_cv.pdf" download>
           Download
         </a>
       </div>
-      <iframe class="cv-iframe-box" src="assets/dishana_cv.pdf"></iframe>
+      <iframe class="cv-iframe-box" src="./assets/dishana_cv.pdf"></iframe>
     </div>
     <div id="contact" style="display: none;">
-      <h1>Contact</h1>
-      <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
+      <div class="about-detail-container">
+        <h1>Contact</h1>
+        <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
+      </div>
     </div>
     <div id="about-detail" style="display: none;">
       <div class="about-detail-container">
@@ -497,5 +519,28 @@ layout: default
   </div>
 </div>
 
+{% raw %}
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&
+  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+</div>
+{% endraw %}
+
+<script>
+  function showSection(section) {
+    const sections = ['home', 'projects', 'cv', 'contact', 'about-detail'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = id === section ? 'block' : 'none';
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    showSection('home');
+  });
+
+  const videoContainer = document.getElementById('videoContainer');
+  function toggleVideo() {
+    videoContainer.classList.toggle('visible');
+  }
+  setInterval(toggleVideo, 5000);
+  toggleVideo();
+</script>
