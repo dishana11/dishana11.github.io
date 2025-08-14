@@ -194,110 +194,6 @@ layout: default
     background: transparent;
   }
 
-  .projects-box {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    padding: 28px 26px 24px 26px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 360px;
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .projects-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  .projects-header-row {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 2;
-  }
-  .projects-header-row h1 {
-    color: #2d2d2d;
-    margin: 0 0 0 0;
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: .5px;
-    padding-bottom: 0;
-    line-height: 1;
-    flex: 1 1 auto;
-    text-align: left;
-  }
-  .projects-list {
-    margin-top: 0;
-    padding-left: 0;
-    width: 100%;
-    color: #f4f4f4;
-    z-index: 2;
-    position: relative;
-  }
-  .projects-list li {
-    margin-bottom: 26px;
-    font-size: 1.05em;
-    line-height: 1.6;
-    list-style: disc inside;
-  }
-  .projects-list strong {
-    color: #00ffc3;
-    font-weight: 600;
-    font-size: 1.07em;
-  }
-
-  .publications-box {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    padding: 28px 26px 24px 26px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 360px;
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .publications-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  .publications-box h1 {
-    color: #2d2d2d;
-    margin: 0 0 20px 0;
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: .5px;
-    line-height: 1;
-    text-align: left;
-  }
-  .publications-box p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #f4f4f4;
-    margin-bottom: 20px;
-  }
-  .publications-box a {
-    color: #00ffc3;
-    text-decoration: underline;
-  }
-  .publications-box a:hover {
-    color: #00e0a3;
-  }
-
   .gif-container {
     position: fixed;
     top: 0;
@@ -333,13 +229,14 @@ layout: default
     height: auto;
   }
 </style>
+
 {% include mobile-responsive-fixes.html %}
 
 <div class="navbar">
-  <a onclick="showSection('home')">Home</a>
-  <a onclick="showSection('projects')">Projects</a>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
   <a href="cv.html">CV</a>
-  <a onclick="showSection('publications')">Publications</a>
+  <a href="publications.html">Publications</a>
   <a href="contact.html">Contact</a>
   <a href="about-detail.html">About in Detail</a>
 </div>
@@ -369,79 +266,28 @@ layout: default
     </div>
   </div>
 
-  <div class="content-box" id="content-area">
-    <div id="home">
-      <div class="home-vertical-stack">
-        <div class="intro-text">
-          Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
-        </div>
-        <h1 class="updates-heading">Updates</h1>
-        <div class="updates-scrollbox">
-          <p><strong>2025:</strong> Started internship at Lawroom AI as a Junior AI Evangelist — contributed to automation in legal AI pipelines, improved model accuracy, and supported prompt engineering for client-focused systems.</p>
-          <p><strong>2025:</strong> Published a research paper on Quantum Temporal Lattice, a theoretical physics concept merging M-theory with time loops.</p>
-          <p><strong>2025:</strong> Provided a hands-on demo and guided people on how AI could be efficiently used in real-world scenarios.</p>
-          <p><strong>2024:</strong> Conducted a detailed theoretical project on Gauss’s Law — performed calculations, thought experiments, and reached a formal conclusion about electric flux distribution.</p>
-          <p><strong>2024:</strong> Joined The Indian Vidyarthi as a summer student, engaging in workshops on sustainability and global development.</p>
-          <p><strong>2023:</strong> Participated in a CLI-based hackathon; secured second position and received a ₹7,000 cash prize.</p>
-          <p><strong>2023:</strong> Explored machine learning; created bots and AI agents — including a Twitter bot that automates pre-call research and lead qualification.</p>
-          <p><strong>2022:</strong> Received a 100% scholarship to attend the YTS program; built an autonomous robot named Marvin equipped with LiDAR and ultrasonic sensors.</p>
-          <p><strong>2021:</strong> Received a diploma in software learning.</p>
-          <p><strong>2019:</strong> Enrolled in a formal software learning program.</p>
-          <p><strong>2018:</strong> Received a silver medal in the BOB Wonderkid IQ-based competition.</p>
-          <p><strong>2018:</strong> Built an HTML-based webpage that served as a reference guide for users facing common CMD issues.</p>
-          <p><strong>2017:</strong> Started training at Infotech Solutions; later began working there.</p>
-          <p><strong>2017:</strong> Participated in a city-wide Go Green campaign and received a prize for the same.</p>
-          <p><strong>2016:</strong> Received a token of recognition for raising funds for people with visual and hearing impairments.</p>
-        </div>
+  <div class="content-box">
+    <div class="home-vertical-stack">
+      <div class="intro-text">
+        Hi! My name is Dishana. I recently completed high school and was a fully funded YTS scholar at Plaksha University, where I co-built “Marvin,” an autonomous indoor robot. I’ve published a research paper on Quantum Temporal Lattice theory and worked on applied AI projects, including NLP bots and CLI tools. I’ve also freelanced in AI automation and received a 90% scholarship at FIITJEE for academic excellence.
       </div>
-    </div>
-    <div id="projects" style="display: none;">
-      <div class="projects-box">
-        <div class="projects-header-row">
-          <h1>Projects</h1>
-        </div>
-        <ul class="projects-list">
-          <li>
-            <strong><a href="https://github.com/dishana11/Marvin" target="_blank" style="color:#00ffc3;text-decoration:underline;">Marvin (Autonomous Indoor Robot)</a></strong><br>
-            Designed and built an autonomous robot during YTS at Plaksha University. Marvin uses a LiDAR sensor, ultrasonic sensors, and a Raspberry Pi to map and navigate indoor spaces, detect obstacles and people, and carry items. The project included hardware assembly, Python firmware, and hands-on robotics teamwork.
-          </li>
-          <li>
-            <strong><a href="https://github.com/dishana11/Cmd_Termux-Integration" target="_blank" style="color:#00ffc3;text-decoration:underline;">CMD Error Detector & Fixer</a></strong><br>
-            Developed a CLI tool to automatically detect common Windows CMD errors, explain them, and offer one-click fixes. Won 2nd place and a cash prize in a competitive hackathon.
-          </li>
-          <li>
-            <strong><a href="https://github.com/dishana11/PROGRAMMING_LANGUAGES_PREDICTOR" target="_blank" style="color:#00ffc3;text-decoration:underline;">Programming Languages Predictor</a></strong><br>
-            Created a Python-based tool that predicts which programming language a code snippet is written in. Utilizes various ML models for accurate language detection.
-          </li>
-          <li>
-            <strong>Twitter AI Lead Qualifier Bot</strong><br>
-            Created a Python-based bot for Twitter/X that uses NLP to qualify leads for outreach, automating profile scanning and message sending. Improved outreach efficiency for freelance clients.
-          </li>
-          <li>
-            <strong>ML Bots & Automation Agents</strong><br>
-            Built several smart bots, including NLP-powered customer support chatbots and automation pipelines for document management, using Python and cloud APIs for various freelance clients.
-          </li>
-          <li>
-            <strong>Gauss’s Law Simulation</strong><br>
-            Conducted a project to simulate and analyze the effects of a hole in a charged spherical shell using Gauss’s Law, blending theoretical physics with computational modeling.
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div id="publications" style="display: none;">
-      <div class="publications-box">
-        <h1>Publications</h1>
-        <p>
-          I have published a research paper on Quantum Temporal Lattice (QTL) in the International Journal for Science, Arts and Technology.<br>
-          <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank" style="color:#00ffc3;text-decoration:underline;">Read the paper here</a>.<br>
-          The paper proposes an innovative approach to traveling in time by manipulating encoded space-time data, suggesting that by altering the mathematical structure of space-time at a quantum level, it may be possible to engineer traversable loops or paths that connect different points in time. This merges concepts from string theory and time-loop physics to open new possibilities in theoretical physics.
-        </p>
-        <p>
-          The research builds on foundational work in string theory, particularly M-theory, and explores how quantum entanglement can be leveraged to encode temporal information. By modeling space-time as a lattice structure, the paper introduces a framework for creating stable temporal loops, potentially enabling controlled time travel within the constraints of quantum mechanics.
-        </p>
-        <p>
-          This work has implications for both theoretical physics and practical applications, such as quantum computing and information processing. Ongoing research aims to refine the mathematical models and explore experimental validations using quantum simulation platforms.
-        </p>
+      <h1 class="updates-heading">Updates</h1>
+      <div class="updates-scrollbox">
+        <p><strong>2025:</strong> Started internship at Lawroom AI as a Junior AI Evangelist — contributed to automation in legal AI pipelines, improved model accuracy, and supported prompt engineering for client-focused systems.</p>
+        <p><strong>2025:</strong> Published a research paper on Quantum Temporal Lattice, a theoretical physics concept merging M-theory with time loops.</p>
+        <p><strong>2025:</strong> Provided a hands-on demo and guided people on how AI could be efficiently used in real-world scenarios.</p>
+        <p><strong>2024:</strong> Conducted a detailed theoretical project on Gauss’s Law — performed calculations, thought experiments, and reached a formal conclusion about electric flux distribution.</p>
+        <p><strong>2024:</strong> Joined The Indian Vidyarthi as a summer student, engaging in workshops on sustainability and global development.</p>
+        <p><strong>2023:</strong> Participated in a CLI-based hackathon; secured second position and received a ₹7,000 cash prize.</p>
+        <p><strong>2023:</strong> Explored machine learning; created bots and AI agents — including a Twitter bot that automates pre-call research and lead qualification.</p>
+        <p><strong>2022:</strong> Received a 100% scholarship to attend the YTS program; built an autonomous robot named Marvin equipped with LiDAR and ultrasonic sensors.</p>
+        <p><strong>2021:</strong> Received a diploma in software learning.</p>
+        <p><strong>2019:</strong> Enrolled in a formal software learning program.</p>
+        <p><strong>2018:</strong> Received a silver medal in the BOB Wonderkid IQ-based competition.</p>
+        <p><strong>2018:</strong> Built an HTML-based webpage that served as a reference guide for users facing common CMD issues.</p>
+        <p><strong>2017:</strong> Started training at Infotech Solutions; later began working there.</p>
+        <p><strong>2017:</strong> Participated in a city-wide Go Green campaign and received a prize for the same.</p>
+        <p><strong>2016:</strong> Received a token of recognition for raising funds for people with visual and hearing impairments.</p>
       </div>
     </div>
   </div>
@@ -454,25 +300,6 @@ layout: default
 {% endraw %}
 
 <script>
-  function showSection(section) {
-    const sections = ['home', 'projects', 'publications'];
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.style.display = id === section ? 'block' : 'none';
-    });
-
-    const backgroundGif = document.getElementById('backgroundGif');
-    if (section === 'publications') {
-      backgroundGif.src = './assets/publications.gif';
-    } else {
-      backgroundGif.src = './assets/intro.gif';
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', function(){
-    showSection('home');
-  });
-
   const gifContainer = document.getElementById('gifContainer');
   function toggleGif() {
     gifContainer.classList.toggle('visible');
