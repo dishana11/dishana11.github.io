@@ -1,5 +1,5 @@
 ---
-title: CV
+title: Contact
 layout: default
 ---
 
@@ -9,8 +9,6 @@ layout: default
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('./assets/my-background.jpg') no-repeat center center fixed;
-    background-size: cover;
     color: #fff;
     overflow: hidden;
   }
@@ -146,35 +144,46 @@ layout: default
     position: relative;
   }
 
-  .cv-header-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 10px;
+  .content-box h1 {
+    color: #2d2d2d;
+    font-size: 2em;
+    margin: 0 0 20px 0;
+    text-align: center;
     padding: 28px 26px 0 26px;
   }
-  .cv-fullscreen-link, .cv-download-link {
-    display: inline-block;
-    font-size: 16px;
-    color: #2d2d2d;
-    text-decoration: underline;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-right: 20px;
-    white-space: nowrap;
+  .content-box p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 0 26px;
   }
-  .cv-download-link:hover, .cv-fullscreen-link:hover {
+  .content-box a {
     color: #00ffc3;
+    text-decoration: underline;
   }
-  .cv-iframe-box {
-    width: 96%;
-    height: 80vh;
-    border: none;
-    margin: 18px 2% 0 2%;
-    border-radius: 8px;
-    background: #181818;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  .content-box a:hover {
+    color: #00e0a3;
+  }
+
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+  }
+  .video-container.visible {
+    opacity: 1;
   }
 
   .view-counter {
@@ -204,6 +213,12 @@ layout: default
   <a href="about-detail.html">About in Detail</a>
 </div>
 
+<div class="video-container" id="videoContainer">
+  <video id="backgroundVideo" src="./assets/contact_bg.mp4" autoplay loop muted playsinline>
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
@@ -226,16 +241,22 @@ layout: default
   </div>
 
   <div class="content-box">
-    <div class="cv-header-row">
-      <a class="cv-fullscreen-link" href="./assets/dishana_cv.pdf" target="_blank" rel="noopener">Click to open in fullscreen</a>
-      <a class="cv-download-link" href="./assets/dishana_cv.pdf" download>Download</a>
-    </div>
-    <iframe class="cv-iframe-box" src="./assets/dishana_cv.pdf"></iframe>
+    <h1>Contact</h1>
+    <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
   </div>
 </div>
 
 {% raw %}
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2Fcv&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2Fcontact&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
 </div>
 {% endraw %}
+
+<script>
+  const videoContainer = document.getElementById('videoContainer');
+  function toggleVideo() {
+    videoContainer.classList.toggle('visible');
+  }
+  setInterval(toggleVideo, 5000);
+  toggleVideo();
+</script>
