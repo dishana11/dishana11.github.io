@@ -4,6 +4,7 @@ layout: default
 description: "Dishana's projects in AI, robotics, and more."
 gif: evy.gif
 gif_alt: "Projects Background GIF"
+permalink: /projects
 ---
 
 {% include mobile-responsive-fixes.html %}
@@ -12,7 +13,6 @@ gif_alt: "Projects Background GIF"
 
 <div class="main-container">
   {% include sidebar.html %}
-
   <div class="content-box">
     <div class="projects-box">
       <div class="projects-header-row">
