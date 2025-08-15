@@ -433,7 +433,12 @@ layout: default
 <div class="video-container" id="videoContainer">
   <video id="backgroundVideo" autoplay loop muted playsinline poster="/assets/intro.gif">
     <source src="/assets/intro.mp4" type="video/mp4">
+    <source src="/assets/CyberPunkCity2077.webm" type="video/webm">
+    <source src="/assets/publications.mp4" type="video/mp4">
+    <source src="/assets/contact_bg.mp4" type="video/mp4">
     <img src="/assets/intro.gif" alt="Background GIF">
+    <img src="/assets/evy.gif" alt="Projects GIF">
+    <img src="/assets/intro.gif" alt="About GIF">
   </video>
 </div>
 
@@ -520,7 +525,17 @@ layout: default
     <div id="publications" style="display: none;">
       <div class="publications-box">
         <h1>Publications</h1>
-        <p>Content from publications.md will be inserted here.</p>
+        <p>
+          I have published a research paper on Quantum Temporal Lattice (QTL) in the International Journal for Science, Arts and Technology.<br>
+          <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank">Read the paper here</a>.<br>
+          The paper proposes an innovative approach to traveling in time by manipulating encoded space-time data, suggesting that by altering the mathematical structure of space-time at a quantum level, it may be possible to engineer traversable loops or paths that connect different points in time. This merges concepts from string theory and time-loop physics to open new possibilities in theoretical physics.
+        </p>
+        <p>
+          The research builds on foundational work in string theory, particularly M-theory, and explores how quantum entanglement can be leveraged to encode temporal information. By modeling space-time as a lattice structure, the paper introduces a framework for creating stable temporal loops, potentially enabling controlled time travel within the constraints of quantum mechanics.
+        </p>
+        <p>
+          This work has implications for both theoretical physics and practical applications, such as quantum computing and information processing. Ongoing research aims to refine the mathematical models and explore experimental validations using quantum simulation platforms.
+        </p>
       </div>
     </div>
     <div id="cv" style="display: none;">
@@ -591,24 +606,34 @@ layout: default
     } else {
       sidebar.classList.add('contact-visible');
     }
-    if (section === 'home' || section === 'projects' || section === 'cv') {
+    if (section === 'home') {
       video.style.display = 'block';
       img.style.display = 'none';
-      video.querySelector('source').src = '/assets/intro.mp4';
+      video.querySelector('source[type="video/mp4"]').src = '/assets/intro.mp4';
       video.load();
-    } else if (section === 'publications') {
+    } else if (section === 'projects') {
       video.style.display = 'none';
       img.style.display = 'block';
-      img.src = '/assets/publications.gif';
+      img.src = '/assets/evy.gif';
+    } else if (section === 'publications') {
+      video.style.display = 'block';
+      img.style.display = 'none';
+      video.querySelector('source[type="video/mp4"]').src = '/assets/publications.mp4';
+      video.load();
+    } else if (section === 'cv') {
+      video.style.display = 'block';
+      img.style.display = 'none';
+      video.querySelector('source[type="video/webm"]').src = '/assets/CyberPunkCity2077.webm';
+      video.load();
     } else if (section === 'contact') {
       video.style.display = 'block';
       img.style.display = 'none';
-      video.querySelector('source').src = '/assets/contact_bg.mp4';
+      video.querySelector('source[type="video/mp4"]').src = '/assets/contact_bg.mp4';
       video.load();
     } else if (section === 'about-detail') {
       video.style.display = 'none';
       img.style.display = 'block';
-      img.src = '/assets/about-detail.gif';
+      img.src = '/assets/intro.gif';
     }
     window.history.pushState(null, '', '/');
   }
