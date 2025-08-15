@@ -475,7 +475,7 @@ layout: default
     if (section === 'publications') {
       backgroundGif.src = './assets/publications.gif';
     } else {
-      backgroundGif.src = './assets/intro.gif';
+      backgroundGif.src = './assets/intro.mp4';
     }
   }
 
