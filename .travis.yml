@@ -3,7 +3,7 @@ language: ruby
 cache: bundler
 gemfile: Gemfile
 script:
-  - bundle exec jekyll build --destination docs
+  - bundle exec jekyll build --destination _site
 branches:
   only:
     - main
