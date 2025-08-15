@@ -256,51 +256,7 @@ layout: default
     font-size: 1.07em;
   }
 
-  .publications-box {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    padding: 28px 26px 24px 26px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 360px;
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .publications-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  .publications-box h1 {
-    color: #fff;
-    margin: 0 0 20px 0;
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: .5px;
-    line-height: 1;
-    text-align: left;
-  }
-  .publications-box p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #f4f4f4;
-    margin-bottom: 20px;
-  }
-  .publications-box a {
-    color: #00ffc3;
-    text-decoration: underline;
-  }
-  .publications-box a:hover {
-    color: #00e0a3;
-  }
-
-  .gif-container {
+  .video-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -310,13 +266,13 @@ layout: default
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
-  .gif-container img {
+  .video-container video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.3;
   }
-  .gif-container.visible {
+  .video-container.visible {
     opacity: 1;
   }
 
@@ -339,14 +295,17 @@ layout: default
 <div class="navbar">
   <a href="/">Home</a>
   <a onclick="showSection('projects')">Projects</a>
-  <a onclick="showSection('publications')">Publications</a>
-  <a href="cv.html">CV</a>
-  <a href="contact.html">Contact</a>
-  <a href="about-detail.html">About in Detail</a>
+  <a href="/publications.html">Publications</a>
+  <a href="/cv.html">CV</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/about-detail.html">About in Detail</a>
 </div>
 
-<div class="gif-container" id="gifContainer">
-  <img id="backgroundGif" src="assets/intro.gif" alt="Background GIF">
+<div class="video-container" id="videoContainer">
+  <video id="backgroundVideo" autoplay loop muted playsinline>
+    <source src="assets/intro.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 
 <div class="main-container">
@@ -429,22 +388,6 @@ layout: default
         </ul>
       </div>
     </div>
-    <div id="publications" style="display: none;">
-      <div class="publications-box">
-        <h1>Publications</h1>
-        <p>
-          I have published a research paper on Quantum Temporal Lattice (QTL) in the International Journal for Science, Arts and Technology.<br>
-          <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank" style="color:#00ffc3;text-decoration:underline;">Read the paper here</a>.<br>
-          The paper proposes an innovative approach to traveling in time by manipulating encoded space-time data, suggesting that by altering the mathematical structure of space-time at a quantum level, it may be possible to engineer traversable loops or paths that connect different points in time. This merges concepts from string theory and time-loop physics to open new possibilities in theoretical physics.
-        </p>
-        <p>
-          The research builds on foundational work in string theory, particularly M-theory, and explores how quantum entanglement can be leveraged to encode temporal information. By modeling space-time as a lattice structure, the paper introduces a framework for creating stable temporal loops, potentially enabling controlled time travel within the constraints of quantum mechanics.
-        </p>
-        <p>
-          This work has implications for both theoretical physics and practical applications, such as quantum computing and information processing. Ongoing research aims to refine the mathematical models and explore experimental validations using quantum simulation platforms.
-        </p>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -454,33 +397,22 @@ layout: default
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'projects', 'publications'];
+    const sections = ['home', 'projects'];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = id === section ? 'block' : 'none';
     });
-
-    const backgroundGif = document.getElementById('backgroundGif');
-    if (section === 'publications') {
-      backgroundGif.src = 'assets/publications.gif';
-    } else {
-      backgroundGif.src = 'assets/intro.gif';
-    }
-
-    if (section === 'home') {
-      window.history.pushState(null, '', '/');
-    }
+    window.history.pushState(null, '', '/');
   }
 
   document.addEventListener('DOMContentLoaded', function(){
-    const hash = window.location.hash.replace('#', '');
-    showSection(hash || 'home');
+    showSection('home');
   });
 
-  const gifContainer = document.getElementById('gifContainer');
-  function toggleGif() {
-    gifContainer.classList.toggle('visible');
+  const videoContainer = document.getElementById('videoContainer');
+  function toggleVideo() {
+    videoContainer.classList.toggle('visible');
   }
-  setInterval(toggleGif, 5000);
-  toggleGif();
+  setInterval(toggleVideo, 5000);
+  toggleVideo();
 </script>
