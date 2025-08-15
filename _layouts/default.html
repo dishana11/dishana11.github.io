@@ -1,23 +1,13 @@
-<!doctype html>
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
-    {% include head.html %}
-    {% include head/custom.html %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+    {% seo %}
   </head>
-
-  <body class="layout--{{ page.layout | default: layout.layout }} {{ page.page-class | default: layout.page-class }}">
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
-
+  <body>
     {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
   </body>
 </html>
