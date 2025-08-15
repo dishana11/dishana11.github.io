@@ -11,7 +11,7 @@ layout: default
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('assets/my-background.jpg') no-repeat center center fixed;
+    background: url('/assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -140,6 +140,7 @@ layout: default
     justify-content: flex-start;
     align-items: stretch;
     position: relative;
+    z-index: 2;
   }
 
   .home-vertical-stack {
@@ -321,29 +322,29 @@ layout: default
 </div>
 
 <div class="video-container" id="videoContainer">
-  <video id="backgroundVideo" autoplay loop muted playsinline>
-    <source src="assets/intro.mp4" type="video/mp4">
-    <img src="assets/intro.gif" alt="Background GIF">
+  <video id="backgroundVideo" autoplay loop muted playsinline poster="/assets/intro.gif">
+    <source src="/assets/intro.mp4" type="video/mp4">
+    <img src="/assets/intro.gif" alt="Background GIF">
   </video>
 </div>
 
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="assets/avatar.jpg" alt="Your Profile Picture">
+      <img src="/assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
+        <img src="/assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/dishana11" target="_blank">
-        <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
+        <img src="/assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
+        <img src="/assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
-        <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
+        <img src="/assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
