@@ -18,41 +18,6 @@ layout: default
     overflow: hidden;
   }
 
-  .glow-overlay {
-    pointer-events: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 105;
-    overflow: hidden;
-    mix-blend-mode: lighten;
-  }
-  .glow-light, .glow-light2 {
-    position: absolute;
-    width: 180vw;
-    height: 120vh;
-    left: -100vw;
-    top: -10vh;
-    filter: blur(80px);
-    opacity: 0.65;
-  }
-  .glow-light {
-    background: linear-gradient(110deg, transparent 10%, #fff 48%, #fff 55%, transparent 90%);
-    animation: lightflow 20s linear infinite;
-  }
-  .glow-light2 {
-    background: linear-gradient(70deg, transparent 30%, #fff 54%, #fff 60%, transparent 80%);
-    animation: lightflow2 25s linear infinite;
-    opacity: 0.35;
-  }
-  @keyframes lightflow {
-    0% { left: -100vw; }
-    100% { left: 100vw; }
-  }
-  @keyframes lightflow2 {
-    0% { left: 100vw; }
-    100% { left: -80vw; }
-  }
-
   .navbar {
     width: 100%;
     padding: 15px 30px;
@@ -226,17 +191,16 @@ layout: default
     max-height: 340px;
     overflow-y: auto;
     scrollbar-width: auto;
-    -ms-overflow-style: auto;
   }
   .updates-scrollbox::-webkit-scrollbar {
     width: 8px;
   }
   .updates-scrollbox::-webkit-scrollbar-thumb {
-    background: #00ffc3;
+    background: #000;
     border-radius: 4px;
   }
   .updates-scrollbox::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
+    background: #000;
   }
 
   .projects-box, .publications-box, .cv-box, .contact-box, .about-detail-container {
@@ -253,18 +217,14 @@ layout: default
     min-height: 360px;
     max-height: 400px;
     overflow-y: auto;
-    scrollbar-width: auto;
-    -ms-overflow-style: auto;
   }
-  .projects-box::-webkit-scrollbar, .publications-box::-webkit-scrollbar, .cv-box::-webkit-scrollbar, .contact-box::-webkit-scrollbar, .about-detail-container::-webkit-scrollbar {
-    width: 8px;
+  .projects-box, .publications-box {
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbars */
+    -ms-overflow-style: none;
   }
-  .projects-box::-webkit-scrollbar-thumb, .publications-box::-webkit-scrollbar-thumb, .cv-box::-webkit-scrollbar-thumb, .contact-box::-webkit-scrollbar-thumb, .about-detail-container::-webkit-scrollbar-thumb {
-    background: #00ffc3;
-    border-radius: 4px;
-  }
-  .projects-box::-webkit-scrollbar-track, .publications-box::-webkit-scrollbar-track, .cv-box::-webkit-scrollbar-track, .contact-box::-webkit-scrollbar-track, .about-detail-container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
+  .projects-box::-webkit-scrollbar, .publications-box::-webkit-scrollbar {
+    display: none; /* Hide scrollbars */
   }
   .projects-header-row, .publications-box h1, .cv-box h1, .contact-box h1, .about-detail-container h1 {
     display: flex;
@@ -299,7 +259,13 @@ layout: default
     line-height: 1.6;
     list-style: disc inside;
   }
-  .projects-list strong, .publications-box a, .cv-box a, .contact-box a, .about-detail-scrollbox a {
+  .projects-list strong, .projects-list a {
+    color: #f4f4f4; /* Uniform color */
+    font-weight: 600;
+    font-size: 1.07em;
+    text-decoration: underline;
+  }
+  .publications-box a, .cv-box a, .contact-box a, .about-detail-scrollbox a {
     color: #00ffc3;
     font-weight: 600;
     font-size: 1.07em;
@@ -335,7 +301,7 @@ layout: default
   }
   .cv-iframe-box {
     width: 96%;
-    height: 80vh;
+    height: calc(100% - 60px); /* Fit content box */
     border: none;
     margin: 18px 2% 0 2%;
     border-radius: 8px;
@@ -362,24 +328,25 @@ layout: default
     max-height: 320px;
     min-height: 210px;
     overflow-y: auto;
+    overflow-x: hidden; /* Remove horizontal scrollbar */
     text-align: left;
     padding: 19px 26px 14px 26px;
     box-shadow: 0 2px 9px rgba(0,0,0,0.06);
     border: 1px solid #e2e2e2;
     line-height: 1.7;
     width: 100%;
+    word-wrap: break-word; /* Ensure text fits */
     scrollbar-width: auto;
-    -ms-overflow-style: auto;
   }
   .about-detail-scrollbox::-webkit-scrollbar {
     width: 8px;
   }
   .about-detail-scrollbox::-webkit-scrollbar-thumb {
-    background: #00ffc3;
+    background: #000;
     border-radius: 4px;
   }
   .about-detail-scrollbox::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
+    background: #000;
   }
 
   .video-container {
@@ -397,6 +364,7 @@ layout: default
     height: 100%;
     object-fit: cover;
     opacity: 0.3;
+    display: none;
   }
   .video-container img {
     width: 100%;
@@ -425,21 +393,12 @@ layout: default
   }
 </style>
 
-<div class="glow-overlay">
-  <div class="glow-light"></div>
-  <div class="glow-light2"></div>
-</div>
-
 <div class="video-container" id="videoContainer">
-  <video id="backgroundVideo" autoplay loop muted playsinline poster="/assets/intro.gif">
-    <source src="/assets/intro.mp4" type="video/mp4">
-    <source src="/assets/CyberPunkCity2077.webm" type="video/webm">
-    <source src="/assets/publications.mp4" type="video/mp4">
-    <source src="/assets/contact_bg.mp4" type="video/mp4">
-    <img src="/assets/intro.gif" alt="Background GIF">
-    <img src="/assets/evy.gif" alt="Projects GIF">
-    <img src="/assets/intro.gif" alt="About GIF">
+  <video id="backgroundVideo" autoplay loop muted playsinline>
+    <source id="videoSource" src="/assets/intro.mp4" type="video/mp4">
   </video>
+  <img id="gifEvy" src="/assets/evy.gif" alt="Projects GIF" style="display: none;">
+  <img id="gifIntro" src="/assets/intro.gif" alt="About GIF" style="display: none;">
 </div>
 
 <div class="main-container">
@@ -595,9 +554,20 @@ layout: default
       const el = document.getElementById(id);
       if (el) el.style.display = id === section ? 'block' : 'none';
     });
+    const videoContainer = document.getElementById('videoContainer');
     const video = document.getElementById('backgroundVideo');
-    const img = video.querySelector('img');
+    const videoSource = document.getElementById('videoSource');
+    const gifEvy = document.getElementById('gifEvy');
+    const gifIntro = document.getElementById('gifIntro');
     const sidebar = document.getElementById('sidebar');
+
+    // Reset visibility
+    video.style.display = 'none';
+    gifEvy.style.display = 'none';
+    gifIntro.style.display = 'none';
+    videoContainer.classList.add('visible');
+
+    // Handle sidebar visibility on mobile
     if (window.innerWidth <= 900) {
       sidebar.classList.remove('contact-visible');
       if (section === 'contact') {
@@ -606,35 +576,34 @@ layout: default
     } else {
       sidebar.classList.add('contact-visible');
     }
+
+    // Set media based on section
     if (section === 'home') {
       video.style.display = 'block';
-      img.style.display = 'none';
-      video.querySelector('source[type="video/mp4"]').src = '/assets/intro.mp4';
+      videoSource.src = '/assets/intro.mp4';
+      videoSource.type = 'video/mp4';
       video.load();
     } else if (section === 'projects') {
-      video.style.display = 'none';
-      img.style.display = 'block';
-      img.src = '/assets/evy.gif';
+      gifEvy.style.display = 'block';
     } else if (section === 'publications') {
       video.style.display = 'block';
-      img.style.display = 'none';
-      video.querySelector('source[type="video/mp4"]').src = '/assets/publications.mp4';
+      videoSource.src = '/assets/publications.mp4';
+      videoSource.type = 'video/mp4';
       video.load();
     } else if (section === 'cv') {
       video.style.display = 'block';
-      img.style.display = 'none';
-      video.querySelector('source[type="video/webm"]').src = '/assets/CyberPunkCity2077.webm';
+      videoSource.src = '/assets/CyberPunkCity2077.webm';
+      videoSource.type = 'video/webm';
       video.load();
     } else if (section === 'contact') {
       video.style.display = 'block';
-      img.style.display = 'none';
-      video.querySelector('source[type="video/mp4"]').src = '/assets/contact_bg.mp4';
+      videoSource.src = '/assets/contact_bg.mp4';
+      videoSource.type = 'video/mp4';
       video.load();
     } else if (section === 'about-detail') {
-      video.style.display = 'none';
-      img.style.display = 'block';
-      img.src = '/assets/intro.gif';
+      gifIntro.style.display = 'block';
     }
+
     window.history.pushState(null, '', '/');
   }
 
@@ -648,12 +617,9 @@ layout: default
     toggleVideo();
     const video = document.getElementById('backgroundVideo');
     video.addEventListener('error', function() {
-      const img = video.querySelector('img');
-      if (img) {
-        img.style.display = 'block';
-        img.src = '/assets/intro.gif';
-        video.style.display = 'none';
-      }
+      const gifIntro = document.getElementById('gifIntro');
+      gifIntro.style.display = 'block';
+      video.style.display = 'none';
     });
     window.addEventListener('resize', function() {
       showSection(document.querySelector('#content-area > div:not([style*="display: none"])').id || 'home');
