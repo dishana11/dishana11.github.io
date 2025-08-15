@@ -129,7 +129,7 @@ layout: default
 
   .content-box {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     background-clip: content-box;
     border-radius: 15px;
     padding: 0 0 25px 0;
@@ -153,14 +153,14 @@ layout: default
     padding: 40px 0 0 0;
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto 20px auto; /* Bottom gap */
+    margin: 0 auto 15px auto;
   }
   .intro-text {
     font-size: 1.2em;
-    color: #fff;
+    color: #ffffff;
     text-align: left;
     font-weight: 500;
-    background: rgba(255,255,255,0.58);
+    background: rgba(255,255,255,0.2);
     border-radius: 10px;
     width: 100%;
     max-width: 1000px;
@@ -170,7 +170,7 @@ layout: default
     margin: 0;
   }
   .updates-heading {
-    color: #fff;
+    color: #ffffff;
     margin: 0 0 9px 0;
     font-size: 2em;
     font-weight: 700;
@@ -181,8 +181,8 @@ layout: default
   }
   .updates-scrollbox {
     font-size: 0.98em;
-    color: #e0e0e0;
-    background: rgba(40,40,40,0.95);
+    color: #ffffff;
+    background: rgba(40,40,40,0.3);
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
@@ -207,17 +207,19 @@ layout: default
   .projects-box, .publications-box, .cv-box, .contact-box, .about-detail-container {
     width: 100%;
     max-width: 900px;
-    margin: 40px auto 40px auto;
-    background-color: rgba(0, 0, 0, 0.87);
+    margin: 20px auto 20px auto;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
-    padding: 28px 26px 24px 26px;
+    padding: 0 0 25px 0;
     box-shadow: 0 8px 22px rgba(0,0,0,0.40);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     min-height: 360px;
-    max-height: 400px;
+    max-height: 450px;
     overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
   }
   .projects-box, .publications-box {
     overflow-y: auto;
@@ -236,7 +238,7 @@ layout: default
     z-index: 2;
   }
   .projects-header-row h1, .publications-box h1, .cv-box h1, .contact-box h1, .about-detail-container h1 {
-    color: #fff;
+    color: #ffffff;
     margin: 0 0 20px 0;
     font-size: 2em;
     font-weight: 700;
@@ -250,7 +252,7 @@ layout: default
     margin-top: 0;
     padding-left: 0;
     width: 100%;
-    color: #f4f4f4;
+    color: #ffffff;
     z-index: 2;
     position: relative;
   }
@@ -310,7 +312,7 @@ layout: default
     width: 96%;
     height: 80vh;
     border: none;
-    margin: 18px 2% 20px 2%; /* Bottom gap */
+    margin: 18px 2% 20px 2%;
     border-radius: 8px;
     background: #181818;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -319,18 +321,18 @@ layout: default
 
   .about-detail-container {
     max-width: 1000px;
-    background: rgba(0, 0, 0, 0.87);
+    background: rgba(0, 0, 0, 0.3);
   }
   .about-detail-intro {
-    color: #fff;
+    color: #ffffff;
     font-size: 1.12em;
     margin-bottom: 18px;
     font-weight: 500;
     letter-spacing: 0.01em;
   }
   .about-detail-scrollbox {
-    background: rgba(40,40,40,0.95);
-    color: #e0e0e0;
+    background: rgba(40,40,40,0.3);
+    color: #ffffff;
     font-size: 1.02em;
     border-radius: 10px;
     max-height: 320px;
@@ -358,7 +360,7 @@ layout: default
   }
 
   .video-container {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
     width: 100vw;
@@ -371,14 +373,14 @@ layout: default
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6; /* Increased visibility */
+    opacity: 0.6;
     display: none;
   }
   .video-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6; /* Increased visibility */
+    opacity: 0.6;
     display: none;
   }
   .video-container.visible {
@@ -387,9 +389,9 @@ layout: default
 
   .view-counter {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 10;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
     background: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 5px;
@@ -397,7 +399,7 @@ layout: default
     opacity: 1;
     pointer-events: none;
     border: 1px solid #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Enhanced visibility */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   }
   .view-counter img {
     vertical-align: middle;
@@ -405,10 +407,11 @@ layout: default
     height: auto;
     visibility: visible;
     opacity: 1;
+    display: block;
   }
   .view-counter span {
     color: #fff;
-    font-size: 18px; /* Larger for readability */
+    font-size: 18px;
     display: none;
   }
 </style>
