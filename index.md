@@ -323,7 +323,7 @@ layout: default
 
 <div class="video-container visible" id="videoContainer">
   <video id="backgroundVideo" autoplay loop muted playsinline poster="/assets/intro.gif">
-    <source src="/assets/intro.mp4" type="video/mp4">
+    <source src="/assets/intro.gif" type="video/gif">
     <img src="/assets/intro.gif" alt="Background GIF">
   </video>
 </div>
