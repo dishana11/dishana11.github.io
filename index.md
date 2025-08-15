@@ -4,6 +4,7 @@ layout: default
 ---
 
 {% include mobile-responsive-fixes.html %}
+{% include navbar.html %}
 
 <style>
   html, body {
@@ -15,6 +16,41 @@ layout: default
     background-size: cover;
     color: #fff;
     overflow: hidden;
+  }
+
+  .glow-overlay {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 105;
+    overflow: hidden;
+    mix-blend-mode: lighten;
+  }
+  .glow-light, .glow-light2 {
+    position: absolute;
+    width: 180vw;
+    height: 120vh;
+    left: -100vw;
+    top: -10vh;
+    filter: blur(80px);
+    opacity: 0.65;
+  }
+  .glow-light {
+    background: linear-gradient(110deg, transparent 10%, #fff 48%, #fff 55%, transparent 90%);
+    animation: lightflow 20s linear infinite;
+  }
+  .glow-light2 {
+    background: linear-gradient(70deg, transparent 30%, #fff 54%, #fff 60%, transparent 80%);
+    animation: lightflow2 25s linear infinite;
+    opacity: 0.35;
+  }
+  @keyframes lightflow {
+    0% { left: -100vw; }
+    100% { left: 100vw; }
+  }
+  @keyframes lightflow2 {
+    0% { left: 100vw; }
+    100% { left: -80vw; }
   }
 
   .navbar {
@@ -180,7 +216,7 @@ layout: default
   .updates-scrollbox {
     font-size: 0.98em;
     color: #e0e0e0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(40,40,40,0.95);
     border-radius: 9px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 18px 20px;
@@ -203,11 +239,11 @@ layout: default
     background: rgba(0, 0, 0, 0.5);
   }
 
-  .projects-box, .publications-box, .cv-box, .contact-box, .about-box {
+  .projects-box, .publications-box, .cv-box, .contact-box, .about-detail-container {
     width: 100%;
     max-width: 900px;
     margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.87);
     border-radius: 15px;
     padding: 28px 26px 24px 26px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.40);
@@ -220,17 +256,17 @@ layout: default
     scrollbar-width: auto;
     -ms-overflow-style: auto;
   }
-  .projects-box::-webkit-scrollbar, .publications-box::-webkit-scrollbar, .cv-box::-webkit-scrollbar, .contact-box::-webkit-scrollbar, .about-box::-webkit-scrollbar {
+  .projects-box::-webkit-scrollbar, .publications-box::-webkit-scrollbar, .cv-box::-webkit-scrollbar, .contact-box::-webkit-scrollbar, .about-detail-container::-webkit-scrollbar {
     width: 8px;
   }
-  .projects-box::-webkit-scrollbar-thumb, .publications-box::-webkit-scrollbar-thumb, .cv-box::-webkit-scrollbar-thumb, .contact-box::-webkit-scrollbar-thumb, .about-box::-webkit-scrollbar-thumb {
+  .projects-box::-webkit-scrollbar-thumb, .publications-box::-webkit-scrollbar-thumb, .cv-box::-webkit-scrollbar-thumb, .contact-box::-webkit-scrollbar-thumb, .about-detail-container::-webkit-scrollbar-thumb {
     background: #00ffc3;
     border-radius: 4px;
   }
-  .projects-box::-webkit-scrollbar-track, .publications-box::-webkit-scrollbar-track, .cv-box::-webkit-scrollbar-track, .contact-box::-webkit-scrollbar-track, .about-box::-webkit-scrollbar-track {
+  .projects-box::-webkit-scrollbar-track, .publications-box::-webkit-scrollbar-track, .cv-box::-webkit-scrollbar-track, .contact-box::-webkit-scrollbar-track, .about-detail-container::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.5);
   }
-  .projects-header-row, .publications-box h1, .cv-box h1, .contact-box h1, .about-box h1 {
+  .projects-header-row, .publications-box h1, .cv-box h1, .contact-box h1, .about-detail-container h1 {
     display: flex;
     width: 100%;
     align-items: center;
@@ -238,7 +274,7 @@ layout: default
     position: relative;
     z-index: 2;
   }
-  .projects-header-row h1, .publications-box h1, .cv-box h1, .contact-box h1, .about-box h1 {
+  .projects-header-row h1, .publications-box h1, .cv-box h1, .contact-box h1, .about-detail-container h1 {
     color: #fff;
     margin: 0 0 20px 0;
     font-size: 2em;
@@ -249,7 +285,7 @@ layout: default
     flex: 1 1 auto;
     text-align: left;
   }
-  .projects-list, .publications-box p, .cv-box p, .contact-box p, .about-box p {
+  .projects-list, .publications-box p, .cv-box p, .contact-box p, .about-detail-scrollbox {
     margin-top: 0;
     padding-left: 0;
     width: 100%;
@@ -263,19 +299,87 @@ layout: default
     line-height: 1.6;
     list-style: disc inside;
   }
-  .projects-list strong, .publications-box a, .cv-box a, .contact-box a, .about-box a {
+  .projects-list strong, .publications-box a, .cv-box a, .contact-box a, .about-detail-scrollbox a {
     color: #00ffc3;
     font-weight: 600;
     font-size: 1.07em;
     text-decoration: underline;
   }
-  .publications-box p, .cv-box p, .contact-box p, .about-box p {
+  .publications-box p, .cv-box p, .contact-box p, .about-detail-scrollbox {
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 20px;
   }
-  .publications-box a:hover, .cv-box a:hover, .contact-box a:hover, .about-box a:hover {
+  .publications-box a:hover, .cv-box a:hover, .contact-box a:hover, .about-detail-scrollbox a:hover {
     color: #00e0a3;
+  }
+
+  .cv-header-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 10px;
+  }
+  .cv-fullscreen-link, .cv-download-link {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-right: 20px;
+    white-space: nowrap;
+  }
+  .cv-fullscreen-link:hover, .cv-download-link:hover {
+    color: #00ffc3;
+  }
+  .cv-iframe-box {
+    width: 96%;
+    height: 80vh;
+    border: none;
+    margin: 18px 2% 0 2%;
+    border-radius: 8px;
+    background: #181818;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    flex: 1 1 auto;
+  }
+
+  .about-detail-container {
+    background: rgba(0, 0, 0, 0.87);
+  }
+  .about-detail-intro {
+    color: #fff;
+    font-size: 1.12em;
+    margin-bottom: 18px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .about-detail-scrollbox {
+    background: rgba(40,40,40,0.95);
+    color: #e0e0e0;
+    font-size: 1.02em;
+    border-radius: 10px;
+    max-height: 320px;
+    min-height: 210px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 19px 26px 14px 26px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
+    border: 1px solid #e2e2e2;
+    line-height: 1.7;
+    width: 100%;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+  }
+  .about-detail-scrollbox::-webkit-scrollbar {
+    width: 8px;
+  }
+  .about-detail-scrollbox::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
+  }
+  .about-detail-scrollbox::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .video-container {
@@ -321,13 +425,9 @@ layout: default
   }
 </style>
 
-<div class="navbar" role="navigation">
-  <a href="javascript:void(0)" onclick="showSection('home')" aria-label="Home page">Home</a>
-  <a href="javascript:void(0)" onclick="showSection('projects')" aria-label="Projects page">Projects</a>
-  <a href="javascript:void(0)" onclick="showSection('publications')" aria-label="Publications page">Publications</a>
-  <a href="javascript:void(0)" onclick="showSection('cv')" aria-label="CV page">CV</a>
-  <a href="javascript:void(0)" onclick="showSection('contact')" aria-label="Contact page">Contact</a>
-  <a href="javascript:void(0)" onclick="showSection('about')" aria-label="About in Detail page">About in Detail</a>
+<div class="glow-overlay">
+  <div class="glow-light"></div>
+  <div class="glow-light2"></div>
 </div>
 
 <div class="video-container" id="videoContainer">
@@ -408,7 +508,7 @@ layout: default
           </li>
           <li>
             <strong>ML Bots & Automation Agents</strong><br>
-            Built several smart bots, including NLP-powered customer support chatbots and automation pipelines for document management, using Python and cloud APIs for various freelance clients.
+            Built several smart bots, including NLP-powered customer support chatbots and automation pipelines for document management, using Python and cloud APIs for various freelance projects.
           </li>
           <li>
             <strong>Gauss’s Law Simulation</strong><br>
@@ -420,24 +520,16 @@ layout: default
     <div id="publications" style="display: none;">
       <div class="publications-box">
         <h1>Publications</h1>
-        <p>
-          I have published a research paper on Quantum Temporal Lattice (QTL) in the International Journal for Science, Arts and Technology.<br>
-          <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank">Read the paper here</a>.<br>
-          The paper proposes an innovative approach to traveling in time by manipulating encoded space-time data, suggesting that by altering the mathematical structure of space-time at a quantum level, it may be possible to engineer traversable loops or paths that connect different points in time. This merges concepts from string theory and time-loop physics to open new possibilities in theoretical physics.
-        </p>
-        <p>
-          The research builds on foundational work in string theory, particularly M-theory, and explores how quantum entanglement can be leveraged to encode temporal information. By modeling space-time as a lattice structure, the paper introduces a framework for creating stable temporal loops, potentially enabling controlled time travel within the constraints of quantum mechanics.
-        </p>
-        <p>
-          This work has implications for both theoretical physics and practical applications, such as quantum computing and information processing. Ongoing research aims to refine the mathematical models and explore experimental validations using quantum simulation platforms.
-        </p>
+        <p>Content from publications.md will be inserted here.</p>
       </div>
     </div>
     <div id="cv" style="display: none;">
       <div class="cv-box">
-        <h1>CV</h1>
-        <p>Download my CV <a href="/assets/dishana_cv.pdf" target="_blank">here</a>.</p>
-        <p>Summary of qualifications, experience, and education will be added here. Please provide the content for your CV section.</p>
+        <div class="cv-header-row">
+          <a class="cv-fullscreen-link" href="/assets/dishana_cv.pdf" target="_blank" rel="noopener">Click to open in fullscreen</a>
+          <a class="cv-download-link" href="/assets/dishana_cv.pdf" download>Download</a>
+        </div>
+        <iframe class="cv-iframe-box" src="/assets/dishana_cv.pdf"></iframe>
       </div>
     </div>
     <div id="contact" style="display: none;">
@@ -449,10 +541,29 @@ layout: default
         <p>X: <a href="https://x.com/dishanaa11" target="_blank">x.com/dishanaa11</a></p>
       </div>
     </div>
-    <div id="about" style="display: none;">
-      <div class="about-box">
+    <div id="about-detail" style="display: none;">
+      <div class="about-detail-container">
         <h1>About in Detail</h1>
-        <p>Detailed bio and background information will be added here. Please provide the content for your About section.</p>
+        <div class="about-detail-intro">This section contains life updates in detail:</div>
+        <div class="about-detail-scrollbox">
+          <p><strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.</p>
+          <p><strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
+          Began training at Infotech Solutions in hardware troubleshooting and system recovery.</p>
+          <p><strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
+          Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.</p>
+          <p><strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.</p>
+          <p><strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.</p>
+          <p><strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
+          Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.</p>
+          <p><strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
+          Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
+          Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.</p>
+          <p><strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
+          Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.</p>
+          <p><strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
+          Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
+          Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -464,14 +575,14 @@ layout: default
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'projects', 'publications', 'cv', 'contact', 'about'];
+    const sections = ['home', 'projects', 'publications', 'cv', 'contact', 'about-detail'];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = id === section ? 'block' : 'none';
     });
     const video = document.getElementById('backgroundVideo');
     const img = video.querySelector('img');
-    if (section === 'home') {
+    if (section === 'home' || section === 'projects' || section === 'cv') {
       video.style.display = 'block';
       img.style.display = 'none';
       video.querySelector('source').src = '/assets/intro.mp4';
@@ -485,28 +596,23 @@ layout: default
       img.style.display = 'none';
       video.querySelector('source').src = '/assets/contact_bg.mp4';
       video.load();
-    } else if (section === 'about') {
+    } else if (section === 'about-detail') {
       video.style.display = 'none';
       img.style.display = 'block';
       img.src = '/assets/about-detail.gif';
-    } else {
-      video.style.display = 'block';
-      img.style.display = 'none';
-      video.querySelector('source').src = '/assets/intro.mp4';
-      video.load();
     }
     window.history.pushState(null, '', '/');
   }
 
   document.addEventListener('DOMContentLoaded', function() {
     showSection('home');
-    const video = document.getElementById('backgroundVideo');
     const videoContainer = document.getElementById('videoContainer');
     function toggleVideo() {
       videoContainer.classList.toggle('visible');
     }
     setInterval(toggleVideo, 5000);
     toggleVideo();
+    const video = document.getElementById('backgroundVideo');
     video.addEventListener('error', function() {
       const img = video.querySelector('img');
       if (img) {
