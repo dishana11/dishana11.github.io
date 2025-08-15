@@ -3,13 +3,15 @@ title: Home
 layout: default
 ---
 
+{% include mobile-responsive-fixes.html %}
+
 <style>
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('./assets/my-background.jpg') no-repeat center center fixed;
+    background: url('/assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -28,7 +30,7 @@ layout: default
     z-index: 101;
   }
   .navbar a {
-    color: #2d2d2d;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
     padding: 8px 20px;
@@ -40,7 +42,7 @@ layout: default
   }
   .navbar a:hover,
   .navbar a:focus {
-    color: #2d2d2d;
+    color: #fff;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
     background: none;
     outline: none;
@@ -138,6 +140,7 @@ layout: default
     justify-content: flex-start;
     align-items: stretch;
     position: relative;
+    z-index: 2;
   }
 
   .home-vertical-stack {
@@ -152,7 +155,7 @@ layout: default
   }
   .intro-text {
     font-size: 1.2em;
-    color: #2d2d2d;
+    color: #fff;
     text-align: left;
     font-weight: 500;
     background: rgba(255,255,255,0.58);
@@ -165,7 +168,7 @@ layout: default
     margin: 0;
   }
   .updates-heading {
-    color: #2d2d2d;
+    color: #fff;
     margin: 0 0 9px 0;
     font-size: 2em;
     font-weight: 700;
@@ -186,15 +189,21 @@ layout: default
     min-width: 310px;
     max-height: 340px;
     overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
   }
   .updates-scrollbox::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    width: 8px;
+  }
+  .updates-scrollbox::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
+  }
+  .updates-scrollbox::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
   }
 
-  .projects-box {
+  .projects-box, .publications-box, .cv-box, .contact-box, .about-box {
     width: 100%;
     max-width: 900px;
     margin: 40px auto 0 auto;
@@ -208,14 +217,20 @@ layout: default
     min-height: 360px;
     max-height: 400px;
     overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
   }
-  .projects-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+  .projects-box::-webkit-scrollbar, .publications-box::-webkit-scrollbar, .cv-box::-webkit-scrollbar, .contact-box::-webkit-scrollbar, .about-box::-webkit-scrollbar {
+    width: 8px;
   }
-  .projects-header-row {
+  .projects-box::-webkit-scrollbar-thumb, .publications-box::-webkit-scrollbar-thumb, .cv-box::-webkit-scrollbar-thumb, .contact-box::-webkit-scrollbar-thumb, .about-box::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
+  }
+  .projects-box::-webkit-scrollbar-track, .publications-box::-webkit-scrollbar-track, .cv-box::-webkit-scrollbar-track, .contact-box::-webkit-scrollbar-track, .about-box::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .projects-header-row, .publications-box h1, .cv-box h1, .contact-box h1, .about-box h1 {
     display: flex;
     width: 100%;
     align-items: center;
@@ -223,9 +238,9 @@ layout: default
     position: relative;
     z-index: 2;
   }
-  .projects-header-row h1 {
-    color: #2d2d2d;
-    margin: 0 0 0 0;
+  .projects-header-row h1, .publications-box h1, .cv-box h1, .contact-box h1, .about-box h1 {
+    color: #fff;
+    margin: 0 0 20px 0;
     font-size: 2em;
     font-weight: 700;
     letter-spacing: .5px;
@@ -234,7 +249,7 @@ layout: default
     flex: 1 1 auto;
     text-align: left;
   }
-  .projects-list {
+  .projects-list, .publications-box p, .cv-box p, .contact-box p, .about-box p {
     margin-top: 0;
     padding-left: 0;
     width: 100%;
@@ -248,57 +263,22 @@ layout: default
     line-height: 1.6;
     list-style: disc inside;
   }
-  .projects-list strong {
+  .projects-list strong, .publications-box a, .cv-box a, .contact-box a, .about-box a {
     color: #00ffc3;
     font-weight: 600;
     font-size: 1.07em;
-  }
-
-  .publications-box {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    padding: 28px 26px 24px 26px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.40);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 360px;
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .publications-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  .publications-box h1 {
-    color: #2d2d2d;
-    margin: 0 0 20px 0;
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: .5px;
-    line-height: 1;
-    text-align: left;
-  }
-  .publications-box p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #f4f4f4;
-    margin-bottom: 20px;
-  }
-  .publications-box a {
-    color: #00ffc3;
     text-decoration: underline;
   }
-  .publications-box a:hover {
+  .publications-box p, .cv-box p, .contact-box p, .about-box p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .publications-box a:hover, .cv-box a:hover, .contact-box a:hover, .about-box a:hover {
     color: #00e0a3;
   }
 
-  .gif-container {
+  .video-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -308,13 +288,20 @@ layout: default
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
-  .gif-container img {
+  .video-container video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.3;
   }
-  .gif-container.visible {
+  .video-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    display: none;
+  }
+  .video-container.visible {
     opacity: 1;
   }
 
@@ -333,38 +320,40 @@ layout: default
     height: auto;
   }
 </style>
-{% include mobile-responsive-fixes.html %}
 
-<div class="navbar">
-  <a onclick="showSection('home')">Home</a>
-  <a onclick="showSection('projects')">Projects</a>
-  <a href="cv.html">CV</a>
-  <a onclick="showSection('publications')">Publications</a>
-  <a href="contact.html">Contact</a>
-  <a href="about-detail.html">About in Detail</a>
+<div class="navbar" role="navigation">
+  <a href="javascript:void(0)" onclick="showSection('home')" aria-label="Home page">Home</a>
+  <a href="javascript:void(0)" onclick="showSection('projects')" aria-label="Projects page">Projects</a>
+  <a href="javascript:void(0)" onclick="showSection('publications')" aria-label="Publications page">Publications</a>
+  <a href="javascript:void(0)" onclick="showSection('cv')" aria-label="CV page">CV</a>
+  <a href="javascript:void(0)" onclick="showSection('contact')" aria-label="Contact page">Contact</a>
+  <a href="javascript:void(0)" onclick="showSection('about')" aria-label="About in Detail page">About in Detail</a>
 </div>
 
-<div class="gif-container" id="gifContainer">
-  <img id="backgroundGif" src="./assets/intro.gif" alt="Background GIF">
+<div class="video-container" id="videoContainer">
+  <video id="backgroundVideo" autoplay loop muted playsinline poster="/assets/intro.gif">
+    <source src="/assets/intro.mp4" type="video/mp4">
+    <img src="/assets/intro.gif" alt="Background GIF">
+  </video>
 </div>
 
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="./assets/avatar.jpg" alt="Your Profile Picture">
+      <img src="/assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="./assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
+        <img src="/assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/dishana11" target="_blank">
-        <img src="./assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
+        <img src="/assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="./assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
+        <img src="/assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
-        <img src="./assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
+        <img src="/assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
@@ -402,15 +391,15 @@ layout: default
         </div>
         <ul class="projects-list">
           <li>
-            <strong><a href="https://github.com/dishana11/Marvin" target="_blank" style="color:#00ffc3;text-decoration:underline;">Marvin (Autonomous Indoor Robot)</a></strong><br>
+            <strong><a href="https://github.com/dishana11/Marvin" target="_blank">Marvin (Autonomous Indoor Robot)</a></strong><br>
             Designed and built an autonomous robot during YTS at Plaksha University. Marvin uses a LiDAR sensor, ultrasonic sensors, and a Raspberry Pi to map and navigate indoor spaces, detect obstacles and people, and carry items. The project included hardware assembly, Python firmware, and hands-on robotics teamwork.
           </li>
           <li>
-            <strong><a href="https://github.com/dishana11/Cmd_Termux-Integration" target="_blank" style="color:#00ffc3;text-decoration:underline;">CMD Error Detector & Fixer</a></strong><br>
+            <strong><a href="https://github.com/dishana11/Cmd_Termux-Integration" target="_blank">CMD Error Detector & Fixer</a></strong><br>
             Developed a CLI tool to automatically detect common Windows CMD errors, explain them, and offer one-click fixes. Won 2nd place and a cash prize in a competitive hackathon.
           </li>
           <li>
-            <strong><a href="https://github.com/dishana11/PROGRAMMING_LANGUAGES_PREDICTOR" target="_blank" style="color:#00ffc3;text-decoration:underline;">Programming Languages Predictor</a></strong><br>
+            <strong><a href="https://github.com/dishana11/PROGRAMMING_LANGUAGES_PREDICTOR" target="_blank">Programming Languages Predictor</a></strong><br>
             Created a Python-based tool that predicts which programming language a code snippet is written in. Utilizes various ML models for accurate language detection.
           </li>
           <li>
@@ -433,7 +422,7 @@ layout: default
         <h1>Publications</h1>
         <p>
           I have published a research paper on Quantum Temporal Lattice (QTL) in the International Journal for Science, Arts and Technology.<br>
-          <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank" style="color:#00ffc3;text-decoration:underline;">Read the paper here</a>.<br>
+          <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank">Read the paper here</a>.<br>
           The paper proposes an innovative approach to traveling in time by manipulating encoded space-time data, suggesting that by altering the mathematical structure of space-time at a quantum level, it may be possible to engineer traversable loops or paths that connect different points in time. This merges concepts from string theory and time-loop physics to open new possibilities in theoretical physics.
         </p>
         <p>
@@ -444,39 +433,87 @@ layout: default
         </p>
       </div>
     </div>
+    <div id="cv" style="display: none;">
+      <div class="cv-box">
+        <h1>CV</h1>
+        <p>Download my CV <a href="/assets/dishana_cv.pdf" target="_blank">here</a>.</p>
+        <p>Summary of qualifications, experience, and education will be added here. Please provide the content for your CV section.</p>
+      </div>
+    </div>
+    <div id="contact" style="display: none;">
+      <div class="contact-box">
+        <h1>Contact</h1>
+        <p>Email: <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/dishanarupani/" target="_blank">linkedin.com/in/dishanarupani</a></p>
+        <p>GitHub: <a href="https://github.com/dishana11" target="_blank">github.com/dishana11</a></p>
+        <p>X: <a href="https://x.com/dishanaa11" target="_blank">x.com/dishanaa11</a></p>
+      </div>
+    </div>
+    <div id="about" style="display: none;">
+      <div class="about-box">
+        <h1>About in Detail</h1>
+        <p>Detailed bio and background information will be added here. Please provide the content for your About section.</p>
+      </div>
+    </div>
   </div>
 </div>
 
-{% raw %}
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter">
 </div>
-{% endraw %}
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'projects', 'publications'];
+    const sections = ['home', 'projects', 'publications', 'cv', 'contact', 'about'];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = id === section ? 'block' : 'none';
     });
-
-    const backgroundGif = document.getElementById('backgroundGif');
-    if (section === 'publications') {
-      backgroundGif.src = './assets/publications.gif';
+    const video = document.getElementById('backgroundVideo');
+    const img = video.querySelector('img');
+    if (section === 'home') {
+      video.style.display = 'block';
+      img.style.display = 'none';
+      video.querySelector('source').src = '/assets/intro.mp4';
+      video.load();
+    } else if (section === 'publications') {
+      video.style.display = 'none';
+      img.style.display = 'block';
+      img.src = '/assets/publications.gif';
+    } else if (section === 'contact') {
+      video.style.display = 'block';
+      img.style.display = 'none';
+      video.querySelector('source').src = '/assets/contact_bg.mp4';
+      video.load();
+    } else if (section === 'about') {
+      video.style.display = 'none';
+      img.style.display = 'block';
+      img.src = '/assets/about-detail.gif';
     } else {
-      backgroundGif.src = './assets/intro.gif';
+      video.style.display = 'block';
+      img.style.display = 'none';
+      video.querySelector('source').src = '/assets/intro.mp4';
+      video.load();
     }
+    window.history.pushState(null, '', '/');
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('DOMContentLoaded', function() {
     showSection('home');
+    const video = document.getElementById('backgroundVideo');
+    const videoContainer = document.getElementById('videoContainer');
+    function toggleVideo() {
+      videoContainer.classList.toggle('visible');
+    }
+    setInterval(toggleVideo, 5000);
+    toggleVideo();
+    video.addEventListener('error', function() {
+      const img = video.querySelector('img');
+      if (img) {
+        img.style.display = 'block';
+        img.src = '/assets/intro.gif';
+        video.style.display = 'none';
+      }
+    });
   });
-
-  const gifContainer = document.getElementById('gifContainer');
-  function toggleGif() {
-    gifContainer.classList.toggle('visible');
-  }
-  setInterval(toggleGif, 5000);
-  toggleGif();
 </script>
