@@ -129,7 +129,8 @@ layout: default
 
   .content-box {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.7); /* More transparent for video visibility */
+    background-color: rgba(0, 0, 0, 0.5);
+    background-clip: content-box;
     border-radius: 15px;
     padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -152,7 +153,7 @@ layout: default
     padding: 40px 0 0 0;
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 20px auto; /* Bottom gap */
   }
   .intro-text {
     font-size: 1.2em;
@@ -206,7 +207,7 @@ layout: default
   .projects-box, .publications-box, .cv-box, .contact-box, .about-detail-container {
     width: 100%;
     max-width: 900px;
-    margin: 40px auto 0 auto;
+    margin: 40px auto 40px auto;
     background-color: rgba(0, 0, 0, 0.87);
     border-radius: 15px;
     padding: 28px 26px 24px 26px;
@@ -220,11 +221,11 @@ layout: default
   }
   .projects-box, .publications-box {
     overflow-y: auto;
-    scrollbar-width: none; /* Hide scrollbars */
+    scrollbar-width: none;
     -ms-overflow-style: none;
   }
   .projects-box::-webkit-scrollbar, .publications-box::-webkit-scrollbar {
-    display: none; /* Hide scrollbars */
+    display: none;
   }
   .projects-header-row, .publications-box h1, .cv-box h1, .contact-box h1, .about-detail-container h1 {
     display: flex;
@@ -260,7 +261,7 @@ layout: default
     list-style: disc inside;
   }
   .projects-list strong, .projects-list a {
-    color: #00ffc3; /* Match Publications link color */
+    color: #00ffc3;
     font-weight: 600;
     font-size: 1.07em;
     text-decoration: underline;
@@ -284,16 +285,22 @@ layout: default
     display: flex;
     align-items: center;
     gap: 18px;
+    margin-top: 32px;
+    margin-left: 36px;
     margin-bottom: 10px;
   }
   .cv-fullscreen-link, .cv-download-link {
+    display: inline-block;
     font-size: 16px;
-    color: #fff;
+    color: #2d2d2d;
     text-decoration: underline;
+    vertical-align: middle;
     cursor: pointer;
     background: none;
     border: none;
+    margin-left: 0px;
     margin-right: 20px;
+    margin-bottom: 0;
     white-space: nowrap;
   }
   .cv-fullscreen-link:hover, .cv-download-link:hover {
@@ -301,9 +308,9 @@ layout: default
   }
   .cv-iframe-box {
     width: 96%;
-    height: calc(100% - 40px); /* Increased height */
+    height: 80vh;
     border: none;
-    margin: 18px 2% 0 2%;
+    margin: 18px 2% 20px 2%; /* Bottom gap */
     border-radius: 8px;
     background: #181818;
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
@@ -311,7 +318,7 @@ layout: default
   }
 
   .about-detail-container {
-    max-width: 1000px; /* Widened */
+    max-width: 1000px;
     background: rgba(0, 0, 0, 0.87);
   }
   .about-detail-intro {
@@ -329,14 +336,14 @@ layout: default
     max-height: 320px;
     min-height: 210px;
     overflow-y: auto;
-    overflow-x: hidden; /* No horizontal scrollbar */
+    overflow-x: hidden;
     text-align: left;
     padding: 19px 26px 14px 26px;
     box-shadow: 0 2px 9px rgba(0,0,0,0.06);
     border: 1px solid #e2e2e2;
     line-height: 1.7;
     width: 100%;
-    word-wrap: break-word; /* Ensure text fits */
+    word-wrap: break-word;
     scrollbar-width: auto;
   }
   .about-detail-scrollbox::-webkit-scrollbar {
@@ -348,10 +355,6 @@ layout: default
   }
   .about-detail-scrollbox::-webkit-scrollbar-track {
     background: #000;
-  }
-
-  .contact-box {
-    margin-bottom: 40px; /* Match top gap */
   }
 
   .video-container {
@@ -368,14 +371,14 @@ layout: default
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.6; /* Increased visibility */
     display: none;
   }
   .video-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.6; /* Increased visibility */
     display: none;
   }
   .video-container.visible {
@@ -393,7 +396,8 @@ layout: default
     visibility: visible;
     opacity: 1;
     pointer-events: none;
-    border: 1px solid #fff; /* Enhance visibility */
+    border: 1px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Enhanced visibility */
   }
   .view-counter img {
     vertical-align: middle;
@@ -404,7 +408,7 @@ layout: default
   }
   .view-counter span {
     color: #fff;
-    font-size: 16px; /* Larger for readability */
+    font-size: 18px; /* Larger for readability */
     display: none;
   }
 </style>
@@ -560,7 +564,7 @@ layout: default
 </div>
 
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';setTimeout(() => {this.src=this.src;}, 5000);">
   <span>Page Views: Loading...</span>
 </div>
 
@@ -634,7 +638,7 @@ layout: default
     function toggleVideo() {
       videoContainer.classList.toggle('visible');
     }
-    setInterval(toggleVideo, 3000); // Changed to 3 seconds
+    setInterval(toggleVideo, 3000);
     toggleVideo();
     const video = document.getElementById('backgroundVideo');
     video.addEventListener('error', function() {
