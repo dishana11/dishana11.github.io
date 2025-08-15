@@ -309,7 +309,7 @@ layout: default
     color: #00ffc3;
   }
   .cv-iframe-box {
-    width: 96%;
+    width: 106%;
     height: 90vh;
     border: none;
     margin: 18px 2% 20px 2%;
