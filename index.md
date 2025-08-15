@@ -310,7 +310,7 @@ layout: default
   }
   .cv-iframe-box {
     width: 96%;
-    height: 80vh;
+    height: 90vh;
     border: none;
     margin: 18px 2% 20px 2%;
     border-radius: 8px;
