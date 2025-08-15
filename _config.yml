@@ -1,6 +1,6 @@
-title: Dishana's Site
-description: Personal portfolio site
-theme: minimal-mistakes-jekyll
+title: "Dishana's Portfolio"
+description: Personal portfolio site.
+theme: minima
 url: https://dishana11.github.io
 baseurl: ""
 lang: en-US
@@ -21,6 +21,10 @@ exclude:
   - package-lock.json
   - Rakefile
   - .travis.yml
+  - about.txt
+  - aboutt.txt
+  - index.txt
+  - glow-control.txt
 defaults:
   - scope:
       path: ""
