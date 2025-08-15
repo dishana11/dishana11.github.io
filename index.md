@@ -254,85 +254,6 @@ layout: default
     font-size: 1.07em;
   }
 
-  .cv-header-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-top: 32px;
-    margin-left: 36px;
-    margin-bottom: 10px;
-  }
-  .cv-fullscreen-link, .cv-download-link {
-    display: inline-block;
-    font-size: 16px;
-    color: #2d2d2d;
-    text-decoration: underline;
-    vertical-align: middle;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-left: 0px;
-    margin-right: 20px;
-    white-space: nowrap;
-    margin-bottom: 0;
-  }
-  .cv-download-link:hover, .cv-fullscreen-link:hover {
-    color: #00ffc3;
-  }
-  .cv-iframe-box {
-    width: 96%;
-    height: 80vh;
-    border: none;
-    margin: 18px 2% 0 2%;
-    border-radius: 8px;
-    background: #181818;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    flex: 1 1 auto;
-  }
-
-  .about-detail-container {
-    margin: 38px auto 0 auto;
-    background: rgba(255,255,255,0.62);
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    max-width: 1100px;
-    min-width: 360px;
-    min-height: 420px;
-    padding: 28px 32px 26px 32px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-detail-intro {
-    color: #232323;
-    font-size: 1.12em;
-    margin-bottom: 18px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  .about-detail-scrollbox {
-    background: #fff;
-    color: #232323;
-    font-size: 1.02em;
-    border-radius: 10px;
-    max-height: 320px;
-    min-height: 210px;
-    overflow-y: auto;
-    text-align: left;
-    padding: 19px 26px 14px 26px;
-    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
-    border: 1px solid #e2e2e2;
-    line-height: 1.7;
-    width: 100%;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .about-detail-scrollbox::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-
   .publications-box {
     width: 100%;
     max-width: 900px;
@@ -377,7 +298,7 @@ layout: default
     color: #00e0a3;
   }
 
-  .video-container {
+  .gif-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -387,13 +308,13 @@ layout: default
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
-  video {
+  .gif-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.3;
   }
-  .video-container.visible {
+  .gif-container.visible {
     opacity: 1;
   }
 
@@ -417,17 +338,14 @@ layout: default
 <div class="navbar">
   <a onclick="showSection('home')">Home</a>
   <a onclick="showSection('projects')">Projects</a>
-  <a onclick="showSection('cv')">CV</a>
+  <a href="cv.html">CV</a>
   <a onclick="showSection('publications')">Publications</a>
-  <a onclick="showSection('contact')">Contact</a>
-  <a onclick="showSection('about-detail')">About in Detail</a>
+  <a href="contact.html">Contact</a>
+  <a href="about-detail.html">About in Detail</a>
 </div>
 
-<div class="video-container" id="videoContainer">
-  <video autoplay muted loop id="backgroundVideo">
-    <source id="videoSource" src="./assets/intro.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<div class="gif-container" id="gifContainer">
+  <img id="backgroundGif" src="./assets/intro.gif" alt="Background GIF">
 </div>
 
 <div class="main-container">
@@ -510,17 +428,6 @@ layout: default
         </ul>
       </div>
     </div>
-    <div id="cv" style="display: none;">
-      <div class="cv-header-row">
-        <a class="cv-fullscreen-link" href="./assets/dishana_cv.pdf" target="_blank" rel="noopener">
-          Click to open in fullscreen
-        </a>
-        <a class="cv-download-link" href="./assets/dishana_cv.pdf" download>
-          Download
-        </a>
-      </div>
-      <iframe class="cv-iframe-box" src="./assets/dishana_cv.pdf"></iframe>
-    </div>
     <div id="publications" style="display: none;">
       <div class="publications-box">
         <h1>Publications</h1>
@@ -537,36 +444,6 @@ layout: default
         </p>
       </div>
     </div>
-    <div id="contact" style="display: none;">
-      <div class="about-detail-container">
-        <h1>Contact</h1>
-        <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
-      </div>
-    </div>
-    <div id="about-detail" style="display: none;">
-      <div class="about-detail-container">
-        <div class="about-detail-intro">This section contains life updates in detail:</div>
-        <div class="about-detail-scrollbox">
-          <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
-          <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
-          Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
-          <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
-          Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
-          <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
-          <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
-          <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
-          Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
-          <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
-          Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
-          Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
-          <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
-          Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
-          <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
-          Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
-          Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -578,29 +455,28 @@ layout: default
 
 <script>
   function showSection(section) {
-    const sections = ['home', 'projects', 'cv', 'publications', 'contact', 'about-detail'];
+    const sections = ['home', 'projects', 'publications'];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = id === section ? 'block' : 'none';
     });
 
-    const videoSource = document.getElementById('videoSource');
+    const backgroundGif = document.getElementById('backgroundGif');
     if (section === 'publications') {
-      videoSource.src = './assets/publications.mp4';
+      backgroundGif.src = './assets/publications.gif';
     } else {
-      videoSource.src = './assets/intro.mp4';
+      backgroundGif.src = './assets/intro.gif';
     }
-    document.getElementById('backgroundVideo').load();
   }
 
   document.addEventListener('DOMContentLoaded', function(){
     showSection('home');
   });
 
-  const videoContainer = document.getElementById('videoContainer');
-  function toggleVideo() {
-    videoContainer.classList.toggle('visible');
+  const gifContainer = document.getElementById('gifContainer');
+  function toggleGif() {
+    gifContainer.classList.toggle('visible');
   }
-  setInterval(toggleVideo, 5000);
-  toggleVideo();
+  setInterval(toggleGif, 5000);
+  toggleGif();
 </script>
