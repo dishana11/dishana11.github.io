@@ -3,13 +3,15 @@ title: Home
 layout: default
 ---
 
+{% include mobile-responsive-fixes.html %}
+
 <style>
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('./assets/my-background.jpg') no-repeat center center fixed;
+    background: url('assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -332,51 +334,38 @@ layout: default
     width: 100px;
     height: auto;
   }
-
-  @media (max-width: 768px) {
-    .main-container {
-      margin-left: 0;
-      padding: 0 20px;
-    }
-    .sidebar {
-      display: none;
-    }
-    .content-box {
-      width: 100%;
-    }
-  }
 </style>
 
 <div class="navbar">
-  <a onclick="showSection('home')" href="index.html#home">Home</a>
-  <a onclick="showSection('projects')" href="index.html#projects">Projects</a>
+  <a href="/">Home</a>
+  <a onclick="showSection('projects')">Projects</a>
+  <a onclick="showSection('publications')">Publications</a>
   <a href="cv.html">CV</a>
-  <a onclick="showSection('publications')" href="index.html#publications">Publications</a>
   <a href="contact.html">Contact</a>
   <a href="about-detail.html">About in Detail</a>
 </div>
 
 <div class="gif-container" id="gifContainer">
-  <img id="backgroundGif" src="./assets/intro.gif" alt="Background GIF">
+  <img id="backgroundGif" src="assets/intro.gif" alt="Background GIF">
 </div>
 
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="./assets/avatar.jpg" alt="Your Profile Picture">
+      <img src="assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="./assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
+        <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/dishana11" target="_blank">
-        <img src="./assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
+        <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="./assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
+        <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
-        <img src="./assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
+        <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
@@ -460,7 +449,7 @@ layout: default
 </div>
 
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter">
 </div>
 
 <script>
@@ -473,14 +462,19 @@ layout: default
 
     const backgroundGif = document.getElementById('backgroundGif');
     if (section === 'publications') {
-      backgroundGif.src = './assets/publications.mp4';
+      backgroundGif.src = 'assets/publications.gif';
     } else {
-      backgroundGif.src = './assets/intro.mp4';
+      backgroundGif.src = 'assets/intro.gif';
+    }
+
+    if (section === 'home') {
+      window.history.pushState(null, '', '/');
     }
   }
 
   document.addEventListener('DOMContentLoaded', function(){
-    showSection('home');
+    const hash = window.location.hash.replace('#', '');
+    showSection(hash || 'home');
   });
 
   const gifContainer = document.getElementById('gifContainer');
