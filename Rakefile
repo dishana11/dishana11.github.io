@@ -15,7 +15,9 @@ def listen_ignore_paths(base, options)
   [
     /_config\.ya?ml/,
     /_site/,
-    /\.jekyll-metadata/
+    /\.jekyll-metadata/,
+    /\.jekyll-cache/,
+    /node_modules/
   ]
 end
 
@@ -42,8 +44,8 @@ end
 task :preview do
   base = Pathname.new('.').expand_path
   options = {
-    "source"        => base.join('test').to_s,
-    "destination"   => base.join('test/_site').to_s,
+    "source"        => base.to_s,
+    "destination"   => base.join('_site').to_s,
     "force_polling" => false,
     "serving"       => true,
     "theme"         => "minimal-mistakes-jekyll"
@@ -154,7 +156,7 @@ end
 
 task :copyright => COPYRIGHT_FILES
 
-CLEAN.include(*COPYRIGHT_FILES)
+CLEAN.include('_site', 'node_modules', '.jekyll-cache', *COPYRIGHT_FILES)
 
 JS_FILES = ["assets/js/vendor/jquery/jquery-3.6.0.js"] + Dir.glob("assets/js/plugins/*.js") + ["assets/js/_main.js"]
 JS_TARGET = "assets/js/main.min.js"
