@@ -3,12 +3,16 @@ title: CV
 layout: default
 ---
 
+{% include mobile-responsive-fixes.html %}
+
 <style>
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('assets/my-background.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
     overflow: hidden;
   }
@@ -24,14 +28,9 @@ layout: default
     position: fixed;
     top: 0;
     z-index: 101;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .navbar::-webkit-scrollbar {
-    display: none;
   }
   .navbar a {
-    color: #2d2d2d;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
     padding: 8px 20px;
@@ -40,11 +39,10 @@ layout: default
     box-shadow: none;
     font-weight: 500;
     background: none;
-    white-space: nowrap;
   }
   .navbar a:hover,
   .navbar a:focus {
-    color: #2d2d2d;
+    color: #fff;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
     background: none;
     outline: none;
@@ -144,38 +142,54 @@ layout: default
     position: relative;
   }
 
-  .cv-header-row {
+  .cv-container {
     display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 10px;
-    padding: 28px 26px 0 26px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 40px 0 0 0;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  .cv-fullscreen-link, .cv-download-link {
-    display: inline-block;
-    font-size: 16px;
-    color: #2d2d2d;
-    text-decoration: underline;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-right: 20px;
-    white-space: nowrap;
+  .cv-heading {
+    color: #fff;
+    margin: 0 0 9px 0;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1;
+    display: block;
+    padding-bottom: 0;
   }
-  .cv-download-link:hover, .cv-fullscreen-link:hover {
+  .cv-scrollbox {
+    font-size: 0.98em;
+    color: #e0e0e0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 9px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 20px;
+    width: 100%;
+    max-width: 1000px;
+    min-width: 310px;
+    max-height: 340px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .cv-scrollbox::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  .cv-scrollbox a {
     color: #00ffc3;
+    text-decoration: underline;
   }
-  .cv-iframe-box {
-    width: 96%;
-    height: 80vh;
-    border: none;
-    margin: 18px 2% 0 2%;
-    border-radius: 8px;
-    background: #181818;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  .cv-scrollbox a:hover {
+    color: #00e0a3;
   }
 
-  .video-container {
+  .gif-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -185,13 +199,13 @@ layout: default
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
-  .video-container video {
+  .gif-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.3;
   }
-  .video-container.visible {
+  .gif-container.visible {
     opacity: 1;
   }
 
@@ -211,64 +225,91 @@ layout: default
   }
 </style>
 
-{% include mobile-responsive-fixes.html %}
-
 <div class="navbar">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
+  <a href="/">Home</a>
+  <a href="javascript:void(0)" onclick="window.location.href='/index.html#projects'">Projects</a>
+  <a href="javascript:void(0)" onclick="window.location.href='/index.html#publications'">Publications</a>
   <a href="cv.html">CV</a>
-  <a href="publications.html">Publications</a>
   <a href="contact.html">Contact</a>
   <a href="about-detail.html">About in Detail</a>
 </div>
 
-<div class="video-container" id="videoContainer">
-  <video id="backgroundVideo" src="./assets/contact_bg.mp4" autoplay loop muted playsinline>
-    Your browser does not support the video tag.
-  </video>
+<div class="gif-container" id="gifContainer">
+  <img id="backgroundGif" src="assets/cv.gif" alt="Background GIF">
 </div>
 
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="./assets/avatar.jpg" alt="Your Profile Picture">
+      <img src="assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="./assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
+        <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/dishana11" target="_blank">
-        <img src="./assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
+        <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="./assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
+        <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
-        <img src="./assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
+        <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
 
   <div class="content-box">
-    <div class="cv-header-row">
-      <a class="cv-fullscreen-link" href="./assets/dishana_cv.pdf" target="_blank" rel="noopener">Click to open in fullscreen</a>
-      <a class="cv-download-link" href="./assets/dishana_cv.pdf" download>Download</a>
+    <div class="cv-container">
+      <h1 class="cv-heading">Curriculum Vitae</h1>
+      <div class="cv-scrollbox">
+        <p>
+          Download my full CV here: <a href="assets/dishana_cv.pdf" target="_blank">Dishana_Rupani_CV.pdf</a>
+        </p>
+        <p>
+          <strong>Education</strong><br>
+          - High School (2024), 90% Scholarship at FIITJEE for Academic Excellence<br>
+          - YTS Scholar, Plaksha University (2022), Fully Funded
+        </p>
+        <p>
+          <strong>Experience</strong><br>
+          - Junior AI Evangelist, Lawroom AI (2025–Present): Contributed to automation in legal AI pipelines, improved model accuracy, and supported prompt engineering.<br>
+          - Freelance AI Developer (2023–Present): Built NLP bots and CLI tools for clients.<br>
+          - Summer Student, The Indian Vidyarthi (2024): Engaged in sustainability workshops.<br>
+          - Trainee, Infotech Solutions (2017): Software development training.
+        </p>
+        <p>
+          <strong>Projects</strong><br>
+          - <a href="https://github.com/dishana11/Marvin" target="_blank">Marvin (Autonomous Indoor Robot)</a>: Built at Plaksha University with LiDAR and Raspberry Pi.<br>
+          - <a href="https://github.com/dishana11/Cmd_Termux-Integration" target="_blank">CMD Error Detector</a>: CLI tool, 2nd place in hackathon.<br>
+          - <a href="https://github.com/dishana11/PROGRAMMING_LANGUAGES_PREDICTOR" target="_blank">Programming Languages Predictor</a>: ML-based code language detection.
+        </p>
+        <p>
+          <strong>Publications</strong><br>
+          - Quantum Temporal Lattice, International Journal for Science, Arts and Technology (2025): <a href="https://www.ijsat.org/research-paper.php?id=1707" target="_blank">Read here</a>.
+        </p>
+        <p>
+          <strong>Awards</strong><br>
+          - 100% YTS Scholarship (2022)<br>
+          - 2nd Place, CLI Hackathon (2023), ₹7,000 Prize<br>
+          - Silver Medal, BOB Wonderkid IQ Competition (2018)<br>
+          - Go Green Campaign Prize (2017)<br>
+          - Fundraising Recognition (2016)
+        </p>
+      </div>
     </div>
-    <iframe class="cv-iframe-box" src="./assets/dishana_cv.pdf"></iframe>
   </div>
 </div>
 
-{% raw %}
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2Fcv&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2Fcv.html&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter">
 </div>
-{% endraw %}
 
 <script>
-  const videoContainer = document.getElementById('videoContainer');
-  function toggleVideo() {
-    videoContainer.classList.toggle('visible');
+  const gifContainer = document.getElementById('gifContainer');
+  function toggleGif() {
+    gifContainer.classList.toggle('visible');
   }
-  setInterval(toggleVideo, 5000);
-  toggleVideo();
+  setInterval(toggleGif, 5000);
+  toggleGif();
 </script>
