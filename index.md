@@ -438,7 +438,7 @@ layout: default
 </div>
 
 <div class="main-container">
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="avatar-wrapper">
       <img src="/assets/avatar.jpg" alt="Your Profile Picture">
     </div>
@@ -582,6 +582,15 @@ layout: default
     });
     const video = document.getElementById('backgroundVideo');
     const img = video.querySelector('img');
+    const sidebar = document.getElementById('sidebar');
+    if (window.innerWidth <= 900) {
+      sidebar.classList.remove('contact-visible');
+      if (section === 'contact') {
+        sidebar.classList.add('contact-visible');
+      }
+    } else {
+      sidebar.classList.add('contact-visible');
+    }
     if (section === 'home' || section === 'projects' || section === 'cv') {
       video.style.display = 'block';
       img.style.display = 'none';
@@ -620,6 +629,9 @@ layout: default
         img.src = '/assets/intro.gif';
         video.style.display = 'none';
       }
+    });
+    window.addEventListener('resize', function() {
+      showSection(document.querySelector('#content-area > div:not([style*="display: none"])').id || 'home');
     });
   });
 </script>
