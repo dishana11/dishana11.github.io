@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en-US' }}">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} | Dishana's Site</title>
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  {% seo %}
-</head>
-<body>
-  {{ content }}
-</body>
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+  </head>
+
+  <body class="layout--{{ page.layout | default: layout.layout }} {{ page.page-class | default: layout.page-class }}">
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
+
+    {{ content }}
+
+    <div class="page__footer">
+      <footer>
+        {% include footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+  </body>
 </html>
