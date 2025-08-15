@@ -473,7 +473,7 @@ layout: default
 
     const backgroundGif = document.getElementById('backgroundGif');
     if (section === 'publications') {
-      backgroundGif.src = './assets/publications.gif';
+      backgroundGif.src = './assets/publications.mp4';
     } else {
       backgroundGif.src = './assets/intro.mp4';
     }
