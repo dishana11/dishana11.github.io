@@ -321,7 +321,7 @@ layout: default
   <a href="/about-detail.html">About in Detail</a>
 </div>
 
-<div class="video-container" id="videoContainer">
+<div class="video-container visible" id="videoContainer">
   <video id="backgroundVideo" autoplay loop muted playsinline poster="/assets/intro.gif">
     <source src="/assets/intro.mp4" type="video/mp4">
     <img src="/assets/intro.gif" alt="Background GIF">
