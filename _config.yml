@@ -1,19 +1,29 @@
-```yaml
 title: Dishana's Site
 description: Personal portfolio site
 theme: minimal-mistakes-jekyll
 url: https://dishana11.github.io
 baseurl: ""
+lang: en-US
+permalink: /:title/
 plugins:
   - jekyll-seo-tag
   - jekyll-include-cache
+  - jekyll-sitemap
+  - jekyll-feed
 include:
   - _includes
   - assets
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - .travis.yml
 defaults:
   - scope:
       path: ""
       type: pages
     values:
       layout: default
-```
