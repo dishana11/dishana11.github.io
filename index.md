@@ -333,13 +333,12 @@ layout: default
     height: auto;
   }
 </style>
-{% include mobile-responsive-fixes.html %}
 
 <div class="navbar">
-  <a onclick="showSection('home')">Home</a>
-  <a onclick="showSection('projects')">Projects</a>
+  <a onclick="showSection('home')" href="index.html#home">Home</a>
+  <a onclick="showSection('projects')" href="index.html#projects">Projects</a>
   <a href="cv.html">CV</a>
-  <a onclick="showSection('publications')">Publications</a>
+  <a onclick="showSection('publications')" href="index.html#publications">Publications</a>
   <a href="contact.html">Contact</a>
   <a href="about-detail.html">About in Detail</a>
 </div>
