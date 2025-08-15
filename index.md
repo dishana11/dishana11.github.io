@@ -129,7 +129,7 @@ layout: default
 
   .content-box {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7); /* More transparent for video visibility */
     border-radius: 15px;
     padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -260,7 +260,7 @@ layout: default
     list-style: disc inside;
   }
   .projects-list strong, .projects-list a {
-    color: #f4f4f4; /* Uniform color */
+    color: #00ffc3; /* Match Publications link color */
     font-weight: 600;
     font-size: 1.07em;
     text-decoration: underline;
@@ -301,7 +301,7 @@ layout: default
   }
   .cv-iframe-box {
     width: 96%;
-    height: calc(100% - 60px); /* Fit content box */
+    height: calc(100% - 40px); /* Increased height */
     border: none;
     margin: 18px 2% 0 2%;
     border-radius: 8px;
@@ -311,6 +311,7 @@ layout: default
   }
 
   .about-detail-container {
+    max-width: 1000px; /* Widened */
     background: rgba(0, 0, 0, 0.87);
   }
   .about-detail-intro {
@@ -328,7 +329,7 @@ layout: default
     max-height: 320px;
     min-height: 210px;
     overflow-y: auto;
-    overflow-x: hidden; /* Remove horizontal scrollbar */
+    overflow-x: hidden; /* No horizontal scrollbar */
     text-align: left;
     padding: 19px 26px 14px 26px;
     box-shadow: 0 2px 9px rgba(0,0,0,0.06);
@@ -347,6 +348,10 @@ layout: default
   }
   .about-detail-scrollbox::-webkit-scrollbar-track {
     background: #000;
+  }
+
+  .contact-box {
+    margin-bottom: 40px; /* Match top gap */
   }
 
   .video-container {
@@ -379,17 +384,28 @@ layout: default
 
   .view-counter {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 4;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
     background: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 5px;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: none;
+    border: 1px solid #fff; /* Enhance visibility */
   }
   .view-counter img {
     vertical-align: middle;
     width: 100px;
     height: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+  .view-counter span {
+    color: #fff;
+    font-size: 16px; /* Larger for readability */
+    display: none;
   }
 </style>
 
@@ -544,7 +560,8 @@ layout: default
 </div>
 
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter">
+  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+  <span>Page Views: Loading...</span>
 </div>
 
 <script>
@@ -583,6 +600,7 @@ layout: default
       videoSource.src = '/assets/intro.mp4';
       videoSource.type = 'video/mp4';
       video.load();
+      video.play();
     } else if (section === 'projects') {
       gifEvy.style.display = 'block';
     } else if (section === 'publications') {
@@ -590,16 +608,19 @@ layout: default
       videoSource.src = '/assets/publications.mp4';
       videoSource.type = 'video/mp4';
       video.load();
+      video.play();
     } else if (section === 'cv') {
       video.style.display = 'block';
       videoSource.src = '/assets/CyberPunkCity2077.webm';
       videoSource.type = 'video/webm';
       video.load();
+      video.play();
     } else if (section === 'contact') {
       video.style.display = 'block';
       videoSource.src = '/assets/contact_bg.mp4';
       videoSource.type = 'video/mp4';
       video.load();
+      video.play();
     } else if (section === 'about-detail') {
       gifIntro.style.display = 'block';
     }
@@ -613,7 +634,7 @@ layout: default
     function toggleVideo() {
       videoContainer.classList.toggle('visible');
     }
-    setInterval(toggleVideo, 5000);
+    setInterval(toggleVideo, 3000); // Changed to 3 seconds
     toggleVideo();
     const video = document.getElementById('backgroundVideo');
     video.addEventListener('error', function() {
