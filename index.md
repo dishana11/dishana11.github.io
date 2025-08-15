@@ -641,7 +641,7 @@ layout: default
     function toggleVideo() {
       videoContainer.classList.toggle('visible');
     }
-    setInterval(toggleVideo, 3000);
+    setInterval(toggleVideo, 5000);
     toggleVideo();
     const video = document.getElementById('backgroundVideo');
     video.addEventListener('error', function() {
