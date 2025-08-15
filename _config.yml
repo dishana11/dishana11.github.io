@@ -1,3 +1,9 @@
+```yaml
 title: Dishana's Site
 description: Personal portfolio site.
 theme: minima
+url: "https://dishana11.github.io"
+baseurl: ""
+plugins:
+  - jekyll-seo-tag
+```
