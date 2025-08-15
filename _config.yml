@@ -4,7 +4,7 @@ theme: minimal-mistakes-jekyll
 url: https://dishana11.github.io
 baseurl: ""
 lang: en-US
-permalink: /:title/
+permalink: /:title
 plugins:
   - jekyll-seo-tag
   - jekyll-include-cache
