@@ -28,7 +28,7 @@ layout: default
     z-index: 101;
   }
   .navbar a {
-    color: #2d2d2d;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
     padding: 8px 20px;
@@ -40,7 +40,7 @@ layout: default
   }
   .navbar a:hover,
   .navbar a:focus {
-    color: #2d2d2d;
+    color: #fff;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
     background: none;
     outline: none;
@@ -152,7 +152,7 @@ layout: default
   }
   .intro-text {
     font-size: 1.2em;
-    color: #2d2d2d;
+    color: #fff;
     text-align: left;
     font-weight: 500;
     background: rgba(255,255,255,0.58);
@@ -165,7 +165,7 @@ layout: default
     margin: 0;
   }
   .updates-heading {
-    color: #2d2d2d;
+    color: #fff;
     margin: 0 0 9px 0;
     font-size: 2em;
     font-weight: 700;
@@ -224,7 +224,7 @@ layout: default
     z-index: 2;
   }
   .projects-header-row h1 {
-    color: #2d2d2d;
+    color: #fff;
     margin: 0 0 0 0;
     font-size: 2em;
     font-weight: 700;
@@ -276,7 +276,7 @@ layout: default
     background: transparent;
   }
   .publications-box h1 {
-    color: #2d2d2d;
+    color: #fff;
     margin: 0 0 20px 0;
     font-size: 2em;
     font-weight: 700;
@@ -331,6 +331,19 @@ layout: default
     vertical-align: middle;
     width: 100px;
     height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      margin-left: 0;
+      padding: 0 20px;
+    }
+    .sidebar {
+      display: none;
+    }
+    .content-box {
+      width: 100%;
+    }
   }
 </style>
 
@@ -446,11 +459,9 @@ layout: default
   </div>
 </div>
 
-{% raw %}
 <div class="view-counter">
   <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
 </div>
-{% endraw %}
 
 <script>
   function showSection(section) {
