@@ -188,12 +188,18 @@ layout: default
     min-width: 310px;
     max-height: 340px;
     overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
   }
   .updates-scrollbox::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    width: 8px;
+  }
+  .updates-scrollbox::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
+  }
+  .updates-scrollbox::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .projects-box {
@@ -210,12 +216,18 @@ layout: default
     min-height: 360px;
     max-height: 400px;
     overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
   }
   .projects-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    width: 8px;
+  }
+  .projects-box::-webkit-scrollbar-thumb {
+    background: #00ffc3;
+    border-radius: 4px;
+  }
+  .projects-box::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
   }
   .projects-header-row {
     display: flex;
@@ -272,6 +284,13 @@ layout: default
     object-fit: cover;
     opacity: 0.3;
   }
+  .video-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    display: none;
+  }
   .video-container.visible {
     opacity: 1;
   }
@@ -304,7 +323,7 @@ layout: default
 <div class="video-container" id="videoContainer">
   <video id="backgroundVideo" autoplay loop muted playsinline>
     <source src="assets/intro.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    <img src="assets/intro.gif" alt="Background GIF">
   </video>
 </div>
 
@@ -405,14 +424,21 @@ layout: default
     window.history.pushState(null, '', '/');
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('DOMContentLoaded', function() {
     showSection('home');
+    const video = document.getElementById('backgroundVideo');
+    const videoContainer = document.getElementById('videoContainer');
+    function toggleVideo() {
+      videoContainer.classList.toggle('visible');
+    }
+    setInterval(toggleVideo, 5000);
+    toggleVideo();
+    video.addEventListener('error', function() {
+      const img = video.querySelector('img');
+      if (img) {
+        img.style.display = 'block';
+        video.style.display = 'none';
+      }
+    });
   });
-
-  const videoContainer = document.getElementById('videoContainer');
-  function toggleVideo() {
-    videoContainer.classList.toggle('visible');
-  }
-  setInterval(toggleVideo, 5000);
-  toggleVideo();
 </script>
