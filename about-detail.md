@@ -3,13 +3,15 @@ title: About in Detail
 layout: default
 ---
 
+{% include mobile-responsive-fixes.html %}
+
 <style>
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('./assets/my-background.jpg') no-repeat center center fixed;
+    background: url('assets/my-background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     overflow: hidden;
@@ -28,7 +30,7 @@ layout: default
     z-index: 101;
   }
   .navbar a {
-    color: #2d2d2d;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
     padding: 8px 20px;
@@ -40,7 +42,7 @@ layout: default
   }
   .navbar a:hover,
   .navbar a:focus {
-    color: #2d2d2d;
+    color: #fff;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
     background: none;
     outline: none;
@@ -128,41 +130,50 @@ layout: default
     flex: 1;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
-    padding: 28px 26px 24px 26px;
+    padding: 0 0 25px 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    min-height: 360px;
-    max-height: 80vh;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .content-box::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: relative;
   }
 
-  .about-detail-intro {
-    color: #2d2d2d;
-    font-size: 1.12em;
-    margin-bottom: 18px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    text-align: center;
+  .about-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 40px 0 0 0;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .about-detail-heading {
+    color: #fff;
+    margin: 0 0 9px 0;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1;
+    display: block;
+    padding-bottom: 0;
   }
   .about-detail-scrollbox {
-    background: #fff;
-    color: #232323;
-    font-size: 1.02em;
-    border-radius: 10px;
-    max-height: 320px;
-    min-height: 210px;
-    overflow-y: auto;
-    text-align: left;
-    padding: 19px 26px 14px 26px;
-    box-shadow: 0 2px 9px rgba(0,0,0,0.06);
-    border: 1px solid #e2e2e2;
-    line-height: 1.7;
+    font-size: 0.98em;
+    color: #e0e0e0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 9px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 20px;
     width: 100%;
+    max-width: 1000px;
+    min-width: 310px;
+    max-height: 340px;
+    overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -207,71 +218,64 @@ layout: default
   }
 </style>
 
-{% include mobile-responsive-fixes.html %}
-
 <div class="navbar">
-  <a href="index.html#home">Home</a>
-  <a href="index.html#projects">Projects</a>
+  <a href="/">Home</a>
+  <a href="javascript:void(0)" onclick="window.location.href='/index.html#projects'">Projects</a>
+  <a href="javascript:void(0)" onclick="window.location.href='/index.html#publications'">Publications</a>
   <a href="cv.html">CV</a>
-  <a href="index.html#publications">Publications</a>
   <a href="contact.html">Contact</a>
   <a href="about-detail.html">About in Detail</a>
 </div>
 
 <div class="gif-container" id="gifContainer">
-  <img id="backgroundGif" src="./assets/about-detail.gif" alt="About Detail Background GIF">
+  <img id="backgroundGif" src="assets/about-detail.gif" alt="Background GIF">
 </div>
 
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="./assets/avatar.jpg" alt="Your Profile Picture">
+      <img src="assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="./assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
+        <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/dishana11" target="_blank">
-        <img src="./assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
+        <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="./assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
+        <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
-        <img src="./assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
+        <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
 
   <div class="content-box">
-    <div class="about-detail-intro">This section contains life updates in detail:</div>
-    <div class="about-detail-scrollbox">
-      <strong>2016:</strong> Received a token of recognition for raising funds for visually and hearing-impaired individuals during a city-wide charity campaign.<br><br>
-      <strong>2017:</strong> Participated in a city-wide Go Green campaign; awarded for contributions.<br>
-      Began training at Infotech Solutions in hardware troubleshooting and system recovery.<br><br>
-      <strong>2018:</strong> Built an HTML-based reference webpage to assist users with common CMD errors.<br>
-      Won a silver medal in the Brainobrain Wonderkid competition for IQ and logical thinking.<br><br>
-      <strong>2019:</strong> Enrolled in software learning to deepen understanding of system and program architecture.<br><br>
-      <strong>2021:</strong> Received a diploma in Computer Science Software Learning from Next Generation Technical Institute.<br><br>
-      <strong>2022:</strong> Awarded a 100% scholarship to attend the YTS program at Plaksha University.<br>
-      Built Marvin, an autonomous robot equipped with LiDAR and ultrasonic sensors for indoor navigation.<br><br>
-      <strong>2023:</strong> Set up a fundraiser shop at the school fete, raising the second-highest amount for Ukrainian relief efforts (₹19,500).<br>
-      Developed ML-driven bots and AI agents including a Twitter automation tool for lead qualification.<br>
-      Secured 2nd position and ₹7,000 in a CLI-based hackathon for developing the CMD Error Detector & Fixer tool.<br><br>
-      <strong>2024:</strong> Selected as a Summer Student at The Indian Vidyarthi, focused on urban sustainability and global policy workshops.<br>
-      Theoretically conducted and completed a high-level project on Gauss’s Law, involving precise calculations and thought experiments, culminating in insightful conclusions about electric flux through non-uniform shells.<br><br>
-      <strong>2025:</strong> Led an AI awareness session with hands-on demos, guiding students and young professionals on how to efficiently leverage AI in their daily workflows.<br>
-      Published a research paper on Quantum Temporal Lattice theory in IJSAT, combining string theory and time-loop concepts.<br>
-      Began internship as Junior AI Evangelist at Lawroom AI, contributing to the automation of NLP pipelines and improving the quality and performance of legal-tech models.
+    <div class="about-detail-container">
+      <h1 class="about-detail-heading">About Me in Detail</h1>
+      <div class="about-detail-scrollbox">
+        <p>
+          I’m Dishana, a passionate learner and innovator with a strong foundation in AI, robotics, and theoretical physics. My journey began in 2016 with community initiatives, such as fundraising for accessibility, which sparked my interest in using technology for impact.
+        </p>
+        <p>
+          In high school, I earned a 90% scholarship at FIITJEE, reflecting my academic dedication. At Plaksha University’s YTS program (2022), I co-developed “Marvin,” an autonomous robot, honing my skills in hardware and software integration. My freelance work in AI automation has included building NLP bots and CLI tools, delivering efficient solutions for clients.
+        </p>
+        <p>
+          My research on Quantum Temporal Lattice, published in 2025, explores time travel through string theory and quantum entanglement, pushing the boundaries of theoretical physics. I’ve also engaged in sustainability workshops with The Indian Vidyarthi and won awards in hackathons, including a CLI-based competition in 2023.
+        </p>
+        <p>
+          Outside tech, I’m committed to social good, having contributed to campaigns like Go Green (2017). I’m always eager to collaborate on innovative projects and continue learning across disciplines.
+        </p>
+      </div>
     </div>
   </div>
 </div>
 
-{% raw %}
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2Fabout-detail&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2Fabout-detail.html&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter">
 </div>
-{% endraw %}
 
 <script>
   const gifContainer = document.getElementById('gifContainer');
