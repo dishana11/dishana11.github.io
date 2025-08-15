@@ -3,12 +3,16 @@ title: Contact
 layout: default
 ---
 
+{% include mobile-responsive-fixes.html %}
+
 <style>
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('assets/my-background.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
     overflow: hidden;
   }
@@ -24,14 +28,9 @@ layout: default
     position: fixed;
     top: 0;
     z-index: 101;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .navbar::-webkit-scrollbar {
-    display: none;
   }
   .navbar a {
-    color: #2d2d2d;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
     padding: 8px 20px;
@@ -40,11 +39,10 @@ layout: default
     box-shadow: none;
     font-weight: 500;
     background: none;
-    white-space: nowrap;
   }
   .navbar a:hover,
   .navbar a:focus {
-    color: #2d2d2d;
+    color: #fff;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.22), 0 1.5px 4px 0 rgba(0,255,195, 0.25);
     background: none;
     outline: none;
@@ -144,29 +142,54 @@ layout: default
     position: relative;
   }
 
-  .content-box h1 {
-    color: #2d2d2d;
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 40px 0 0 0;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .contact-heading {
+    color: #fff;
+    margin: 0 0 9px 0;
     font-size: 2em;
-    margin: 0 0 20px 0;
-    text-align: center;
-    padding: 28px 26px 0 26px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1;
+    display: block;
+    padding-bottom: 0;
   }
-  .content-box p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #f4f4f4;
-    text-align: center;
-    padding: 0 26px;
+  .contact-scrollbox {
+    font-size: 0.98em;
+    color: #e0e0e0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 9px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 20px;
+    width: 100%;
+    max-width: 1000px;
+    min-width: 310px;
+    max-height: 340px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-  .content-box a {
+  .contact-scrollbox::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  .contact-scrollbox a {
     color: #00ffc3;
     text-decoration: underline;
   }
-  .content-box a:hover {
+  .contact-scrollbox a:hover {
     color: #00e0a3;
   }
 
-  .video-container {
+  .gif-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -176,13 +199,13 @@ layout: default
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
-  .video-container video {
+  .gif-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.3;
   }
-  .video-container.visible {
+  .gif-container.visible {
     opacity: 1;
   }
 
@@ -202,61 +225,70 @@ layout: default
   }
 </style>
 
-{% include mobile-responsive-fixes.html %}
-
 <div class="navbar">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
+  <a href="/">Home</a>
+  <a href="javascript:void(0)" onclick="window.location.href='/index.html#projects'">Projects</a>
+  <a href="javascript:void(0)" onclick="window.location.href='/index.html#publications'">Publications</a>
   <a href="cv.html">CV</a>
-  <a href="publications.html">Publications</a>
   <a href="contact.html">Contact</a>
   <a href="about-detail.html">About in Detail</a>
 </div>
 
-<div class="video-container" id="videoContainer">
-  <video id="backgroundVideo" src="./assets/contact_bg.mp4" autoplay loop muted playsinline>
-    Your browser does not support the video tag.
-  </video>
+<div class="gif-container" id="gifContainer">
+  <img id="backgroundGif" src="assets/contact.gif" alt="Background GIF">
 </div>
 
 <div class="main-container">
   <div class="sidebar">
     <div class="avatar-wrapper">
-      <img src="./assets/avatar.jpg" alt="Your Profile Picture">
+      <img src="assets/avatar.jpg" alt="Your Profile Picture">
     </div>
     <div class="social-links">
       <a class="social-link" href="https://www.linkedin.com/in/dishanarupani/" target="_blank">
-        <img src="./assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
+        <img src="assets/linkedin.svg" alt="LinkedIn logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg';">LinkedIn
       </a>
       <a class="social-link" href="https://github.com/dishana11" target="_blank">
-        <img src="./assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
+        <img src="assets/github.svg" alt="GitHub logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg';">GitHub
       </a>
       <a class="social-link" href="https://x.com/dishanaa11" target="_blank">
-        <img src="./assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
+        <img src="assets/x-twitter.svg" alt="X logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg';">X (Twitter)
       </a>
       <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=dishanarupani@gmail.com" target="_blank" rel="noopener">
-        <img src="./assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
+        <img src="assets/email.svg" alt="Email logo" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg';">Email
       </a>
     </div>
   </div>
 
   <div class="content-box">
-    <h1>Contact</h1>
-    <p>Email me at <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a></p>
+    <div class="contact-container">
+      <h1 class="contact-heading">Contact Me</h1>
+      <div class="contact-scrollbox">
+        <p>
+          Feel free to reach out for collaborations, inquiries, or feedback.
+        </p>
+        <p>
+          <strong>Email</strong>: <a href="mailto:dishanarupani@gmail.com">dishanarupani@gmail.com</a><br>
+          <strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/dishanarupani/" target="_blank">linkedin.com/in/dishanarupani</a><br>
+          <strong>GitHub</strong>: <a href="https://github.com/dishana11" target="_blank">github.com/dishana11</a><br>
+          <strong>X (Twitter)</strong>: <a href="https://x.com/dishanaa11" target="_blank">@dishanaa11</a>
+        </p>
+        <p>
+          You can also send a message via the form below (form implementation requires a backend service like Formspree or Netlify Forms).
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
-{% raw %}
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2Fcontact&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter">
+  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2Fcontact.html&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter">
 </div>
-{% endraw %}
 
 <script>
-  const videoContainer = document.getElementById('videoContainer');
-  function toggleVideo() {
-    videoContainer.classList.toggle('visible');
+  const gifContainer = document.getElementById('gifContainer');
+  function toggleGif() {
+    gifContainer.classList.toggle('visible');
   }
-  setInterval(toggleVideo, 5000);
-  toggleVideo();
+  setInterval(toggleGif, 5000);
+  toggleGif();
 </script>
