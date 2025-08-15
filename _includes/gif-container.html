@@ -1,0 +1,11 @@
+<div class="gif-container" id="gifContainer">
+  <img id="backgroundGif" src="{{ site.baseurl }}/assets/{{ page.gif }}" alt="{{ page.gif_alt | default: 'Background GIF' }}">
+</div>
+<script>
+  const gifContainer = document.getElementById('gifContainer');
+  function toggleGif() {
+    gifContainer.classList.toggle('visible');
+  }
+  setInterval(toggleGif, 5000);
+  toggleGif();
+</script>
