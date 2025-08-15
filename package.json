@@ -1,23 +1,24 @@
-{
-  "name": "dishana11.github.io",
+"name": "minimal-mistakes",
+  "private": true,
   "version": "4.27.1",
-  "description": "Dishana's personal portfolio site",
+  "description": "Minimal Mistakes 2 column Jekyll theme.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dishana11/dishana11.github.io.git"
+    "url": "https://github.com/mmistakes/minimal-mistakes.git"
   },
-  "keywords": ["jekyll", "portfolio", "minimal-mistakes"],
-  "author": "Dishana",
+  "keywords": [
+    "jekyll",
+    "theme",
+    "minimal"
+  ],
+  "author": "Michael Rose",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dishana11/dishana11.github.io/issues"
+    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
   },
-  "homepage": "https://dishana11.github.io",
+  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
   "engines": {
     "node": ">= 0.10.0"
-  },
-  "scripts": {
-    "build:js": "uglifyjs assets/js/vendor/jquery/jquery-3.6.0.js assets/js/plugins/*.js assets/js/_main.js -c --comments /@mmistakes/ --source-map -m -o assets/js/main.min.js"
   },
   "devDependencies": {
     "uglify-js": "^3.17.4"
