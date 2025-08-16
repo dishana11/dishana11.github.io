@@ -610,6 +610,9 @@ layout: default
       video.play();
     } else if (section === 'projects') {
       gifEvy.style.display = 'block';
+      videoContainer.classList.add('visible'); // Ensure it stays visible
+    } else if (section === 'projects') {
+      gifEvy.style.display = 'block';
     } else if (section === 'publications') {
       video.style.display = 'block';
       videoSource.src = '/assets/publications.mp4';
@@ -635,22 +638,26 @@ layout: default
     window.history.pushState(null, '', '/');
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    showSection('home');
-    const videoContainer = document.getElementById('videoContainer');
-    function toggleVideo() {
+ document.addEventListener('DOMContentLoaded', function() {
+  showSection('home');
+  const videoContainer = document.getElementById('videoContainer');
+  const contentArea = document.getElementById('content-area');
+  function toggleVideo() {
+    const currentSection = contentArea.querySelector('div:not([style*="display: none"])').id;
+    if (currentSection !== 'projects') {
       videoContainer.classList.toggle('visible');
     }
-    setInterval(toggleVideo, 5000);
-    toggleVideo();
-    const video = document.getElementById('backgroundVideo');
-    video.addEventListener('error', function() {
-      const gifIntro = document.getElementById('gifIntro');
-      gifIntro.style.display = 'block';
-      video.style.display = 'none';
-    });
-    window.addEventListener('resize', function() {
-      showSection(document.querySelector('#content-area > div:not([style*="display: none"])').id || 'home');
-    });
+  }
+  setInterval(toggleVideo, 5000);
+  toggleVideo();
+  const video = document.getElementById('backgroundVideo');
+  video.addEventListener('error', function() {
+    const gifIntro = document.getElementById('gifIntro');
+    gifIntro.style.display = 'block';
+    video.style.display = 'none';
   });
+  window.addEventListener('resize', function() {
+    showSection(document.querySelector('#content-area > div:not([style*="display: none"])').id || 'home');
+  });
+});
 </script>
