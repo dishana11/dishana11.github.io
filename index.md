@@ -567,7 +567,7 @@ layout: default
 </div>
 
 <div class="view-counter">
-  <img src="https://hitscounter.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&style=flat" alt="Page Views" id="viewCounter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';setTimeout(() => {this.src=this.src;}, 5000);">
+  <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdishana11.github.io%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC" alt="Page Views" id="viewCounter" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';setTimeout(() => {this.src=this.src;}, 5000);">
   <span>Page Views: Loading...</span>
 </div>
 
