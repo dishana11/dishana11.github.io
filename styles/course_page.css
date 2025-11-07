@@ -1,0 +1,38 @@
+.course-page {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.course-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.course-logo {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lesson-list li a {
+  display: block;
+  padding: 15px;
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.lesson-list li a:hover {
+  background-color: #333;
+}

@@ -1,0 +1,59 @@
+---
+layout: default
+title: Home
+add_padding: false
+---
+
+<!-- Hero Section with Video Background -->
+<section id="hero" class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://raw.githubusercontent.com/dishana11/dishana11.github.io/main/assets/publications.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Unlock Worlds of Knowledge</h1>
+    <p class="hero-subtitle">Elegant paths to mastery in technology and beyond.</p>
+    <a href="#courses" class="cta-button">Start Exploring</a>
+  </div>
+</section>
+
+<!-- Courses Section -->
+<section id="courses" class="courses">
+  <h2 class="section-title">Our Paths</h2>
+  <div class="courses-grid">
+    {% for course in site.collections %}
+      {% if course.label != "posts" %}
+        <div class="course-card">
+          <a href="{{ course.label | prepend: '/content/courses/' | append: '/index.html' | relative_url }}">
+            <h3>{{ course.label | capitalize }}</h3>
+            <p>Coming soon.</p>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="explore-more">
+    <a href="/content/courses/index.html" class="explore-button">Explore More</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <h2>About Alzeural</h2>
+  <p>An open-source platform for sophisticated learning experiences.</p>
+</section>
+
+<!-- Marquee Section -->
+<section class="marquee-section">
+  <div class="marquee">
+    <span>Discover R Programming</span><span>•</span><span>CUDA Acceleration</span><span>•</span>
+    <span>Computer Vision</span><span>•</span><span>Neural Networks</span><span>•</span>
+    <span>Fortran Mastery</span><span>•</span><span>Binary Trees</span><span>•</span>
+    <span>And Beyond...</span>
+    <span>Discover R Programming</span><span>•</span><span>CUDA Acceleration</span><span>•</span>
+    <span>Computer Vision</span><span>•</span><span>Neural Networks</span><span>•</span>
+    <span>Fortran Mastery</span><span>•</span><span>Binary Trees</span><span>•</span>
+    <span>And Beyond...</span>
+  </div>
+</section>

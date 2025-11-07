@@ -1,0 +1,94 @@
+---
+layout: default
+title: "Alzeural - Mythology"
+add_padding: false
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Global CSS -->
+<link rel="stylesheet" href="{{ '/styles/main.css' | relative_url }}">
+
+<!-- Page-specific CSS -->
+<link rel="stylesheet" href="{{ '/styles/mythology.css' | relative_url }}">
+</head>
+<body>
+
+<!-- Navbar include -->
+{% include navbar.html %}
+
+<!-- Hero Section -->
+<div class="background">
+  <img id="bg-image" src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/images/vikey.jpg" alt="Background Image">
+  <video class="hero-video" id="video1" muted>
+    <source src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/videos/vikey1.mp4" type="video/mp4">
+  </video>
+  <video class="hero-video" id="video2" muted>
+    <source src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/videos/vikey2.mp4" type="video/mp4">
+  </video>
+  <canvas id="snow-canvas"></canvas>
+</div>
+
+<!-- Icon Section -->
+<div class="icon-section">
+  <div>
+    <img src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/images/icon%20(4).webp" alt="Icon 1">
+    <p>"Whispers of the old gods"</p>
+  </div>
+  <div>
+    <img src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/images/icon%20(2).webp" alt="Icon 2">
+    <p>"Legends etched in stone"</p>
+  </div>
+  <div>
+    <img src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/images/icon%20(3).webp" alt="Icon 3">
+    <p>"The call of forgotten myths"</p>
+  </div>
+</div>
+
+<!-- Split Container -->
+<div class="split-container">
+  <div class="split-left">
+    <video autoplay muted loop>
+      <source src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/videos/norse%20call.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="split-right">
+    Discover More Legends
+  </div>
+</div>
+
+<!-- Markdown Content Section -->
+<div class="markdown-content" id="myth-content" style="padding:40px 20px; max-width:1000px; margin:auto; color:#ccc; line-height:1.6;">
+  <!-- Greek myths content will be injected here -->
+</div>
+
+<!-- Image Section -->
+<div class="image-section">
+  <div>
+    <img src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/images/vik%20(3).webp" alt="Image 1">
+    <a href="#">Learn More</a>
+  </div>
+  <div>
+    <img src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/images/vik%20(4).webp" alt="Image 2">
+    <a href="#">Learn More</a>
+  </div>
+  <div>
+    <img src="https://github.com/alzeural/alzeural.github.io/raw/main/assets/images/vik%20(2).webp" alt="Image 3">
+    <a href="#">Learn More</a>
+  </div>
+</div>
+
+
+
+<!-- Scripts -->
+<script src="{{ '/scripts/mythology.js' | relative_url }}"></script>
+</body>
+</html>

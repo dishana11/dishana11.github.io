@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/styles/themes.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles/navbar.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles/homepage.css' | relative_url }}">
+    <!-- Lunr.js for search -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+</head>
+<body>
+    {% include navbar.html %}
+    {{ content }}
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Alzeural. Crafted with Elegance.</p>
+    </footer>
+    <script src="{{ '/scripts/main.js' | relative_url }}"></script>
+</body>
+</html>

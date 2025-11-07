@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="lesson-page-wrapper">
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <a href="/content/courses/{{ page.course }}/index.html">
+          <img src="/assets/images/courses/{{ page.course }}.png" alt="{{ page.course | capitalize }} Logo">
+        </a>
+      </div>
+      <h1 class="title">{{ page.title }}</h1>
+    </div>
+    <hr class="divider">
+    <div class="lesson-content">
+      {{ content }}
+    </div>
+  </div>
+</div>

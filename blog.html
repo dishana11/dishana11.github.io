@@ -1,0 +1,46 @@
+---
+layout: default
+title: "The Alzeural Tea"
+---
+
+<main class="blog-main">
+    <div class="blog-content">
+        <h1 class="blog-header">The Alzeural Tea</h1>
+
+        {% for post in site.posts %}
+        <article class="blog-post">
+            <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+
+            {% if post.image %}
+            <img src="{{ post.image }}" alt="{{ post.title }}" class="post-image">
+            {% endif %}
+
+            <div class="post-meta">
+              <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+              {% if post.author %}
+                <p class="post-author">By {{ post.author }}</p>
+              {% endif %}
+            </div>
+
+            <div class="post-content">
+                {{ post.excerpt | truncatewords: 30 }}
+                <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+    <aside class="categories-sidebar">
+        <h2 class="sidebar-title">Categories</h2>
+        <ul class="category-list">
+            {% for tag in site.tags %}
+                {% assign t = tag | first %}
+                {% assign posts = tag | last %}
+                <li>
+                    <a href="{{ '/tags/' | append: t | slugify | append: '.html' | relative_url }}">{{ t }}</a>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </aside>
+</main>

@@ -1,17 +1,21 @@
-title: Dishana's Portfolio
-description: Personal portfolio site
-theme: minima
-url: https://dishana11.github.io
-baseurl: ""
-plugins:
-  - jekyll-seo-tag
-  - jekyll-include-cache
-include:
-  - _includes
-  - assets
-defaults:
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: default
+title: Alzeural
+collections:
+  posts:
+    output: true
+  github:
+    output: true
+  research:
+    output: true
+  mythology:
+    output: true
+  aws:
+    output: true
+  js:
+    output: true
+  cpp:
+    output: true
+  c:
+    output: true
+    baseurl: "/alzeural.github.io"  
+    url: "https://notarijeet.github.io"
+

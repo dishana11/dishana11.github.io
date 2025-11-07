@@ -1,0 +1,195 @@
+/* Hero Section with Video Background */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--cta-bg);
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--card-hover);
+}
+
+/* Courses Section with 3D Cards */
+.courses {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    opacity: 0.8;
+    position: relative;
+    transform: translateZ(0);
+}
+
+.course-card:hover {
+    transform: scale(1.05) rotateY(10deg) rotateX(5deg) translateZ(20px);
+    box-shadow: 0 0 15px var(--card-hover);
+    opacity: 1;
+}
+
+.course-card a {
+    display: block; /* Make link fill the card */
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+}
+
+.course-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.course-card p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Explore More Box */
+.explore-more {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--cta-bg);
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+.explore-button:hover {
+    transform: scale(1.05);
+}
+
+/* About Section */
+.about {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Marquee Section */
+.marquee-section {
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem 0;
+    white-space: nowrap;
+}
+
+.marquee {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.marquee span {
+    padding: 0 2rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+}

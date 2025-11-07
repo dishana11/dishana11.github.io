@@ -1,0 +1,21 @@
+---
+layout: default
+title: "GitHub Course"
+custom_stylesheet: /styles/insidercourse.css
+---
+
+<div class="container">
+  <div class="logo course-logo-container">
+    <img src="/assets/images/courses/github.png" alt="GitHub Logo">
+  </div>
+  <h1>GitHub Course</h1>
+  <p>Here are the lessons for this course:</p>
+  <p>Number of items in site.github: {{ site.github.size }}</p>
+  <ul>
+    {% for post in site.github %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+    {% else %}
+      <li>No posts found in site.github collection.</li>
+    {% endfor %}
+  </ul>
+</div>

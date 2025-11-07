@@ -1,8 +1,26 @@
-<div class="navbar" role="navigation">
-  <a href="javascript:void(0)" onclick="showSection('home')" aria-label="Home page">Home</a>
-  <a href="javascript:void(0)" onclick="showSection('projects')" aria-label="Projects page">Projects</a>
-  <a href="javascript:void(0)" onclick="showSection('publications')" aria-label="Publications page">Publications</a>
-  <a href="javascript:void(0)" onclick="showSection('cv')" aria-label="CV page">CV</a>
-  <a href="javascript:void(0)" onclick="showSection('contact')" aria-label="Contact page">Contact</a>
-  <a href="javascript:void(0)" onclick="showSection('about-detail')" aria-label="About in Detail page">About in Detail</a>
-</div>
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="/" class="navbar-brand">
+            <img src="https://github.com/alzeural/alzeural.github.io/blob/main/assets/images/alz.jpeg?raw=true" 
+                 alt="Alzeural Logo" 
+                 class="navbar-logo-img">
+            <span class="navbar-logo-text">Alzeural</span>
+        </a>
+        <ul class="navbar-menu">
+            <li><a href="/content/mythology/index.html">Mythology</a></li>
+            <li><a href="/content/ai-ml/index.html">AI-ML</a></li>
+            <li><a href="/content/courses/index.html">Courses</a></li>
+            <li><a href="/content/research/research.html">Research</a></li>
+            <li><a href="/blog.html">Blogs</a></li>
+        </ul>
+        <div class="navbar-actions">
+            <div id="search-container">
+                <input type="text" id="search-bar" placeholder="Search..." class="search-bar">
+                <button id="search-btn">Search</button>
+            </div>
+            <button id="search-toggle" class="search-toggle">🔍</button>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+            <button id="mobile-toggle" class="mobile-toggle">☰</button>
+        </div>
+    </div>
+</nav>

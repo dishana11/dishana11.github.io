@@ -1,0 +1,185 @@
+/* mythology.css - Page-specific styles for Mythology page */
+
+/* Hero background */
+.background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 2;
+}
+#snow-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Icon Section */
+.icon-section {
+    background: black;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    text-align: center;
+}
+.icon-section div { flex: 1; }
+.icon-section img { width: 80px; height: 80px; }
+.icon-section p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Split container */
+.split-container {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background: #111;
+}
+.split-left { flex: 1; }
+.split-left video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.split-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Image section */
+.image-section {
+    background: #222;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    text-align: center;
+}
+.image-section div { flex: 1; }
+.image-section img {
+    width: 200px;
+    height: auto;
+    border-radius: 6px;
+}
+.image-section a {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: none;
+}
+.image-section a:hover { color: white; }
+
+/* Footer (only if you want page-specific overrides) */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-tagline {
+    color: #aaa;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-width: 300px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover { color: #fff; }
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .icon-section, .split-container, .image-section {
+        flex-direction: column;
+    }
+    .footer-container { flex-direction: column; }
+    .footer-column { min-width: 100%; }
+}

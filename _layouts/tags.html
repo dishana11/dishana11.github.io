@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<main class="blog-main">
+  <div class="blog-content">
+    <h1 class="blog-header">Posts tagged with "{{ page.tag }}"</h1>
+    <ul class="post-list-by-tag">
+      {% for post in site.tags[page.tag] %}
+        <li>
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>

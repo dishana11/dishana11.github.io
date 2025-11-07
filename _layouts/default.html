@@ -2,12 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} | Dishana's Site</title>
-  {% seo %}
-</head>
-<body>
-  {% include navbar.html %}
-  {{ content }}
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="google-site-verification" content="4Mj86ogE81O_JQlRitf6ABYTCVM1jn0w7YL6TS4ZFNU" />
+        <title>{{ page.title | default: "Alzeural – Projects, Research & Experiments" }}</title>
+          <meta name="description" content="{{ page.description | default: 'Exploring AI, robotics, and physics projects by Dishana Rupani.' }}">
+          <link rel="icon" href="{{ '/assets/images/courses/alz.jpeg' | relative_url }}" type="image/jpeg">
+            <!-- CSS Stylesheets -->
+              <link rel="stylesheet" href="{{ '/styles/main.css' | relative_url }}">
+                <link rel="stylesheet" href="{{ '/styles/navbar.css' | relative_url }}">
+                  <link rel="stylesheet" href="{{ '/styles/footer.css' | relative_url }}">
+                    <link rel="stylesheet" href="{{ '/styles/homepage.css' | relative_url }}">
+                      <link rel="stylesheet" href="{{ '/styles/blog.css' | relative_url }}">
+                        <link rel="stylesheet" href="{{ '/styles/theme.css' | relative_url }}">
+                          <link rel="stylesheet" href="{{ '/styles/courses.css' | relative_url }}">
+                            {% if page.custom_stylesheet %}
+                                <link rel="stylesheet" href="{{ page.custom_stylesheet | relative_url }}">
+                                  {% endif %}
+                                  </head>
+                                  <body>
+                                  
+                                    <!-- Navbar -->
+                                      {% include navbar.html %}
+                                      
+                                        <!-- Main page content -->
+                                          <main {% if page.add_padding != false %}class="content-padding"{% endif %}>
+                                              {{ content }}
+                                                </main>
+                                                
+                                                  <!-- Footer -->
+                                                    {% include footer.html %}
+                                                    
+                                                      <script src="{{ '/scripts/background.js' | relative_url }}"></script>
+                                                        <script src="{{ '/scripts/cube-animation.js' | relative_url }}"></script>
+                                                          <script src="{{ '/scripts/mythology.js' | relative_url }}"></script>
+                                                            <script src="{{ '/scripts/navbar.js' | relative_url }}"></script>
+                                                              <script src="{{ '/scripts/progress-tracker.js' | relative_url }}"></script>
+                                                              
+                                                              ></body>
 </html>
