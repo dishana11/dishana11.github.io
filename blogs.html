@@ -1,0 +1,43 @@
+---
+layout: default
+title: Blog
+---
+
+<div class="space-y-12 pt-4">
+    <section class="blog" id="blog-section">
+        <!-- Flex container for heading and search icon -->
+        <div class="flex justify-between items-center mb-6 pb-2 border-b border-gray-700-dark border-gray-200-light">
+            <h2 class="text-3xl font-bold text-white-dark text-gray-700">The Latest Thoughts</h2>
+            <!-- Search Icon Button -->
+            <button id="search-icon" aria-label="Toggle search" class="p-1 text-gray-400-dark text-gray-600 hover:text-white-dark hover:text-black">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </button>
+        </div>
+        
+        <!-- Search bar - initially hidden -->
+        <input type="text" id="search-input" placeholder="Search blog posts..." class="w-full p-2 mb-6 bg-gray-800 border border-gray-700 rounded-md text-white hidden">
+
+        <ul id="blog-posts" class="list-none space-y-0 text-lg">
+            {% for post in site.posts %}
+            <li>
+                <a href="{{ post.url | relative_url }}" class="blog-post-link text-gray-300-dark text-gray-700">
+                    <h3 class="text-xl font-semibold transition-colors duration-100 text-white-dark text-gray-800">{{ post.title }}</h3>
+                    <p class="text-sm text-gray-500-dark text-gray-500">{{ post.date | date: "%B %d, %Y" }}</p>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+
+<script>
+    const searchIcon = document.getElementById('search-icon');
+    const searchInput = document.getElementById('search-input');
+
+    searchIcon.addEventListener('click', () => {
+        searchInput.classList.toggle('hidden');
+        if (!searchInput.classList.contains('hidden')) {
+            searchInput.focus();
+        }
+    });
+</script>

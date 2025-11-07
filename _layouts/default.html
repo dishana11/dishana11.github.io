@@ -1,42 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
+
 <head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="google-site-verification" content="4Mj86ogE81O_JQlRitf6ABYTCVM1jn0w7YL6TS4ZFNU" />
-        <title>{{ page.title | default: "Alzeural – Projects, Research & Experiments" }}</title>
-          <meta name="description" content="{{ page.description | default: 'Exploring AI, robotics, and physics projects by Dishana Rupani.' }}">
-          <link rel="icon" href="{{ '/assets/images/courses/alz.jpeg' | relative_url }}" type="image/jpeg">
-            <!-- CSS Stylesheets -->
-              <link rel="stylesheet" href="{{ '/styles/main.css' | relative_url }}">
-                <link rel="stylesheet" href="{{ '/styles/navbar.css' | relative_url }}">
-                  <link rel="stylesheet" href="{{ '/styles/footer.css' | relative_url }}">
-                    <link rel="stylesheet" href="{{ '/styles/homepage.css' | relative_url }}">
-                      <link rel="stylesheet" href="{{ '/styles/blog.css' | relative_url }}">
-                        <link rel="stylesheet" href="{{ '/styles/theme.css' | relative_url }}">
-                          <link rel="stylesheet" href="{{ '/styles/courses.css' | relative_url }}">
-                            {% if page.custom_stylesheet %}
-                                <link rel="stylesheet" href="{{ page.custom_stylesheet | relative_url }}">
-                                  {% endif %}
-                                  </head>
-                                  <body>
-                                  
-                                    <!-- Navbar -->
-                                      {% include navbar.html %}
-                                      
-                                        <!-- Main page content -->
-                                          <main {% if page.add_padding != false %}class="content-padding"{% endif %}>
-                                              {{ content }}
-                                                </main>
-                                                
-                                                  <!-- Footer -->
-                                                    {% include footer.html %}
-                                                    
-                                                      <script src="{{ '/scripts/background.js' | relative_url }}"></script>
-                                                        <script src="{{ '/scripts/cube-animation.js' | relative_url }}"></script>
-                                                          <script src="{{ '/scripts/mythology.js' | relative_url }}"></script>
-                                                            <script src="{{ '/scripts/navbar.js' | relative_url }}"></script>
-                                                              <script src="{{ '/scripts/progress-tracker.js' | relative_url }}"></script>
-                                                              
-                                                              ></body>
-</html>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{{ page.title }} - {{ site.title }}</title>
+                <meta name="description" content="{{ site.description }}">
+                    <meta name="author" content="{{ site.title }}">
+                        <meta name="keywords" content="developer, student, a-level, machine learning, web development, programming, portfolio, blog, projects">
+                            <meta property="og:title" content="{{ page.title }} - {{ site.title }}">
+                                <meta property="og:description" content="{{ site.description }}">
+                                    <meta property="og:image" content="{{ site.url }}/assets/avatar1.jpg">
+                                        <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+                                            <meta property="og:type" content="website">
+                                                <meta name="twitter:card" content="summary_large_image">
+                                                    <meta name="twitter:title" content="{{ page.title }} - {{ site.title }}">
+                                                        <meta name="twitter:description" content="{{ site.description }}">
+                                                            <meta name="twitter:image" content="{{ site.url }}/assets/avatar1.jpg">
+                                                                <link rel="icon" href="/assets/avatar1.jpg" type="image/jpeg">
+                                                                    <link rel="apple-touch-icon" href="/assets/avatar1.jpg">
+                                                                        <link rel="icon" type="image/jpeg" sizes="180x180" href="/assets/avatar1.jpg">
+                                                                            <link rel="icon" type="image/jpeg" sizes="32x32" href="/assets/avatar1.jpg">
+                                                                                <link rel="icon" type="image/jpeg" sizes="16x16" href="/assets/avatar1.jpg">
+                                                                                    <script src="https://cdn.tailwindcss.com"></script>
+                                                                                        <link rel="stylesheet" href="/style.css">
+                                                                                            <link rel="stylesheet" href="/search.css">
+                                                                                            </head>
+                                                                                            
+                                                                                            <body class="pb-20 sm:pb-24">
+                                                                                            
+                                                                                                <!-- Fixed Top-Right Theme Toggle -->
+                                                                                                    <nav class="fixed top-4 right-4 z-50">
+                                                                                                            <div class="flex items-center bg-gray-800/90 navbar-bg-dark backdrop-blur-sm p-2 border border-gray-700 navbar-border-dark navbar-rounded">
+                                                                                                                    <button aria-label="Toggle dark mode" class="theme-toggle interactive-link nav-icon-dark text-gray-500-light p-1 rounded-md hover:bg-white/10">
+                                                                                                                        <!-- Moon Icon -->
+                                                                                                                        <svg class="w-5 h-5 moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                                                                                                                        <!-- Sun Icon -->
+                                                                                                                        <svg class="w-5 h-5 sun-icon hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                                                                                                                    </button>
+                                                                                                            </div>
+                                                                                                    </nav>
+                                                                                                    
+                                                                                                        <!-- Main Content Wrapper: Centers the content container, left-aligned content -->
+                                                                                                            <div class="flex items-start justify-center p-6 sm:p-10">
+                                                                                                                    <!-- Content Container -->
+                                                                                                                            <div class="w-full max-w-3xl text-left mt-10" id="page-content-wrapper">
+                                                                                                                                        {{ content }}
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                                
+                                                                                                                                {% include navbar.html %}
+                                                                                                                               
+                                                                                                                                   <script src="/script.js"></script>
+                                                                                                                                       {% if page.url == '/blogs.html' %}
+                                                                                                                                           <script src="/search.js"></script>
+                                                                                                                                               {% endif %}
+                                                                                                                                               </body>
+                                                                                                                                               </html>

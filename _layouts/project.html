@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<div class="project-details markdown-content">
+  <h1 class="mt-0">{{ page.title }}</h1>
+  <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="project-image-full mb-4">
+  <div class="flex justify-between items-center mb-4">
+    <p class="text-gray-500">{{ page.date | date: "%B %d, %Y" }}</p>
+    <a href="{{ page.github_link }}" class="github-icon" title="visit project's repo">
+      <img src="{{ 'assets/github.jpg' | relative_url }}" alt="GitHub">
+    </a>
+  </div>
+  {{ content }}
+</div>

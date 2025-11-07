@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap lg:flex-nowrap">
+
+        <!-- Main Content -->
+        <main class="w-full lg:w-3/4 lg:pr-8">
+            <article class="prose lg:prose-xl max-w-none markdown-content">
+                {{ content }}
+            </article>
+        </main>
+
+        <!-- Table of Contents -->
+        <aside class="w-full lg:w-1/4 lg:pl-8 mt-8 lg:mt-0">
+            <div class="sticky top-8 lg:pt-40">
+                <h2 class="text-xl font-semibold mb-4">On this page</h2>
+                <nav id="toc"></nav>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toc = document.getElementById('toc');
+        const content = document.querySelector('article');
+        const headings = content.querySelectorAll('h2, h3');
+        let tocHTML = '<ul class="space-y-2">';
+
+        headings.forEach(heading => {
+            const id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-').replace(/[\w-]+/g, '');
+            heading.id = id;
+            const level = heading.tagName.toLowerCase();
+            const indentClass = level === 'h3' ? 'ml-4' : '';
+            tocHTML += `<li class="${indentClass}"><a href="#${id}" class="text-gray-400 hover:text-white transition-colors">${heading.textContent}</a></li>`;
+        });
+
+        tocHTML += '</ul>';
+        toc.innerHTML = tocHTML;
+    });
+</script>

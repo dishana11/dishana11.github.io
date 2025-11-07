@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> 
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Only</title>
+    
+    <!-- Load Tailwind CSS for responsiveness and styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Navbar and Theme Toggle Styles -->
+    <style>
+        /* Fixed Top-Right Theme Toggle and Bottom Navbar */
+        .navbar-rounded {
+            border-radius: 15px;
+        }
+
+        /* Custom border colors for navbar in light/dark mode */
+        html.dark .navbar-border-dark { 
+            border-color: #374151; 
+        }
+
+        /* Icon styling for navbar */
+        html.dark .nav-icon-dark { 
+            color: #d1d5db; 
+        }
+        html.dark .nav-icon-dark:hover { 
+            color: #9ca3af; 
+        }
+
+        /* Interactive link styles for nav icons */
+        .interactive-link {
+            transition: color 0.3s ease-in-out, transform 0.3s ease-out; 
+        }
+
+        /* Navigation interactive icon styles */
+        .nav-interactive-icon {
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Theme colors for navigation - removed cyan */
+        .text-gray-400-dark { 
+            color: #9ca3af; 
+        }
+        .text-gray-500-light { 
+            color: #6b7280; 
+        }
+
+        /* Hover effects - removed cyan */
+        html.dark .hover-gray-dark:hover { 
+            color: #9ca3af; 
+        }
+        .hover-gray-light:hover { 
+            color: #4b5563; 
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen flex items-center justify-center p-4"> 
+
+    <!-- Fixed Top-Right Theme Toggle -->
+    <nav class="fixed top-4 right-4 z-50">
+        <div class="flex items-center bg-gray-800/90 navbar-bg-dark backdrop-blur-sm p-2 border border-gray-700 navbar-border-dark navbar-rounded">
+            <button id="theme-toggle-top" aria-label="Toggle dark mode" class="interactive-link nav-icon-dark text-gray-500-light p-1 rounded-md hover:bg-white/10">
+                <!-- Moon Icon (Dark Mode) -->
+                <svg class="w-5 h-5" id="moon-icon-top" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                <!-- Sun Icon (Light Mode) -->
+                <svg class="w-5 h-5 hidden" id="sun-icon-top" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Fixed Bottom Navbar -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 p-4 flex justify-center">
+        <!-- The width has been reduced to max-w-[180px] and the background changed to bg-black/95 -->
+        <div class="flex items-center justify-around bg-black/95 backdrop-blur-sm py-2 px-4 border border-gray-700 navbar-border-dark navbar-rounded max-w-[180px] w-full">
+            
+            <!-- Home Link Group -->
+            <div class="relative group flex justify-center">
+                <!-- Home Link -->
+                <a href="#home" aria-label="Home" id="nav-home" class="interactive-link nav-icon-dark nav-interactive-icon text-gray-400-dark text-gray-500-light p-2 rounded-md hover:bg-white/10">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </a>
+                <!-- Home Text Label (Tooltip) -->
+                <span class="absolute bottom-full mb-2 px-2 py-1 text-xs font-medium text-white bg-gray-700 rounded-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                    Home
+                </span>
+            </div>
+
+            <!-- Blog Link Group -->
+            <div class="relative group flex justify-center">
+                <!-- Blog Link -->
+                <a href="#blog" aria-label="Blog" id="nav-blog" class="interactive-link nav-icon-dark nav-interactive-icon text-gray-500-light p-2 rounded-md hover:bg-white/10">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                </a>
+                <!-- Blog Text Label (Tooltip) -->
+                <span class="absolute bottom-full mb-2 px-2 py-1 text-xs font-medium text-white bg-gray-700 rounded-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                    Blog
+                </span>
+            </div>
+            
+            <!-- Projects Link Group -->
+            <div class="relative group flex justify-center">
+                <!-- Projects Link -->
+                <a href="#projects" aria-label="Projects" id="nav-projects" class="interactive-link nav-icon-dark nav-interactive-icon text-gray-500-light p-2 rounded-md hover:bg-white/10">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 4.17 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                </a>
+                <!-- Projects Text Label (Tooltip) -->
+                <span class="absolute bottom-full mb-2 px-2 py-1 text-xs font-medium text-white bg-gray-700 rounded-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                    Projects
+                </span>
+            </div>
+            
+        </div>
+    </nav>
+
+    <!-- Navbar and Theme Toggle JavaScript -->
+    <script>
+        // --- Theme Toggle Logic ---
+        const htmlElement = document.documentElement;
+        const themeToggleTop = document.getElementById('theme-toggle-top');
+        const moonIconTop = document.getElementById('moon-icon-top');
+        const sunIconTop = document.getElementById('sun-icon-top');
+
+        /**
+         * Updates the UI elements (HTML class and icons) based on the current theme state.
+         * @param {boolean} isDark - True if setting to dark mode, false for light mode.
+         */
+        function updateThemeUI(isDark) {
+            if (isDark) {
+                htmlElement.classList.add('dark');
+                moonIconTop.classList.remove('hidden');
+                sunIconTop.classList.add('hidden');
+            } else {
+                htmlElement.classList.remove('dark');
+                moonIconTop.classList.add('hidden');
+                sunIconTop.classList.remove('hidden');
+            }
+        }
+
+        // Initial check for theme preference and apply
+        const savedTheme = localStorage.getItem('theme');
+        const initialIsDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        updateThemeUI(initialIsDark);
+
+        // Handler function for the toggle button
+        const handleThemeToggle = () => {
+            const isCurrentlyDark = htmlElement.classList.contains('dark');
+            if (isCurrentlyDark) {
+                localStorage.setItem('theme', 'light');
+                updateThemeUI(false);
+            } else {
+                localStorage.setItem('theme', 'dark');
+                updateThemeUI(true);
+            }
+        };
+
+        // Attach listener to the top button
+        themeToggleTop.addEventListener('click', handleThemeToggle);
+
+        // --- Icon Interaction Logic (Push Away Effect) ---
+        const interactiveIcons = document.querySelectorAll('.nav-interactive-icon');
+        const pushDistance = '15px';
+
+        interactiveIcons.forEach(icon => {
+            // Event when the mouse enters (hovers over) an icon
+            icon.addEventListener('mouseenter', () => {
+                const parentGroup = icon.closest('.group');
+                const navbarContainer = parentGroup.parentElement;
+                const groups = Array.from(navbarContainer.children).filter(el => el.classList.contains('group'));
+                const index = groups.indexOf(parentGroup);
+
+                groups.forEach((group, otherIndex) => {
+                    const otherIcon = group.querySelector('.nav-interactive-icon');
+                    if (index !== otherIndex) {
+                        let direction = otherIndex < index ? 
+                            `translateX(-${pushDistance})` : 
+                            `translateX(${pushDistance})`;
+                        otherIcon.style.transform = direction;
+                    } else {
+                        otherIcon.style.transform = 'scale(1.1)';
+                    }
+                });
+            });
+
+            // Event when the mouse leaves (stops hovering over) an icon
+            icon.addEventListener('mouseleave', () => {
+                const navbarContainer = icon.closest('.group').parentElement;
+                const icons = navbarContainer.querySelectorAll('.nav-interactive-icon');
+                icons.forEach(otherIcon => {
+                    otherIcon.style.transform = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

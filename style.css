@@ -1,0 +1,241 @@
+/* Base styles for light mode */
+body {
+    /* This ensures the application is fully responsive and takes up full height */
+    background-color: #000000;
+    color: #333;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    min-height: 100vh;
+}
+
+/* Custom color definitions for light mode */
+.text-cyan-400-light { color: #0891b2; } /* cyan-700 for light mode accents */
+.text-gray-500-light { color: #6b7280; } /* gray-500 for light mode links */
+.border-gray-200-light { border-color: #e5e7eb; } /* gray-200 for light mode borders */
+.bg-white-light { background-color: #fff; }
+.hover-cyan-light:hover { color: #0891b2; } /* cyan-700 hover */
+
+/* Dark mode styles - applied when 'dark' class is on <html> */
+html.dark body {
+    background-color: #111827; /* Deep dark background */
+    color: #d1d5db; /* Light gray text */
+}
+html.dark .text-white-dark { color: #fff; }
+html.dark .text-cyan-400-dark { color: #22d3ee; } /* Cyan-400 for dark mode accents */
+html.dark .text-gray-500-dark { color: #9ca3af; } /* gray-400 for dark mode links */
+html.dark .border-gray-700-dark { border-color: #374151; } /* gray-700 for dark mode borders */
+html.dark .hover-cyan-dark:hover { color: #22d3ee; } /* Strong cyan hover effect */
+html.dark .navbar-border-dark { border-color: #374151; }
+html.dark .nav-icon-dark { color: #d1d5db; } 
+html.dark .nav-icon-dark:hover { color: #22d3ee; } 
+
+/* Combined interactive link styles for social icons and nav icons */
+.interactive-link {
+    transition: color 0.3s ease-in-out, transform 0.3s ease-out; 
+}
+.social-link { color: #4b5563; } /* Default gray for light mode */
+.social-link:hover { color: #0891b2; } /* Default cyan for light mode hover */
+html.dark .social-link { color: #9ca3af; } /* Gray for dark mode */
+html.dark .social-link:hover { color: #22d3ee; } /* Cyan for dark mode hover */
+
+/* Style for the blog/project links to look clean and separate */
+.blog-post-link {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid;
+    transition: color 0.1s;
+}
+.blog-post-link h3 { transition: color 0.1s; }
+.blog-post-link:last-child { border-bottom: none; }
+html.dark .blog-post-link { border-color: #374151; }
+html.dark .blog-post-link:hover h3 { color: #22d3ee; } 
+html:not(.dark) .blog-post-link { border-color: #e5e7eb; } 
+html:not(.dark) .blog-post-link:hover h3 { color: #0891b2; } 
+
+/* Custom border radius for the navbar */
+.navbar-rounded {
+    border-radius: 15px;
+}
+
+/* Vertical separator style */
+.separator {
+    width: 1px;
+    background-color: #374151;
+    margin: 0 0.5rem;
+}
+html:not(.dark) .separator {
+    background-color: #d1d5db;
+}
+
+/* Ensures the icons are above other content and have pointer */
+.nav-interactive-icon {
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* --- STYLES FOR LOGO OVERLAP EFFECT --- */
+.inline-logo {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 2px solid;
+    object-fit: cover;
+}
+
+/* --- ACHIEVEMENT STYLES (BULLETS REMOVED) --- */
+.achievement-list {
+    list-style: none; 
+    padding-left: 0;
+}
+.achievement-list li {
+    margin-bottom: 0.75rem; /* Matches space-y-3 */
+}
+
+/* --- STYLES FOR PROJECT CARD --- */
+.project-card-item {
+    border-color: #e5e7eb; 
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+html.dark .project-card-item {
+    border-color: #374151; 
+    background-color: #1f2937;
+    box-shadow: none;
+}
+html.dark .project-card-item:hover {
+    box-shadow: 0 10px 15px -3px rgba(34, 211, 238, 0.05);
+}
+
+/* --- PROJECT IMAGE HOVER EFFECT --- */
+.project-image {
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.group:hover .project-image {
+    filter: brightness(1.2);
+}
+
+/* --- General Markdown Content Styling --- */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.markdown-content h1 { font-size: 2.25rem; }
+.markdown-content h2 { font-size: 1.875rem; }
+.markdown-content h3 { font-size: 1.5rem; }
+
+.markdown-content p {
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.markdown-content a {
+    color: #22d3ee;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.markdown-content a:hover {
+    border-bottom-color: #22d3ee;
+}
+
+html:not(.dark) .markdown-content a {
+    color: #0891b2;
+}
+
+html:not(.dark) .markdown-content a:hover {
+    border-bottom-color: #0891b2;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.markdown-content li > ul,
+.markdown-content li > ol {
+    margin-top: 0.25rem;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid #374151;
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+    color: #9ca3af;
+}
+
+html:not(.dark) .markdown-content blockquote {
+    border-left-color: #e5e7eb;
+    color: #6b7280;
+}
+
+.markdown-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+html.dark .markdown-content img {
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Code Blocks */
+.markdown-content pre {
+    background-color: #1f2937;
+    color: #d1d5db;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+}
+
+html:not(.dark) .markdown-content pre {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.markdown-content code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background-color: rgba(156, 163, 175, 0.2);
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 3px;
+}
+
+.markdown-content pre code {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+}
+
+.github-icon img {
+    width: 32px;
+    height: 32px;
+    border-radius: 15px;
+}
+
+.project-image-full {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://alzeural.github.io/sitemap.xml

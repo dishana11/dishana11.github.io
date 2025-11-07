@@ -1,21 +1,9 @@
-title: Alzeural
+title: Dishana Rupani
+description: 18 y/o Developer building the future.
+url: https://dishana11.github.io
+
 collections:
+  projects:
+    output: true
   posts:
     output: true
-  github:
-    output: true
-  research:
-    output: true
-  mythology:
-    output: true
-  aws:
-    output: true
-  js:
-    output: true
-  cpp:
-    output: true
-  c:
-    output: true
-    baseurl: "/alzeural.github.io"  
-    url: "https://notarijeet.github.io"
-
