@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Alzeural — An Open Source Organisation
+title: Al — An Open Source Organisation
 image: assets/alzie.jpg
 github: https://github.com/alzeural/alzeural.github.io
 date: 2023-10-26
