@@ -160,10 +160,22 @@ title: Home
                 <img src="https://raw.githubusercontent.com/AlizeShaw/alizeshaw.github.io/main/assets/alzie.jpg" alt="Alzeural Logo" class="inline-logo">
                 <div class="flex-1">
                     <div class="flex items-center justify-between">
-                        <h3 class="text-xl font-semibold text-white-dark text-gray-800">Al</h3>
-                        <span class="text-sm text-gray-400-dark text-gray-600">Sep 2025 - Present</span>
+                        <h3 class="text-xl font-semibold text-white-dark text-gray-800">Alzeural</h3>
+                        <span class="text-sm text-gray-400-dark text-gray-600">2025</span>
                     </div>
-                    <p class="text-lg text-gray-400-dark text-gray-500">Open Source Maintainer</p>
+                    <p class="text-lg text-gray-400-dark text-gray-500">Founding Researcher and Open Source Maintainer</p>
+                </div>
+            </div>
+        </div>
+		<div onclick="openModal('lawroom-modal')" class="mb-4 cursor-pointer p-4 rounded-lg hover:bg-gray-800/50 transition-colors">
+            <div class="flex items-start gap-4">
+                <img src="assets/lawroom.png" alt="Lawroom AI Logo" class="inline-logo">
+                <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-semibold text-white-dark text-gray-800">Lawroom AI</h3>
+                        <span class="text-sm text-gray-400-dark text-gray-600">2025</span>
+                    </div>
+                    <p class="text-lg text-gray-400-dark text-gray-500">AI Science Intern</p>
                 </div>
             </div>
         </div>
@@ -198,16 +210,18 @@ title: Home
     </section>
     
     <!-- Achievements Section -->
-    <section class="achievements">
-        <h2 class="text-2xl font-bold text-white-dark text-gray-700 mb-6">Achievements</h2>
-        <ul class="achievement-list text-gray-400-dark text-gray-600 text-base space-y-2">
-            <li><strong class="font-semibold text-white-dark text-gray-800">Silver medalist</strong> in Brain'O Brain math competition.</li>
-            <li>Gained my first bios troubleshooting job at <strong class="font-semibold text-white-dark text-gray-800">11 y/o</strong>.</li>
-            <li>Got enrolled in a <strong class="font-semibold text-white-dark text-gray-800">Computer Software Diploma Program</strong> at <strong class="font-semibold text-white-dark text-gray-800">12 y/o</strong>.</li>
-            <li>Recieved a<strong class="font-semibold text-white-dark text-gray-800"> 100% scholarship</strong> as a Summer Student at Plaksha University. <strong class="font-semibold text-white-dark text-gray-800"></strong></li>
-            <li>Published speculative theory in IJSAT. <strong class="font-semibold text-white-dark text-gray-800"> Quantum Temporal Lattice</strong>.</li>
-        </ul>
-    </section>
+<section class="achievements">
+    <h2 class="text-2xl font-bold text-white-dark text-gray-700 mb-6">Achievements</h2>
+    <ul class="achievement-list text-gray-400-dark text-gray-600 text-base space-y-2">
+        <li>Received <strong class="font-semibold text-white-dark text-gray-800">$1100 research grant</strong> for Fairvis-SLM.</li>
+        <li><strong class="font-semibold text-white-dark text-gray-800">Aethra International Ideathon</strong> Second place Winner.</li>
+        <li>Awarded <strong class="font-semibold text-white-dark text-gray-800">most innovative idea</strong> at Hobbit International.</li>
+        <li><strong class="font-semibold text-white-dark text-gray-800">2X hackathon finalist</strong>.</li>
+        <li>Awarded a <strong class="font-semibold text-white-dark text-gray-800">100% scholarship</strong> to attend the YTS program at Plaksha University (2022).</li>
+        <li><strong class="font-semibold text-white-dark text-gray-800">Silver Medalist</strong>, Brainobrain Wonderkid Competition (2018).</li>
+        <li>Won <strong class="font-semibold text-white-dark text-gray-800">7000 INR cash prize</strong> and secured second position in a CLI-based automation challenge.</li>
+    </ul>
+</section>
 </div>
 
 <!-- Modals -->
@@ -217,12 +231,30 @@ title: Home
         <div class="modal-header">
             <div class="modal-header-text">
                 <h3>Alzeural</h3>
-                <p>Open Source Maintainer</p>
+                <p>Founding Researcher and Open Source Maintainer</p>
             </div>
             <button onclick="closeModal('alzeural-modal')" class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-            <p>Managed the whole Alzeural's GitHub repository from guiding other contributors to merging requests and raising issues.</p>
+            <p>Built and deployed a web-based AI research platform for browsing and understanding arXiv papers; automated ingestion of 10+ arXiv papers/day via GitHub Actions, maintained a <5 min research corpus refresh cycle ,implemented multi-provider inference orchestration achieving 99% response availability, ensured operation during API outages, reduced response latency by 35–45%, cut model-failure downtime by 55–60%, and improved accuracy on hard-to-classify queries by 25% using confidence-based fallbacks and human-in-the-loop overrides.</p>
+			<p>Integrated multi-LLM reasoning, a real-time voice research agent powered by ElevenLabs, and open-source infrastructure on GitHub into the platform; enabled speech-driven paper analysis with <1.2s median responses and handled roadmap planning, contributor onboarding, code reviews, issue triage, and PR merges.</p>
+        </div>
+    </div>
+</div>
+
+<div id="lawroom-modal" class="modal">
+    <div class="modal-content">
+        <img src="assets/lawroom.png" alt="Lawroom AI Logo" class="modal-image">
+        <div class="modal-header">
+            <div class="modal-header-text">
+                <h3>Lawroom AI</h3>
+                <p>AI Science Intern</p>
+            </div>
+            <button onclick="closeModal('lawroom-modal')" class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Optimized RAG pipelines and introduced human-review escalation for low-confidence retrieval outputs, improving decision accuracy over baselines by 45–60%, reducing false negatives by 22%, and cutting latency by 30%.</p>
+			<p>Designed semantic indexing pipelines (512–1024 token chunking with overlap calibration) supporting 10k+ documents, and flagging 18% low-confidence retrieval cases for human review, improving top-k relevance by 40%.</p>
         </div>
     </div>
 </div>
@@ -238,7 +270,7 @@ title: Home
             <button onclick="closeModal('plaksha-modal')" class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-            <p>Led a team of four to build the Marvin Project.</p>
+            <p>Collaborated with a diverse team to build the <strong class="font-semibold text-white-dark text-gray-800">Marvin Project</strong>, a mobile autonomous robotic vehicle equipped with LiDAR and ultrasonic sensors for indoor navigation.</p>
         </div>
     </div>
 </div>

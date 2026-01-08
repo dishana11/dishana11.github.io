@@ -5,6 +5,7 @@ image: assets/fairvis.png
 github: https://github.com/dishana11/fairvis
 huggingface: https://huggingface.co/dishana11/ernie-fairvis-sft
 date: 2025-12-27
+order: 1
 ---
 
 ## Intro
