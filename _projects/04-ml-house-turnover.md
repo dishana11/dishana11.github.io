@@ -3,7 +3,7 @@ layout: project
 title: Uncovering Algorithmic Bias in Prediction Platforms with ML
 image: assets/money (1).jpg
 github: https://github.com/dishana11/ML-House-Turnover
-date: 2024-01-15
+order: 3
 ---
 
 ## Overview
