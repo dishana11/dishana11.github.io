@@ -55,6 +55,21 @@ title: Projects
         transform: scale(1.1);
         box-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
     }
+
+    /* Hugging Face icon styling */
+.hf-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hf-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 6px rgba(255, 200, 0, 0.4);
+}
+
 </style>
 
 <div class="space-y-12 pt-4">
@@ -98,15 +113,25 @@ title: Projects
                             {{ project.content | strip_html | truncatewords: 30 }}
                         </p>
 
-                        <!-- GitHub Link -->
-                        {% if project.github %}
-                        <a href="{{ project.github }}" 
-                           class="inline-flex items-center text-sm text-cyan-400-dark text-cyan-500-light hover:underline mt-2" 
-                           target="_blank" 
-                           aria-label="View GitHub Repository">
-                            <img src="assets/github.jpg" alt="GitHub Icon" class="github-icon mr-2">
-                        </a>
-                        {% endif %}
+<!-- GitHub Link -->
+{% if project.github %}
+<a href="{{ project.github }}" 
+   class="inline-flex items-center text-sm text-cyan-400-dark text-cyan-500-light hover:underline mt-2" 
+   target="_blank" 
+   aria-label="View GitHub Repository">
+    <img src="assets/github.jpg" alt="GitHub Icon" class="github-icon mr-2">
+</a>
+{% endif %}
+
+{% if project.huggingface %}
+<a href="{{ project.huggingface }}"
+   target="_blank"
+   aria-label="View on Hugging Face">
+   <img src="assets/huggingface.png" alt="Hugging Face" class="hf-icon">
+</a>
+{% endif %}
+
+                        
                     </div>
                 </div>
             </div>
