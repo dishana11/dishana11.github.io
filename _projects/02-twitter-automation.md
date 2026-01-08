@@ -3,7 +3,6 @@ layout: project
 title: NLP-Powered Twitter Bot with Sentiment Analysis & Trend Detection
 image: assets/automation.png
 github: https://github.com/dishana11/Twitter-X-Automation-Bot
-date: 2023-05-10
 order: 2
 ---
 
