@@ -82,7 +82,8 @@ title: Projects
         <!-- PROJECTS LIST CONTAINER -->
         <div class="space-y-8">
             
-            {% for project in site.projects %}
+            {% assign sorted_projects = site.projects | sort: 'name' %}
+            {% for project in sorted_projects %}
             <!-- Project Card -->
             <div class="project-card-item group relative max-w-3xl mx-auto rounded-xl border border-gray-700-dark border-gray-200-light shadow-lg transition-all duration-300 overflow-hidden">
                 
