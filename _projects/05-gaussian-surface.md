@@ -3,7 +3,6 @@ layout: project
 title: Penetrating a Hole Through Gaussian Surface
 image: assets/gauss1.png
 github: 
-date: 2022-06-26
 order: 5
 ---
 
