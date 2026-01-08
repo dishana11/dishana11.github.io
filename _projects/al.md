@@ -1,8 +1,8 @@
 ---
 layout: project
-title: Al — An Open Source Organisation
+title: Zeural — An Open Source Organisation
 image: assets/alzie.jpg
-github: https://github.com/alzeural/alzeural.github.io
+github: https://github.com/zeurall/zeurall.github.io
 date: 2023-10-26
 ---
 
