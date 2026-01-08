@@ -3,6 +3,7 @@ layout: project
 title: Marvin
 image: assets/pixel.jpg
 github_link: https://github.com/dishana11/Marvin
+order: 6
 ---
 
 ## Marvin — The Autonomous Service Robot 🤖
